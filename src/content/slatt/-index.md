@@ -15,5 +15,9 @@ details:
     
 
 content: "
-A photogrammetry tool that allows web developers to create 3D models of any real world object and add them to their websites using a short video scan and a single line of HTML. • Awarded ‘Best Beginner Hack’ at TreeHacks 2024, the largest collegiate hackathon in the United States. • Built using React, JavaScript, Vite, Bun, and Swift."
+Made using Python and HTML <br> <br>
+
+SLATT utilizes Spotify's WebAPI, Genius' Lyricsgenius API, and LibreTranslate's API <br> <br>
+
+As someone with a rich musical background and as a student currently studying Spanish, I often find myself listening to songs in different languages. (Sometimes as a means to improve my aural skills, though often it's just for the pleasure of listening!) Reading song lyrics alongside their translation into my native language has been an effective method for bolstering my vocabulary in other languages. SLATT streamlines this process— gone are the days of manually searching for and translating song lyrics. SLATT connects directly to your Spotify account and translates the current song into your target language!"
 ---
