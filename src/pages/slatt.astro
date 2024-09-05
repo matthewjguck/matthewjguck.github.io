@@ -1,0 +1,65 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getEntry } from "astro:content";
+import { markdownify } from "@/lib/utils/textConverter";
+
+const slatt = await getEntry("slatt", "-index");
+const { title, description, meta_title, images, details, files, content } = slatt.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={images.splash}
+>
+<section class="section-sm">
+  <div class="container">
+    <div class="row mb-8">
+      <div class="col-5">
+        <h2 class="title mb-5">{title}</h2>
+        <h5 class="mb-5">{description}</h5>
+        <div class="date mb-3">  
+          <h4>Date</h4>
+          {details.date}
+        </div>
+        <div class="type mb-3">  
+          <h4>Project Type</h4>
+          {details.type}
+        </div>
+        <div class="location mb-3">  
+          <h4>Location</h4>
+          {details.location}
+        </div>
+        <div class="role mb-3">  
+          <h4>Role</h4>
+          {details.role}
+        </div>
+      </div>
+      <div class="col-7">
+        <img
+          src={images.splash}
+          alt={title}
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </div>
+    </div>
+    <div class="row mb-8">
+      <div class="col-5">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="social-icons">
+          <a href="https://github.com/soapantelope/nab" title="github">
+            <i class="fa fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="https://devpost.com/software/nab-3d" title="devpost">
+            <i class="fa fa-link" aria-hidden="true"></i>
+          </a>
+        </div> 
+      </div>
+      <div class="col-6">
+        <h5 set:html={markdownify(content)} class="mb-1" />
+      </div>
+    </div>
+  </div>
+</section>
+</Base>

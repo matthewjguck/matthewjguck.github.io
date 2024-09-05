@@ -1,0 +1,46 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Projects",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "EnGauge",
+          "url": "/engauge"
+        },
+        {
+          "name": "The Cupid Project",
+          "url": "/thecupidproject"
+        },
+        {
+          "name": "Nab 3D",
+          "url": "/nab3d"
+        },
+        {
+          "name": "SLATT",
+          "url": "/slatt"
+        },
+        {
+          "name": "Escape Room",
+          "url": "/escaperoom"
+        }
+
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "name": "Elements",
+      "url": "/elements"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy-policy"
+    }
+  ]
+}

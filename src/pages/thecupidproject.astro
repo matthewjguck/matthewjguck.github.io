@@ -1,0 +1,61 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getEntry } from "astro:content";
+import { markdownify } from "@/lib/utils/textConverter";
+
+const thecupidproject = await getEntry("thecupidproject", "-index");
+const { title, description, meta_title, images, details, files, content } = thecupidproject.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={images.splash}
+>
+<section class="section-sm">
+  <div class="container">
+    <div class="row mb-8">
+      <div class="col-5">
+        <h2 class="title mb-5">{title}</h2>
+        <h5 class="mb-5">{description}</h5>
+        <div class="date mb-3">  
+          <h4>Date</h4>
+          {details.date}
+        </div>
+        <div class="type mb-3">  
+          <h4>Project Type</h4>
+          {details.type}
+        </div>
+        <div class="location mb-3">  
+          <h4>Location</h4>
+          {details.location}
+        </div>
+        <div class="role mb-3">  
+          <h4>Role</h4>
+          {details.role}
+        </div>
+      </div>
+      <div class="col-7">
+        <img
+          src={images.splash}
+          alt={title}
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </div>
+    </div>
+    <div class="row mb-8">
+      <div class="col-5">
+        <img
+          src={images.family}
+          alt={title}
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </div>
+      <div class="col-6">
+        <h5 set:html={markdownify(content)} class="mb-1" />
+      </div>
+    </div>
+  </div>
+</section>
+</Base>

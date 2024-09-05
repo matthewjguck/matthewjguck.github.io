@@ -1,0 +1,114 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import Testimonial from "@/partials/Testimonial.astro";
+import type { Button, Feature } from "@/types";
+import { getEntry } from "astro:content";
+import { FaCheck } from "react-icons/fa";
+
+interface Homepage {
+  banner: {
+    hook: string;
+    first: string;
+    last: string;
+    content: string;
+    image: string;
+    wave: string;
+    button: Button;
+  };
+  features: Feature[];
+}
+
+const homepage = await getEntry("homepage", "-index");
+
+const { banner, features }: Homepage = homepage.data;
+---
+
+<Base>
+ <!-- Banner -->
+<section class="section pt-14">
+  <!-- Background Image -->
+  <div class="background-image-wrapper">
+    <img src={banner.wave} alt="Background Image" class="background-image" />
+  </div>
+  <div class="container">
+    <div class="row">
+      <!-- Text Block -->
+      <div class="text-left mb-16 col-7">
+        <h3 set:html={markdownify(banner.hook)} class="mb-1 font-primary"></h3>
+        <h1 set:html={markdownify(banner.first)} class="mb-1 font-primary"></h1>
+        <h1 set:html={markdownify(banner.last)} class="mb-1 font-primary"></h1>
+        <h5 set:html={markdownify(banner.content)} class="mb-8 font-primary"></h5>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <div class="mt-16">
+          <div class="social-icons">
+            <a href="https://www.instagram.com/guck.__/" title="instagram">  
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/matthewguck/" title="linkedin">
+              <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/matthewjguck" title="github">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Image Block -->
+      <div class="col-5">
+        <img
+          src={banner.image}
+          alt={"Matthew"}
+          style="width: 100%; height: auto;"
+        />
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- /Banner -->
+
+
+ <!-- Features -->
+{
+  features.map((feature, index: number) => (
+    <section
+      class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}
+      data-scroll-animate="fadeInUp"
+    >
+      <div class="container">
+        <div class="row items-center justify-between">
+          <div
+            class={`mb:md-0 mb-6 md:col-7 ${index % 2 !== 0 && "md:order-2"}`}
+          >
+            <a href={feature.button.link} class={`block`}>
+              <div class="feature-image-wrapper">
+              <img
+                src={feature.image}
+                alt={"Matthew"}
+                class="feature-image"
+              />
+            </div>
+            </a>
+          </div>
+          <div class={`md:col-7 lg:col-5 ${index % 2 !== 0 && "md:order-1"}`}>
+            <h2 set:html={markdownify(feature.title)} class="mb-4" />
+            <p set:html={markdownify(feature.content)} class="mb-8 text-lg" />
+            
+            {feature.button.enable && (
+              <a class="btn btn-primary mt-5" href={feature.button.link}>
+                {feature.button.label}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))
+}
+<!-- /Features -->
+
+</Base>
