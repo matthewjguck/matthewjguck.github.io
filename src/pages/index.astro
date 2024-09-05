@@ -36,7 +36,7 @@ const { banner, features }: Homepage = homepage.data;
   <div class="container">
     <div class="row">
       <!-- Text Block -->
-      <div class="text-left mb-16 col-7">
+      <div class="text-left mb-16 sm:col 12 lg:col-7">
         <h3 set:html={markdownify(banner.hook)} class="mb-1 font-primary"></h3>
         <h1 set:html={markdownify(banner.first)} class="mb-1 font-primary"></h1>
         <h1 set:html={markdownify(banner.last)} class="mb-1 font-primary"></h1>
