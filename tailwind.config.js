@@ -25,7 +25,7 @@ if (theme.fonts.font_family.secondary) {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  safelist: [{ pattern: /^swiper-/ }],
+  
   darkMode: "class",
   theme: {
     screens: {
@@ -71,7 +71,9 @@ module.exports = {
         h3: h3 + "rem",
         "h3-sm": h3 * 0.8 + "rem",
         h4: h4 + "rem",
+        "h4-sm": h4 * 0.8 + "rem",
         h5: h5 + "rem",
+        "h5-sm": h5 * 0.8 + "rem",
         h6: h6 + "rem",
       },
       fontFamily: {

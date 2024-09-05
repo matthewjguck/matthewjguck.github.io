@@ -5,13 +5,17 @@ description: "Spotify Language Acquisition Translation Tool - your ultimate comp
 
 images: 
     splash: "/images/SLATT Splash.png"
+    ss1: "/images/slatt1.png"
+    ss2: "/images/slatt2.png"
+    ss3: "/images/slatt3.png"
+
 
 
 details: 
-    date: "Spring 2024"
-    type: "Hackathon Entry"
-    location: "Stanford, CA"
-    role: "Designer, Presenter"
+    date: "Winter 2023"
+    type: "Personal Project"
+    location: "San Francisco, CA"
+    role: "Developer"
     
 
 content: "

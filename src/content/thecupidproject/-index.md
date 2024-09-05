@@ -5,6 +5,9 @@ description: "An annual card-giving project delivering to nursing homes every Va
 images: 
     splash: "/images/Cupid Project Splash.png"
     family: "/images/family.webp"
+
+files:
+    pdf: "/files/Cupid Project Cards.pdf"
 details: 
     date: "February 2018 - Present"
     type: "Community Outreach"

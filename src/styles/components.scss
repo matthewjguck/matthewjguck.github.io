@@ -230,3 +230,49 @@
   width: 100%;
   height: auto;
 }
+
+/* Default layout for larger screens */
+.image-title-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-wrapper {
+  flex: 0 0 50%; /* Make the image take 50% width on desktop */
+  order: 2; /* Keep image next to the text by default */
+  max-width: 50%; /* Ensure it doesn’t grow larger than 50% */
+}
+
+.text-wrapper {
+  flex: 0 0 50%; /* Make the text take 50% width on desktop */
+  order: 1; /* Text comes first */
+  max-width: 50%; /* Ensure it doesn’t grow larger than 50% */
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .col-5 {
+    order: 2;
+    width: 100%;
+  }
+  .col-7,
+  .col-6 {
+    order: 1;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+  .image-wrapper {
+    order: 1; /* Image comes first on mobile */
+    width: 100%; /* Image takes full width on mobile */
+    max-width: 100%; /* Prevents overflow */
+  }
+
+  .text-wrapper {
+    order: 2; /* Text comes after image on mobile */
+    width: 100%; /* Text takes full width on mobile */
+    max-width: 100%; /* Prevents overflow */
+  }
+
+ 

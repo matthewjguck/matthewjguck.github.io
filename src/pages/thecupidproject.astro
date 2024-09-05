@@ -18,7 +18,7 @@ const { title, description, meta_title, images, details, files, content } = thec
     <div class="row mb-8">
       <div class="col-5">
         <h2 class="title mb-5">{title}</h2>
-        <h5 class="mb-5">{description}</h5>
+        <h5 class="text-h6 lg:text-h5 mb-5">{description}</h5>
         <div class="date mb-3">  
           <h4>Date</h4>
           {details.date}
@@ -40,20 +40,35 @@ const { title, description, meta_title, images, details, files, content } = thec
         <img
           src={images.splash}
           alt={title}
-          style={{ width: '100%', height: 'auto' }}
+          style="width: 100%; height: auto;"
         />
       </div>
     </div>
     <div class="row mb-8">
       <div class="col-5">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="social-icons mb-5">
+          <a href="https://thecupidproject.org" title="The Cupid Project">
+            <i class="fa fa-link" aria-hidden="true"></i>
+          </a>          
+        </div>
         <img
           src={images.family}
           alt={title}
-          style={{ width: '100%', height: 'auto' }}
+          style="width: 100%; height: auto;"
         />
       </div>
       <div class="col-6">
         <h5 set:html={markdownify(content)} class="mb-1" />
+        <ul>
+          <embed
+            src="files/Cupid Project Cards.pdf"
+            type="application/pdf"
+            width="98%"
+            height="800px"
+            class="mt-6"
+          />
+        </ul>
       </div>
     </div>
   </div>

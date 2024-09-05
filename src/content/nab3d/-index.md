@@ -14,5 +14,8 @@ details:
     
 
 content: "
-A photogrammetry tool that allows web developers to create 3D models of any real world object and add them to their websites using a short video scan and a single line of HTML. • Awarded ‘Best Beginner Hack’ at TreeHacks 2024, the largest collegiate hackathon in the United States. • Built using React, JavaScript, Vite, Bun, and Swift."
+A photogrammetry tool that allows web developers to create 3D models of any real world object and add them to their websites using a short video scan and a single line of HTML. <br> 
+
+<br> • Awarded ‘Best Beginner Hack’ at TreeHacks 2024, the largest collegiate hackathon in the United States. <br> 
+<br> • Built using React, JavaScript, Vite, Bun, and Swift."
 ---

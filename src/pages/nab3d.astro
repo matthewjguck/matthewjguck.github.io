@@ -18,7 +18,7 @@ const { title, description, meta_title, images, details, files, content } = nab3
     <div class="row mb-8">
       <div class="col-5">
         <h2 class="title mb-5">{title}</h2>
-        <h5 class="mb-5">{description}</h5>
+        <h5 class="text-h6 lg:text-h5 mb-5">{description}</h5>
         <div class="date mb-3">  
           <h4>Date</h4>
           {details.date}
@@ -46,6 +46,7 @@ const { title, description, meta_title, images, details, files, content } = nab3
     </div>
     <div class="row mb-8">
       <div class="col-5">
+        <h4 class="mb-4">Links</h4>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="social-icons">
           <a href="https://github.com/soapantelope/nab" title="github">
@@ -57,7 +58,16 @@ const { title, description, meta_title, images, details, files, content } = nab3
         </div> 
       </div>
       <div class="col-6">
-        <h5 set:html={markdownify(content)} class="mb-1" />
+        <h5 set:html={markdownify(content)} class="text-h6 lg:text-h5 mb-5" />
+        <ul style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+          <iframe
+            src="https://www.youtube.com/embed/-RIqBdwPtAk"
+            frameborder="0"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </ul>
       </div>
     </div>
   </div>

@@ -2,7 +2,10 @@
 title: "EnGauge"
 meta_title: ""
 description: "An Event Planning and Notification platform for Stanford students."
-image: "/images/Spread Test.png"
+images: 
+    splash: "/images/EnGauge Splash.png"
+    spread: "/images/Spread Test.png"
+    
 details: 
     date: "Spring 2024"
     type: "Mobile App"
@@ -20,6 +23,6 @@ EnGauge was deisgned to be used by Voluntary Student Organizations (VSOs), dorms
 • Provide event details and timely reminders to group members, <br>
 • Gauge member interest via a “Petition” feature for potential events. <br> <br>
 
-EnGauge was my final project for Stanford's CS 278 - Social Computing. View the final report on the right.
+EnGauge was my final project for Stanford's CS 278 - Social Computing. View the final report below.
 "
 ---
