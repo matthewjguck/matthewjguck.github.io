@@ -193,6 +193,15 @@ declare module 'astro:content' {
   data: any
 } & { render(): Render[".md"] };
 };
+"ontype1": {
+"-index.md": {
+	id: "-index.md";
+  slug: "-index";
+  body: string;
+  collection: "ontype1";
+  data: any
+} & { render(): Render[".md"] };
+};
 "pages": {
 "elements.mdx": {
 	id: "elements.mdx";

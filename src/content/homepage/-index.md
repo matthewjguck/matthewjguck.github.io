@@ -23,6 +23,25 @@ features:
       label: "Get Started Now"
       link: "/engauge"
 
+  - title: "On Type 1"
+    image: "/images/On Type 1 Splash.png"
+    content: "On Type 1 is a series of digital prints that aims to capture various facets of the diabetic experience.
+    "
+    
+    button:
+      enable: false
+      label: "Get Started Now"
+      link: "/ontype1"
+
+  - title: "SLATT"
+    image: "/images/SLATT Splash.png"
+    content: "Spotify Language Acquisition Translation Tool - your ultimate companion for exploring music lyrics in multiple languages while enjoying your favorite tracks on Spotify. SLATT connects directly to your Spotify account and translates the current song into your desired target language"
+    
+    button:
+      enable: false
+      label: ""
+      link: "/slatt"
+
   - title: "The Cupid Project"
     image: "/images/Cupid Project Splash.png"
     content: "An annual card-giving project delivering to nursing homes every Valentine's Day since 2018.
@@ -35,15 +54,6 @@ features:
       enable: false
       label: "Get Started Now"
       link: "/thecupidproject"
-
-  - title: "SLATT"
-    image: "/images/SLATT Splash.png"
-    content: "Spotify Language Acquisition Translation Tool - your ultimate companion for exploring music lyrics in multiple languages while enjoying your favorite tracks on Spotify. SLATT connects directly to your Spotify account and translates the current song into your desired target language"
-    
-    button:
-      enable: false
-      label: ""
-      link: "/slatt"
 
   - title: "Nab 3D"
     image: "/images/Nab 3D Splash.png"

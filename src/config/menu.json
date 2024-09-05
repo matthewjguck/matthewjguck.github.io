@@ -26,6 +26,10 @@
           "url": "/slatt"
         },
         {
+          "name": "On Type 1",
+          "url": "/ontype1"
+        },
+        {
           "name": "Escape Room",
           "url": "/escaperoom"
         }
