@@ -52,9 +52,9 @@ const { banner, features }: Homepage = homepage.data;
           <h3 set:html={markdownify(banner.hook)} class="mb-1 font-primary"></h3>
         
           <!-- Container for first and last with responsive flexbox layout -->
-          <div class="flex justify-center flex-row md:justify-center lg:flex-col lg:items-left lg:justify-start">
-            <h1 set:html={markdownify(banner.first)} class="text-h2 mr-4 lg:text-h1 mb-1"></h1>
-            <h1 set:html={markdownify(banner.last)} class="text-h2 lg:text-h1 mb-1"></h1>
+          <div class="flex justify-center flex-row lg:w-full md:justify-center lg:flex-col lg:items-left lg:justify-start">
+            <h1 set:html={markdownify(banner.first)} class="h2 mr-4 lg:text-h1 mb-1"></h1>
+            <h1 set:html={markdownify(banner.last)} class="h2 lg:text-h1 mb-1"></h1>
           </div>
         
           <h5 set:html={markdownify(banner.content)} class="text-h6 lg:text-h5 mb-16"></h5>
