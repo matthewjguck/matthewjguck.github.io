@@ -23,6 +23,15 @@ features:
       label: "Get Started Now"
       link: "/engauge"
 
+  - title: "Sky High Hypoglycemia"
+    image: "/images/Sky High Hypoglycemia Splash.png"
+    content: "A collaborative escape room that offers an immersive and engaging experience"
+    
+    button:
+      enable: false
+      label: ""
+      link: "/skyhigh"
+
   - title: "On Type 1"
     image: "/images/On Type 1 Splash.png"
     content: "On Type 1 is a series of digital prints that aims to capture various facets of the diabetic experience.

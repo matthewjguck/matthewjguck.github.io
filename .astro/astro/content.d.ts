@@ -234,6 +234,15 @@ declare module 'astro:content' {
   data: any
 } & { render(): Render[".md"] };
 };
+"skyhigh": {
+"-index.md": {
+	id: "-index.md";
+  slug: "-index";
+  body: string;
+  collection: "skyhigh";
+  data: any
+} & { render(): Render[".md"] };
+};
 "slatt": {
 "-index.md": {
 	id: "-index.md";
