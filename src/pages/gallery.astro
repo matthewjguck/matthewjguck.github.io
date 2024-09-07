@@ -22,22 +22,22 @@ const gallery = await getEntry("gallery", "-index");
       <div class="gallery-scroll flex overflow-x-auto space-x-4 mb-16">
         <!-- Regular images -->
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/Diet Coke.png" alt="Diet Coke" class="w-full h-auto">
+          <img src="/images/Diet Coke.png" alt="Diet Coke" class="h-full">
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/Canes.png" alt="Canes" class="w-full h-auto">
+          <img src="/images/Canes.png" alt="Canes" class="h-full">
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/T1D.png" alt="T1D" class="w-full h-auto">
+          <img src="/images/T1D.png" alt="T1D" class="h-full">
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/LO.png" alt="LO" class="w-full h-auto">
+          <img src="/images/LO.png" alt="LO" class="h-full">
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/Life Juice.png" alt="Life Juice" class="w-full h-auto">
+          <img src="/images/Life Juice.png" alt="Life Juice" class="h-full">
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/Strawberry.png" alt="Strawberry" class="w-full h-auto">
+          <img src="/images/Strawberry.png" alt="Strawberry" class="h-full">
         </div>
     </div>
   </section>
@@ -128,14 +128,7 @@ const gallery = await getEntry("gallery", "-index");
       scrollbar-color: #ccc transparent;
     }
     
-    .gallery-scroll img {
-      object-fit: cover; /* This ensures the image covers the container */
-    }
-    
-    /* Container height to match previous sections */
-    .gallery-scroll {
-      height: 600px; /* Adjust this height to match the height of the previous sections */
-    }
+   
     
     /* Set images to cover the height */
     .long-image {
