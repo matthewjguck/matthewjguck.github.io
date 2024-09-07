@@ -5,6 +5,7 @@ description: "An Event Planning and Notification platform for Stanford students.
 images: 
     splash: "/images/EnGauge Splash.png"
     spread: "/images/Spread Test.png"
+    ss1: "images/Engauge Report.png"
     
 details: 
     date: "Spring 2024"

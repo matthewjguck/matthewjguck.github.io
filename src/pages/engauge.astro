@@ -56,14 +56,12 @@ const { title, description, meta_title, images, details, files, content } = enga
           alt={title}
           style={{ width: '100%', height: 'auto' }}
         />
-      <ul>
-        <embed
-        src="files/CS278FinalProject.pdf"
-        type="application/pdf"
-        width="100%"
-        height="900px"
-      />
-      </ul>
+        <div class="flex flex-wrap mb-8">
+          <!-- Image Block 1 -->
+          <div class="w-full p-2">
+            <img src={images.ss1} alt={title} class="zoomable-img w-full h-auto mb-4" />
+          </div>
+        </div>
     </div>
 
 
