@@ -1,0 +1,146 @@
+---
+import ImageMod from "@/components/ImageMod.astro";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CallToAction from "@/partials/CallToAction.astro";
+import Testimonial from "@/partials/Testimonial.astro";
+import type { Button, Feature } from "@/types";
+import { getEntry } from "astro:content";
+import { FaCheck } from "react-icons/fa";
+
+const gallery = await getEntry("gallery", "-index");
+---
+
+<Base>
+  <section class="container mx-auto my-16">
+    <h1 class="font-bold text-center mb-8">Gallery</h1>
+
+    <!-- Gallery Section 1 -->
+    <div class="mb-12">
+      <h3 class="font-semibold mb-4">Posters</h3>
+      <p class="text-h5 mb-4">A digital preview of my dorm room walls.</p>
+      <div class="gallery-scroll flex overflow-x-auto space-x-4 mb-16">
+        <!-- Regular images -->
+        <div class="flex-shrink-0 w-2/3 lg:w-1/3">
+          <img src="/images/Diet Coke.png" alt="Diet Coke" class="w-full h-auto">
+        </div>
+        <div class="flex-shrink-0 w-2/3 lg:w-1/3">
+          <img src="/images/Canes.png" alt="Canes" class="w-full h-auto">
+        </div>
+        <div class="flex-shrink-0 w-2/3 lg:w-1/3">
+          <img src="/images/T1D.png" alt="T1D" class="w-full h-auto">
+        </div>
+        <div class="flex-shrink-0 w-2/3 lg:w-1/3">
+          <img src="/images/LO.png" alt="LO" class="w-full h-auto">
+        </div>
+        <div class="flex-shrink-0 w-2/3 lg:w-1/3">
+          <img src="/images/Life Juice.png" alt="Life Juice" class="w-full h-auto">
+        </div>
+        <div class="flex-shrink-0 w-2/3 lg:w-1/3">
+          <img src="/images/Strawberry.png" alt="Strawberry" class="w-full h-auto">
+        </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto my-16">
+    <!-- Gallery Section 2 -->
+    <div class="mb-12">
+      <h3 class="font-semibold mb-4">Spotify Playlists</h3>
+      <p class="text-h5 mb-4">A handful of my Spotify Playlist Covers.</p>
+      <div class="gallery-scroll flex overflow-x-auto space-x-4">
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/Lemon.png" alt="Lemon" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3aR2Fpbtiu5pNjMIjsNhbQ?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>        </div>
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/Fork();.png" alt="Fork();" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/25WE9Cu9f9gI82758wO1ZP?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/Turn Me On.png" alt="Turn Me On" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0MdQJADyR2LGvc6nMhiUxZ?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/Dis Co.png" alt="Dis Co" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4DXvdN0BxQOGwto2LSDoGW?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/Masarap to my ears.png" alt="Graphic 1" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/32C74CSmwdzcGeIO7A80fy?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/If I was a HAG.png" alt="If I was a HAG" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4EgmC2Ip3aSLxqy6QUTr0A?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/para las chicas.png" alt="para las chicas" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3cY7DIQR5zFfb449T2ccOa?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/TIME.png" alt="TIME" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4cAIATnARq4mKhEiuRfqd4?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/Existentialism.png" alt="Existentialism" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1jXjMZkgzAUUj5uQT5jw8F?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
+          <img class="mb-4 rounded-lg" src="/images/Country.png" alt="Country" >
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3LeNLqiImwCIhdOd4B7z1F?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto my-16">
+    <!-- Gallery Section 3 -->
+    <div class="mb-12">
+      <h3 class="font-semibold mb-4">Instagram Spreads</h3>
+      <p class="text-h5 mb-4">Highlights from my Instagram.</p>
+      <div class="gallery-scroll flex overflow-x-auto space-x-4 mb-16" style="height: 500px;">
+
+        <div class="flex-shrink-0 img-container">
+          <img src="/images/Summer.png" alt="Summer2" class="long-image">
+        </div>
+
+        <div class="flex-shrink-0 img-container">
+          <img src="/images/Bathrooms.png" alt="Bathrooms" class="long-image">
+        </div>
+       
+        <div class="flex-shrink-0 img-container">
+          <img src="/images/Italy.png" alt="Italy" class="long-image">
+        </div>
+
+        <div class="flex-shrink-0 img-container">
+          <img src="/images/Autumn.png" alt="Autumn" class="long-image">
+        </div>
+
+        <div class="flex-shrink-0 img-container">
+          <img src="/images/Pride.png" alt="Pride" class="long-image">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <style>
+    .gallery-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: #ccc transparent;
+    }
+    
+    .gallery-scroll img {
+      object-fit: cover; /* This ensures the image covers the container */
+    }
+    
+    /* Container height to match previous sections */
+    .gallery-scroll {
+      height: 600px; /* Adjust this height to match the height of the previous sections */
+    }
+    
+    /* Set images to cover the height */
+    .long-image {
+      height: 100%;
+      width: auto; /* Maintain the aspect ratio */
+    }
+    </style>
+</Base>

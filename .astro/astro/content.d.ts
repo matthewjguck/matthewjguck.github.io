@@ -155,7 +155,7 @@ declare module 'astro:content' {
   slug: string;
   body: string;
   collection: "authors";
-  data: InferEntrySchema<"authors">;
+  data: any;
   render(): Render[".md"];
 }>;
 "blog": Record<string, {
@@ -163,7 +163,7 @@ declare module 'astro:content' {
   slug: string;
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">;
+  data: any;
   render(): Render[".md"];
 }>;
 "engauge": {
@@ -172,6 +172,15 @@ declare module 'astro:content' {
   slug: "-index";
   body: string;
   collection: "engauge";
+  data: any
+} & { render(): Render[".md"] };
+};
+"gallery": {
+"-index.md": {
+	id: "-index.md";
+  slug: "-index";
+  body: string;
+  collection: "gallery";
   data: any
 } & { render(): Render[".md"] };
 };
@@ -208,14 +217,14 @@ declare module 'astro:content' {
   slug: "elements";
   body: string;
   collection: "pages";
-  data: InferEntrySchema<"pages">
+  data: any
 } & { render(): Render[".mdx"] };
 "privacy-policy.md": {
 	id: "privacy-policy.md";
   slug: "privacy-policy";
   body: string;
   collection: "pages";
-  data: InferEntrySchema<"pages">
+  data: any
 } & { render(): Render[".md"] };
 };
 "sections": {
@@ -270,5 +279,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("../../src/content/config.js");
+	export type ContentConfig = never;
 }

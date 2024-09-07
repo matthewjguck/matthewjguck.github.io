@@ -35,6 +35,10 @@
         }
 
       ]
+    },
+    {
+      "name": "Gallery",
+      "url": "/gallery"
     }
   ],
   "footer": [
