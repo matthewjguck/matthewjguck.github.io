@@ -42,6 +42,16 @@ features:
       label: "Get Started Now"
       link: "/ontype1"
 
+
+  - title: "Normalizing Sustainable Behaviors"
+    image: "/images/Norm Splash.png"
+    content: "Proposals for normalizing sutainable behaviors on Stanford's campus."
+    
+    button:
+      enable: false
+      label: ""
+      link: "/normalizingsustainability"
+
   - title: "SLATT"
     image: "/images/SLATT Splash.png"
     content: "Spotify Language Acquisition Translation Tool - your ultimate companion for exploring music lyrics in multiple languages while enjoying your favorite tracks on Spotify. SLATT connects directly to your Spotify account and translates the current song into your desired target language"

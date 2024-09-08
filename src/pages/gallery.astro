@@ -9,43 +9,47 @@ import { getEntry } from "astro:content";
 import { FaCheck } from "react-icons/fa";
 
 const gallery = await getEntry("gallery", "-index");
+
+const { banner } = gallery.data;
 ---
 
 <Base>
+  <!-- Background Image -->
   <section class="container mx-auto my-16">
+
     <h1 class="font-bold text-center mb-8">Gallery</h1>
 
     <!-- Gallery Section 1 -->
-    <div class="mb-12">
-      <h3 class="font-semibold mb-4">Posters</h3>
+    <div class="mb-24">
+      <h3 class="font-semibold">Posters</h3>
       <p class="text-h5 mb-4">A digital preview of my dorm room walls.</p>
       <div class="gallery-scroll flex overflow-x-auto space-x-4 mb-16">
         <!-- Regular images -->
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/Diet Coke.png" alt="Diet Coke" class="h-full">
+          <img src="/images/Diet Coke.png" alt="Diet Coke" >
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/Canes.png" alt="Canes" class="h-full">
+          <img src="/images/Canes.png" alt="Canes" >
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/T1D.png" alt="T1D" class="h-full">
+          <img src="/images/T1D.png" alt="T1D" >
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/LO.png" alt="LO" class="h-full">
+          <img src="/images/LO.png" alt="LO" >
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/Life Juice.png" alt="Life Juice" class="h-full">
+          <img src="/images/Life Juice.png" alt="Life Juice" >
         </div>
         <div class="flex-shrink-0 w-2/3 lg:w-1/3">
-          <img src="/images/Strawberry.png" alt="Strawberry" class="h-full">
+          <img src="/images/Strawberry.png" alt="Strawberry" >
         </div>
     </div>
   </section>
 
   <section class="container mx-auto my-16">
     <!-- Gallery Section 2 -->
-    <div class="mb-12">
-      <h3 class="font-semibold mb-4">Spotify Playlists</h3>
+    <div class="mb-24">
+      <h3 class="font-semibold ">Spotify Playlists</h3>
       <p class="text-h5 mb-4">A handful of my Spotify Playlist Covers.</p>
       <div class="gallery-scroll flex overflow-x-auto space-x-4">
         <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
@@ -93,7 +97,7 @@ const gallery = await getEntry("gallery", "-index");
 
   <section class="container mx-auto my-16">
     <!-- Gallery Section 3 -->
-    <div class="mb-12">
+    <div class="mb-24">
       <h3 class="font-semibold mb-4">Instagram Spreads</h3>
       <p class="text-h5 mb-4">Highlights from my Instagram.</p>
       <div class="gallery-scroll flex overflow-x-auto space-x-4 mb-16" style="height: 500px;">
@@ -135,5 +139,12 @@ const gallery = await getEntry("gallery", "-index");
       height: 100%;
       width: auto; /* Maintain the aspect ratio */
     }
+
+
+.container {
+  position: relative;
+  z-index: 1; /* Ensure your content is above the background */
+}
+    
     </style>
 </Base>

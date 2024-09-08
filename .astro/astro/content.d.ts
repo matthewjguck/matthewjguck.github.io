@@ -202,6 +202,15 @@ declare module 'astro:content' {
   data: any
 } & { render(): Render[".md"] };
 };
+"normalizingsustainability": {
+"-index.md": {
+	id: "-index.md";
+  slug: "-index";
+  body: string;
+  collection: "normalizingsustainability";
+  data: any
+} & { render(): Render[".md"] };
+};
 "ontype1": {
 "-index.md": {
 	id: "-index.md";

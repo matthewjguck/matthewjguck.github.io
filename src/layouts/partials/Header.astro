@@ -141,4 +141,18 @@ const { pathname } = Astro.url;
       }
     </div>
   </nav>
+
+  <style>
+    .header {
+  transition: height 0.3s ease;
+  height: 100px; /* Default height */
+}
+
+.header.shrunk {
+  height: 50px; /* Height when shrunk */
+}
+  </style>
+
 </header>
+
+
