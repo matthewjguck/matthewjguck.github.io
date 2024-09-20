@@ -4,7 +4,7 @@ banner:
   hook: "👋 Hi, I'm"
   first: "Matthew"
   last: "Guck"
-  content: "I'm a Junior studying Computer Science and Design at Stanford University. 🌲 I am the Stanford Class of 2026 President, and I love to create things— software, visuals, games, music, etc."
+  content: "I'm a Junior studying Computer Science and Design at Stanford University. 🌲 I am the Stanford Class of 2026 President, I'm passionate about Type 1 Diabetes research and advocacy, and I love to create things— software, visuals, games, music, etc."
   image: "/images/Matthew Blob.png"
   wave: "/images/Waves banner.png"
   button:
