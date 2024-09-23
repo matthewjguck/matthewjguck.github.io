@@ -8,12 +8,21 @@ banner:
   image: "/images/Matthew Blob.png"
   wave: "/images/Waves banner.png"
   button:
-    enable: true
+    enable: false
     label: "view my work"
     link: ""
 
 # Features
 features:
+  - title: "Diabetic Daycare"
+    image: "/images/Diabetic Daycare Splash.png"
+    content: "An educational Type 1 Diabetes simulator."
+    
+    button:
+      enable: false
+      label: "Get Started Now"
+      link: "/daycare"
+
   - title: "EnGauge"
     image: "/images/EnGauge Splash.png"
     content: "An Event Planning and Notification platform for Stanford students."
@@ -34,7 +43,7 @@ features:
 
   - title: "On Type 1"
     image: "/images/On Type 1 Splash.png"
-    content: "On Type 1 is a series of digital prints that aims to capture various facets of the diabetic experience.
+    content: "A series of digital prints that aims to capture various facets of the diabetic experience.
     "
     
     button:

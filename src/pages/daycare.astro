@@ -1,0 +1,72 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getEntry } from "astro:content";
+import { markdownify } from "@/lib/utils/textConverter";
+import { ImageMissingAlt } from "node_modules/astro/dist/core/errors/errors-data";
+
+const daycare = await getEntry("daycare", "-index");
+const { title, description, meta_title, images, details, content } = daycare.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+>
+<section class="section-sm">
+  <div class="container">
+    <div class="row mb-12">
+      <div class="col-5">
+        <h2 class="title mb-5">{title}</h2>
+        <h5 class="text-h6 lg:text-h5 mb-5">{description}</h5>
+        <div class="date mb-3">  
+          <h4>Date</h4>
+          {details.date}
+        </div>
+        <div class="type mb-3">  
+          <h4>Project Type</h4>
+          {details.type}
+        </div>
+        <div class="location mb-3">  
+          <h4>Location</h4>
+          {details.location}
+        </div>
+        <div class="role mb-3">  
+          <h4>Role</h4>
+          {details.role}
+        </div>
+      </div>
+      <div class="col-7">
+        <img
+          src={images.splash}
+          alt={title}
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </div>
+    </div>
+    <div class="flex flex-col-reverse lg:flex-row mb-8">
+      <div class="col-12 lg:col-6 flex items-center">
+        <div>
+          <h5 set:html={markdownify(content.curvetitle)} class="mb-5" />
+          <p set:html={markdownify(content.curve)} class="mb-5 mr-3" />
+        </div>
+      </div>
+      <div class="col-11 lg:col-6 flex justify-center mb-5"> 
+        <img
+          src={images.ss1}
+          alt={title}
+          style="width: 100%; height: auto;" 
+        />
+      </div>
+    </div>
+    
+  
+
+
+    </div>
+    
+
+
+  </div>
+</section>
+</Base>
