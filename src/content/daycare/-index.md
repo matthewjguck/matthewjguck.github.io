@@ -4,7 +4,7 @@ meta_title: ""
 description: "An educational Type 1 Diabetes simulator."
 images: 
     splash: "/images/Diabetic Daycare Splash.png"
-    ss1: "images/Bell Curve.png"
+    ss1: "/images/Bell Curve.png"
     
     
 details: 

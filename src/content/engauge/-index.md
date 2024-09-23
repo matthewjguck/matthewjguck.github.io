@@ -5,13 +5,13 @@ description: "An Event Planning and Notification platform for Stanford students.
 images: 
     splash: "/images/EnGauge Splash.png"
     spread: "/images/Spread Test.png"
-    ss1: "images/Final1.png"
-    ss2: "images/Final2.png"
-    ss3: "images/Final3.png"
-    ss4: "images/Final4.png"
-    ss5: "images/Final5.png"
-    ss6: "images/Final6.png"
-    ss7: "images/Final7.png"
+    ss1: "/images/Final1.png"
+    ss2: "/images/Final2.png"
+    ss3: "/images/Final3.png"
+    ss4: "/images/Final4.png"
+    ss5: "/images/Final5.png"
+    ss6: "/images/Final6.png"
+    ss7: "/images/Final7.png"
     
     
 details: 
