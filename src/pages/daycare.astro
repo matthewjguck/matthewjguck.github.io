@@ -44,6 +44,17 @@ const { title, description, meta_title, images, details, content } = daycare.dat
         />
       </div>
     </div>
+    <!-- Challenge and Action Section -->
+    <div class="row mb-12 grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <div class="">
+        <h4 class="text-2xl font-bold mb-3">Challenge</h4>
+        <p set:html={markdownify(content.challenge)}/>
+      </div>
+      <div class="">
+        <h4 class="text-2xl font-bold mb-3">Action</h4>
+        <p set:html={markdownify(content.action)}/>
+      </div>
+    </div>
     <div class="flex flex-col-reverse lg:flex-row mb-8">
       <div class="col-12 lg:col-6 flex items-center">
         <div>
