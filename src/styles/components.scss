@@ -215,12 +215,11 @@
   position: absolute; /* Use absolute positioning */
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
-  width: 100%; /* Set the width to 80% */
+  width: 90%; /* Set the width to 80% */
   height: 100%; /* Full height of the parent */
-  background: rgba(0, 36, 43, 0.37); /* Optional: background color for the shadow effect */
+  background: rgba(0, 36, 43, 0.47); /* Optional: background color for the shadow effect */
   z-index: -1; /* Ensure it’s behind the content */
-  box-shadow: 0px 3px 0px rgba(0, 36, 43, 0.36); /* Adjust shadow dimensions and color */
-  filter: blur(12px); /* Apply blur effect */
+  filter: blur(7px); /* Apply blur effect */
   transform: translate(-50%, -50%); /* Center the pseudo-element */
   /* Optional: Adjust if you need extra offset */
 }
