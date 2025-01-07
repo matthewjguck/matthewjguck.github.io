@@ -57,8 +57,11 @@ const { title, description, meta_title, images, details, files, content } = nab3
           </a>
         </div> 
       </div>
-      <div class="col-6">
-        <h5 set:html={markdownify(content)} class="text-h6 lg:text-h5 mb-5" />
+      <div class="col-12">
+
+        <div class="mt-8 mb-8 flex flex-col justify-center items-center" style="background-color: #2c2c2ce1; border-radius: 16px;">
+          <h5 set:html={markdownify(content)} class="text-h6 lg:text-h5 m-5" />
+        </div>
         <ul style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
           <iframe
             src="https://www.youtube.com/embed/-RIqBdwPtAk"

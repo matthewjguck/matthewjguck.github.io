@@ -1,7 +1,7 @@
 ---
 title: "Sky High Hypoglycemia"
 meta_title: " "
-description: "A collaborative escape room that offers an immersive and engaging experience."
+description: "A collaborative escape room designed as part of Stanford's 'DESIGN 1' course."
 
 images: 
     splash: "/images/Sky High Hypoglycemia Splash.png"
