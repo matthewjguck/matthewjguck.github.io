@@ -3,7 +3,7 @@ import { c as createComponent, r as renderTemplate, d as createAstro, m as maybe
 import 'kleur/colors';
 import { h as humanize, $ as $$Base } from '../chunks/Base_wW0F8rhI.mjs';
 import 'clsx';
-import { a as getCollection } from '../chunks/_astro_content_Bj3I4JW5.mjs';
+import { a as getCollection } from '../chunks/_astro_content_EbfCbQ-i.mjs';
 export { renderers } from '../renderers.mjs';
 
 const getSinglePage = async (collectionName) => {

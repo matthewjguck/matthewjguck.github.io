@@ -2,7 +2,7 @@
 import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead, b as addAttribute, u as unescapeHTML } from '../chunks/astro/server_Bw2CXZbd.mjs';
 import 'kleur/colors';
 import { m as markdownify, $ as $$Base } from '../chunks/Base_wW0F8rhI.mjs';
-import { g as getEntry } from '../chunks/_astro_content_Bj3I4JW5.mjs';
+import { g as getEntry } from '../chunks/_astro_content_EbfCbQ-i.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Daycare = createComponent(async ($$result, $$props, $$slots) => {
@@ -13,7 +13,7 @@ An educational point-and-click babysitting simulator that can teach non-diabetic
           therapy, and the dangerous health<br> consequences of blood sugar mismanagement.
 </h4> <img src="/images/FINAL GAME POINTER.png" class="m-8 w-9/12" alt="Challenge Image"> </div> </goal> <br> <action class="m-16"> <h3 class="text-center mb-8">Milestone 1</h3> <div class="m-5 p-6 flex flex-col justify-center items-center bg-[#2c2c2ce1] rounded-xl shadow-lg lg:p-8"> <h4 class="text-white text-xl font-semibold mb-6">
 Text-based Prototype
-</h4> <div class="flex flex-col lg:flex-row justify-center items-center gap-4"> <img src="public/images/Diabetic Daycare - Terminal.png" class="m-8 w-full lg:w-5/12 rounded-lg shadow-md hover:shadow-lg transition-shadow" alt=""> <div class="text-white text-base lg:w-5/12 px-6"> <p class="mb-6 leading-relaxed"> <strong>During this stage of development:</strong><br>
+</h4> <div class="flex flex-col lg:flex-row justify-center items-center gap-4"> <img src="/images/Diabetic Daycare - Terminal.png" class="m-8 w-full lg:w-5/12 rounded-lg shadow-md hover:shadow-lg transition-shadow" alt=""> <div class="text-white text-base lg:w-5/12 px-6"> <p class="mb-6 leading-relaxed"> <strong>During this stage of development:</strong><br>
 • Text-only terminal interface<br>
 • Can only consume carbs in 30g increments<br>
 • Can only inject insulin in 3 unit increments

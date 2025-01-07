@@ -2,7 +2,7 @@
 import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead, b as addAttribute, u as unescapeHTML } from '../chunks/astro/server_Bw2CXZbd.mjs';
 import 'kleur/colors';
 import { m as markdownify, $ as $$Base } from '../chunks/Base_wW0F8rhI.mjs';
-import { g as getEntry } from '../chunks/_astro_content_Bj3I4JW5.mjs';
+import { g as getEntry } from '../chunks/_astro_content_EbfCbQ-i.mjs';
 /* empty css                                                     */
 export { renderers } from '../renderers.mjs';
 
