@@ -14,6 +14,16 @@ banner:
 
 # Features
 features:
+  - title: "E.K.G."
+    image: "/images/EKG.png"
+    content: "An app that helps teachers learn more about their students through in-class games! Awarded 'Greatest Societal Impact' at Stanford CS147 Expo."
+    skills: "Needfinding, Prototyping, System & UI Design, UX Research"
+    
+    button:
+      enable: false
+      label: ""
+      link: "/ekg"
+
   - title: "Diabetic Daycare"
     image: "/images/Diabetic Daycare Splash.png"
     content: "A Java-based Type 1 Diabetes simulator to help non-diabetics better understand blood sugar management."
@@ -21,7 +31,7 @@ features:
     
     button:
       enable: false
-      label: "Get Started Now"
+      label: ""
       link: "/daycare"
 
   - title: "The Cupid Project"
@@ -48,6 +58,16 @@ features:
       label: ""
       link: "/nab3d"
 
+  - title: "SLATT"
+    image: "/images/SLATT Splash.png"
+    content: "Spotify Language Acquisition Translation Tool - your ultimate companion for exploring music lyrics in multiple languages while enjoying your favorite tracks on Spotify. SLATT connects directly to your Spotify account and translates the current song into your desired target language"
+    skills: "Programming, Python, HTML, CSS"
+    
+    button:
+      enable: false
+      label: ""
+      link: "/slatt"
+
   - title: "EnGauge"
     image: "/images/EnGauge Splash.png"
     content: "An Event Planning and Notification platform for Stanford students."
@@ -68,37 +88,29 @@ features:
       label: ""
       link: "/skyhigh"
 
-  - title: "On Type 1"
-    image: "/images/On Type 1 Splash.png"
-    content: "A series of digital prints that aims to capture various facets of the diabetic experience.
-    "
-    skills: "Figma, Graphic Design"
+  # - title: "On Type 1"
+  #   image: "/images/On Type 1 Splash.png"
+  #   content: "A series of digital prints that aims to capture various facets of the diabetic experience.
+  #   "
+  #   skills: "Figma, Graphic Design"
     
-    button:
-      enable: false
-      label: "Get Started Now"
-      link: "/ontype1"
+  #   button:
+  #     enable: false
+  #     label: "Get Started Now"
+  #     link: "/ontype1"
 
 
-  - title: "Normalizing Sustainable Behaviors"
-    image: "/images/Norm Splash.png"
-    content: "Proposals for normalizing sutainable behaviors on Stanford's campus."
-    skills: "Needfinding, Data Analysis"
+  # - title: "Normalizing Sustainable Behaviors"
+  #   image: "/images/Norm Splash.png"
+  #   content: "Proposals for normalizing sutainable behaviors on Stanford's campus."
+  #   skills: "Needfinding, Data Analysis"
     
-    button:
-      enable: false
-      label: ""
-      link: "/normalizingsustainability"
+  #   button:
+  #     enable: false
+  #     label: ""
+  #     link: "/normalizingsustainability"
 
-  - title: "SLATT"
-    image: "/images/SLATT Splash.png"
-    content: "Spotify Language Acquisition Translation Tool - your ultimate companion for exploring music lyrics in multiple languages while enjoying your favorite tracks on Spotify. SLATT connects directly to your Spotify account and translates the current song into your desired target language"
-    skills: "Programming, Python, HTML, CSS"
-    
-    button:
-      enable: false
-      label: ""
-      link: "/slatt"
+ 
 
   
 
