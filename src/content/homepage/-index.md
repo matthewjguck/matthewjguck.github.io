@@ -17,12 +17,22 @@ features:
   - title: "E.K.G."
     image: "/images/EKG.png"
     content: "An app that helps teachers learn more about their students through in-class games! Awarded 'Greatest Societal Impact' at Stanford CS147 Expo."
-    skills: "Needfinding, Prototyping, System & UI Design, UX Research"
+    skills: "Needfinding, Prototyping, System & UI Design, Figma, UX Research"
     
     button:
       enable: false
       label: ""
       link: "/ekg"
+
+  - title: "Virtual Vending Machine"
+    image: "/images/Virtual Vending.png"
+    content: "A digital, choose-your-own adventure experience that aims to \"vend\" contentment with your life. Made in Figma."
+    skills: "Figma, Graphic Design"
+    
+    button:
+      enable: false
+      label: ""
+      link: "/vending"
 
   - title: "Diabetic Daycare"
     image: "/images/Diabetic Daycare Splash.png"
