@@ -26,35 +26,47 @@ const { banner } = gallery.data;
     <div class="gallery-scroll flex overflow-x-auto space-x-4 mb-16">
       <!-- Regular images -->
       <div class="flex-shrink-0">
-      <img src="/images/Diet Coke.png" alt="Diet Coke" style="height: 700px;">
+        <img src="/images/Diet Coke.png" alt="Diet Coke" class="gallery-image">
       </div>
       <div class="flex-shrink-0">
-        <img src="/images/Risk.png" alt="Risk" style="height: 700px;">
+        <img src="/images/Risk.png" alt="Risk" class="gallery-image">
       </div>
       <div class="flex-shrink-0">
-      <img src="/images/Canes.png" alt="Canes" style="height: 700px;">
+        <img src="/images/Canes.png" alt="Canes" class="gallery-image">
       </div>
       <div class="flex-shrink-0">
-      <img src="/images/Del Frisco.png" alt="Del Frisco's Double Eagle Steakhouse" style="height: 700px;">
+        <img src="/images/Del Frisco.png" alt="Del Frisco's Double Eagle Steakhouse" class="gallery-image">
       </div>
       <div class="flex-shrink-0">
-      <img src="/images/T1D.png" alt="T1D" style="height: 700px;">
+        <img src="/images/T1D.png" alt="T1D" class="gallery-image">
       </div>
       <div class="flex-shrink-0">
-        <img src="/images/Accesible Design.png" alt="Accesible Design" style="height: 700px;">
+        <img src="/images/Accesible Design.png" alt="Accesible Design" class="gallery-image">
       </div>
       <div class="flex-shrink-0">
-      <img src="/images/LO.png" alt="LO" style="height: 700px;">
+        <img src="/images/LO.png" alt="LO" class="gallery-image">
       </div>
       <div class="flex-shrink-0">
-        <img src="/images/Noodle.png" alt="LO" style="height: 700px;">
-        </div>
-      <div class="flex-shrink-0">
-      <img src="/images/Firenze.png" alt="Firenze" style="height: 700px;">
+        <img src="/images/Noodle.png" alt="LO" class="gallery-image">
       </div>
       <div class="flex-shrink-0">
-      <img src="/images/Life Juice.png" alt="Life Juice" style="height: 700px;">
+        <img src="/images/Firenze.png" alt="Firenze" class="gallery-image">
       </div>
+      <div class="flex-shrink-0">
+        <img src="/images/Life Juice.png" alt="Life Juice" class="gallery-image">
+      </div>
+
+      <style>
+        .gallery-image {
+          height: 700px;
+        }
+
+        @media (max-width: 768px) {
+          .gallery-image {
+        height: 450px;
+          }
+        }
+      </style>
     </div>
   </section>
 
