@@ -61,19 +61,19 @@ const { banner } = gallery.data;
       
       <style>
         .gallery-image {
-          height: 700px;
+          height: 550px;
         }
 
         @media (max-width: 768px) {
           .gallery-image {
-        height: 450px;
+        height: 550px;
           }
         }
       </style>
     </div>
   </section>
 
-  <section class="container mx-auto my-16">
+  <section class="container mx-auto my-24">
     <h3 class="font-semibold">Stanford Class of 2026</h3>
     <p class="text-h5 mb-8">A peek into my visual design work as Class President.</p>
 
@@ -209,26 +209,13 @@ const { banner } = gallery.data;
 
 
     </div>
-      
-    <style>
-      .gallery-image {
-        height: 700px;
-      }
-
-      @media (max-width: 768px) {
-        .gallery-image {
-      height: 450px;
-        }
-      }
-    </style>
-
   </section>
 
-  <section class="container mx-auto my-16">
+  <section class="container mx-auto my-24">
     <!-- Gallery Section 2 -->
     <div class="mb-24">
       <h3 class="font-semibold ">Spotify Playlists</h3>
-      <p class="text-h5 mb-4">A handful of my Spotify Playlist Covers.</p>
+      <p class="text-h5 mb-4 ">A handful of my Spotify Playlist Covers.</p>
       <div class="gallery-scroll flex overflow-x-auto space-x-4">
         <div class="w-2/3 gallery-item lg:w-1/3 flex-shrink-0">
           <img class="mb-4 rounded-lg" src="/images/Lemon.png" alt="Lemon" >
@@ -273,7 +260,7 @@ const { banner } = gallery.data;
     </div>
   </section>
 
-  <section class="container mx-auto my-16">
+  <section class="container mx-auto my-24 overflow-visible">
     <!-- Gallery Section 3 -->
     <div class="mb-24">
       <h3 class="font-semibold mb-4">Instagram Spreads</h3>
@@ -304,26 +291,48 @@ const { banner } = gallery.data;
 
   </section>
 
-  <style>
-    .gallery-scroll {
-      scrollbar-width: thin;
-      scrollbar-color: #ccc transparent;
-      height: fit-content;
-    }
+        <style>
+      body {
+        overflow-x: hidden; /* Prevent the entire page from scrolling horizontally */
+      }
     
-   
-    
-    /* Set images to cover the height */
-    .long-image {
-      height: 100%;
-      width: auto; /* Maintain the aspect ratio */
-    }
+      .gallery-scroll {
+        scrollbar-width: thin;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%); /* Center the section while allowing full-width overflow */
+        margin-right: calc(-50vw + 50%);
+        scrollbar-color: #ccc transparent;
+        height: fit-content;
+        overflow-x: auto; /* Enable horizontal scrolling within the gallery */
+        padding-left: calc(15vw);
+      }
 
+      .gallery-text {
+        margin-left: calc(15vw); /* Match the padding of .gallery-scroll */
+      }
 
-.container {
-  position: relative;
-  z-index: 1; /* Ensure your content is above the background */
-}
+      .gallery-item {
+        width: 100%;
+        max-width: 450px; /* Set a maximum width for the images */
+        height: auto; /* Maintain the aspect ratio */
+      }
+
+      .gallery-image,
+      .long-image {
+        height: 100%;
+        width: auto; /* Maintain the aspect ratio */
+        
+      }
     
+      .flex-shrink-0 {
+        position: relative;
+        overflow: visible; /* Allow images to overflow the container */
+      }
+    
+      @media (max-width: 768px) {
+        .gallery-image {
+          height: 450px;
+        }
+      }
     </style>
 </Base>
