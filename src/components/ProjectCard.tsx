@@ -71,7 +71,7 @@ export function ProjectCard({ title, description, image, tags, liveUrl, githubUr
           <div className="flex justify-between items-start mb-3">
             <h3 className="text-xl text-gray-800 font-bold">{title}</h3>
             {status && (
-              <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">
+              <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full text-nowrap">
                 {status}
               </span>
             )}

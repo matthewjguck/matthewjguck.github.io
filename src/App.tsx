@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
 import { Hero } from './components/Hero'
+import { About } from './components/About'
 import { Projects } from './components/Projects'
 import { Gallery } from './pages/Gallery'
 import { ImageWithFallback } from './components/figma/ImageWithFallback'
@@ -214,6 +215,7 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Hero />
+      <About />
       <Projects />
     </div>
   )
