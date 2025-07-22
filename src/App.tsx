@@ -215,8 +215,8 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <Hero />
-      <About />
       <Projects />
+      <About />
     </div>
   )
 }

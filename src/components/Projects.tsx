@@ -76,7 +76,7 @@ export function Projects() {
           >
             <motion.button
               onClick={() => setShowAllProjects(!showAllProjects)}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300"
+              className="bg-gradient-to-r from-red-600 to-yellow-500 text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

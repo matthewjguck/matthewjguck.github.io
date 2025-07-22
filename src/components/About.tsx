@@ -40,17 +40,41 @@ export function About() {
       imageAlt: "Cane's logo",
     },
     {
-      category: "People",
-      imageSrc: "/images/family.webp",
-      imageAlt: "Group photo of friends and family",
+      category: "Color",
+      imageSrc: "/images/yellow.png",
+      imageAlt: "Yellow color swatch",
     },
   ];
 
   // Data for the descriptive text banners
-  const topBannerText =
-    "Friend • Researcher • Innovator • Designer • Musician • Leader • Problem-Solver • Connector • Builder • Experimenter • Storyteller • Optimist • Achiever";
-  const bottomBannerText =
-    "Engineer • Brother • Artist • Communicator • Mentor • Developer • Organizer • Creator • Thinker • Programmer • Advocate • Doer";
+  const topBannerWords = [
+    "Friend", "Researcher", "Innovator", "Designer", "Musician", "Leader", 
+    "Problem-Solver", "Connector", "Builder", "Experimenter", "Storyteller", 
+    "Optimist", "Achiever"
+  ];
+  
+  const bottomBannerWords = [
+    "Engineer", "Brother", "Artist", "Communicator", "Mentor", "Developer", 
+    "Organizer", "Creator", "Thinker", "Programmer", "Advocate", "Doer"
+  ];
+
+  // Function to format banner text with adjustable spacing
+  const formatBannerText = (words: string[], gapSize: number = 4, repeats: number = 3) => {
+    // Repeat the words array multiple times for continuous scrolling
+    const repeatedWords = Array(repeats).fill(words).flat();
+    
+    return repeatedWords.map((word, index) => (
+      <span key={index}>
+        {word}
+        {index < repeatedWords.length - 1 && (
+          <span style={{ margin: `0 ${gapSize * 0.5}rem` }}>•</span>
+        )}
+      </span>
+    ));
+  };
+
+  const topBannerElements = formatBannerText(topBannerWords, 8, 4);
+  const bottomBannerElements = formatBannerText(bottomBannerWords, 8, 4);
 
   // Flag icons data (using actual flag images)
   const flagIcons = [
@@ -63,66 +87,75 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-transparent flex justify-center">
+    <section id="about" className=" bg-transparent flex justify-center">
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="w-full max-w-7xl h-[792px] relative overflow-hidden bg-white/10 backdrop-blur-sm"
+        className="w-full max-w-full relative overflow-hidden bg-black"
+        style={{ height: '100vh' }}
       >
         {/* Top banner text */}
-        <div className="absolute top-0 left-0 right-0 py-2 bg-transparent overflow-hidden">
-          <motion.p 
-            animate={{ x: [-1000, 1000] }}
-            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-            className="text-gray-600 text-sm font-normal whitespace-nowrap"
+        <div className="absolute top-2 left-0 right-0 bg-black overflow-hidden flex items-center font-bold font-wide">
+          <motion.div 
+            animate={{ x: [-2000, 2000] }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+            className="text-gray-300 text-lg font-extralight tracking-widest whitespace-nowrap flex items-center"
+            style={{ fontStretch: 'expanded' }}
           >
-            {topBannerText}
-          </motion.p>
+            {topBannerElements}
+          </motion.div>
         </div>
 
         {/* Main content container */}
-        <div className="flex h-full pt-8">
+        <div className="flex h-full pt-12 gap-1">
           {/* Left side - Portrait section */}
           <motion.div 
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-[40%] h-full bg-black flex flex-col justify-between"
+            className="relative w-[40%] h-full bg-black flex flex-col"
           >
-            <div className="flex-1 flex flex-col justify-center items-center p-8">
-              <div className="w-full h-[60%] relative">
-                <img
-                  src="/images/headshot.jpg"
-                  alt="Matthew Guck portrait"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <h1 className="text-white text-6xl lg:text-7xl font-medium text-center leading-tight tracking-wide">
-                    Matthew
-                    <br />
-                    Guck
-                  </h1>
-                </div>
-              </div>
-            </div>
+            <div className="flex-1 relative">
+              <img
+                src="/images/headshot.jpg"
+                alt="Matthew Guck portrait"
+                className="w-full h-full object-cover z-20"
+              />
 
-            {/* Flag icons */}
-            <div className="flex justify-center gap-2 mb-4">
-              {flagIcons.map((flag, index) => (
+              {/* Greeting text overlay - top left corner */}
+              <div className="absolute top-6 left-6 z-40">
                 <motion.div
-                  key={index}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                  className="p-1 bg-transparent border border-white rounded"
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="text-left"
                 >
-                  <img src={flag.src} alt={flag.alt} className="h-5 w-8 object-cover" />
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-1 drop-shadow-lg">Hi there! 👋 I'm</h3>
+                  <h2 className="text-6xl md:text-6xl font-bold bg-gradient-to-r from-yellow-400 to-pink-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
+                    Matthew Guck
+                  </h2>
                 </motion.div>
-              ))}
+              </div>
+
+              {/* Flag icons - moved up inside the image area */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
+                {flagIcons.map((flag, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1.2 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                    className="p-1 bg-transparent"
+                  >
+                    <img src={flag.src} alt={flag.alt} className="h-30 w-15 mb-10 object-contain" />
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -132,109 +165,83 @@ export function About() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative w-[60%] h-full bg-gray-100 flex flex-col"
+            className="relative w-[60%] h-full bg-gray-100 flex flex-col gap-1"
           >
-            {/* Favorites section */}
+            {/* Personal blurb section */}
             <div className="p-6">
-              <h2 className="text-4xl font-medium text-gray-900 mb-4">
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="bg-white p-6 mx-30 rounded-xl shadow-md border border-gray-100"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                  {/* Left column - Personal intro (2/3 width) */}
+                  <div className="md:col-span-2">
+                    <motion.div
+                      initial={{ x: -20, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
+                    >
+                        <div className="grid grid-cols-2 border-b md:grid-cols-1 lg:grid-cols-2 px-20">
+                            <img src="/images/SCS.png" className="h-20 w-40 object-contain inline-block mx-6 my-2" alt="Stanford University logo" />
+                            <img src="/images/dschool.png" className="h-20 w-40 object-contain inline-block mx-6 mt-2 mb-6" alt="d.school logo" />
+                        </div>
+
+                      <p className="text-gray-700 leading-relaxed text-sm md:text-base mt-6 mx-3">
+                        I'm a Junior studying Computer Science and Design at Stanford University. 🌲 I am the Stanford Class of 2026 President, and I love to create things— software, visuals, games, music, etc.
+                      </p>
+                    </motion.div>
+                  </div>
+                  
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Favorites section */}
+            <div className="flex-1 pb-16 px-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 mb-4 text-center">
                 My favorite...
               </h2>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {favorites.map((item, index) => (
                   <motion.div 
                     key={index}
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="flex flex-col"
+                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                    className="flex flex-col w-full max-w-xs mx-auto"
                   >
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900 mb-2 text-center">
                       {item.category}
                     </h3>
-                    <div className="overflow-hidden h-[200px] rounded shadow-md bg-white">
+                    <div className="relative w-full overflow-hidden rounded shadow-md bg-white border border-black" style={{ aspectRatio: '11/17' }}>
                       <img
                         src={item.imageSrc}
                         alt={item.imageAlt}
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     </div>
                   </motion.div>
                 ))}
               </div>
             </div>
+          </motion.div>
+        </div>
 
-            <div className="bg-black h-1.5 my-2" />
-
-            {/* Personal blurb section */}
-            <div className="flex-1 p-6 flex flex-col justify-center">
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="space-y-6"
-              >
-                <div className="text-center lg:text-left">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Matthew Guck</h3>
-                  <p className="text-lg text-gray-600 mb-4">
-                    Stanford University • Design & Computer Science
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-6">
-                    Originally from Longview, Texas, I'm currently pursuing a degree that bridges the 
-                    gap between beautiful design and powerful technology. My work focuses on creating 
-                    digital experiences that not only look great but also solve real problems and 
-                    improve people's lives.
-                  </p>
-                </div>
-
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-100">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                    🏆 Recognition & Impact
-                  </h4>
-                  <ul className="space-y-2 text-gray-700 text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 mt-1">•</span>
-                      <span>"Greatest Societal Impact" Award - Stanford CS147 Expo</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 mt-1">•</span>
-                      <span>"Best Beginner Hack" - TreeHacks 2024 (1,600+ participants)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 mt-1">•</span>
-                      <span>The Cupid Project: 7+ years of community service</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 mt-1">•</span>
-                      <span>Type 1 diabetes advocate and educator</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Personal Mission</h4>
-                  <p className="text-gray-700 leading-relaxed">
-                    I believe technology should be a force for good. Whether I'm developing educational 
-                    games for diabetes awareness, creating tools to help teachers connect with students, 
-                    or organizing community service projects, my goal is always the same: to use my skills 
-                    to make a positive impact in people's lives.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Bottom banner text */}
-            <div className="bg-black py-2 mt-auto">
-              <motion.p 
-                animate={{ x: [1000, -1000] }}
-                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                className="text-gray-500 text-sm font-normal whitespace-nowrap"
-              >
-                {bottomBannerText}
-              </motion.p>
-            </div>
+        {/* Bottom banner text - positioned absolutely to span full width */}
+        <div className="absolute bottom-0 p-2 left-0 right-0 bg-black overflow-hidden flex items-center z-10">
+          <motion.div 
+            animate={{ x: [2000, -2000] }}
+            transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
+            className="text-gray-300 text-lg font-extralight tracking-widest whitespace-nowrap flex items-center"
+            style={{ fontStretch: 'expanded' }}
+          >
+            {bottomBannerElements}
           </motion.div>
         </div>
       </motion.div>
