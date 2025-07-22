@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { width: 360px; display: flex-col; align-items: center; padding: 0px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, sans-serif; background: linear-gradient(118deg, rgba(27.70, 35.93, 98.22, 0.40) 0%, rgba(3.23, 11.58, 74.79, 0.40) 100%); 
+        backdrop-filter: blur(14px)}
+    button { margin: 5px; padding: 8px; width: 100%; cursor: pointer; }
+    #latestScreenshot { max-width: 100%; margin-top: 10px; }
+    .screenshot-item { margin-bottom: 10px; }
+    .screenshot-item img { max-width: 100%; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: url('/images/background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .bobbing {
+            display: block;
+            width: 200px; /* Adjust as needed */
+            height: auto;
+            animation: bobbing 2s infinite ease-in-out;
+        }
+
+        @keyframes bobbing {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* Adjust height of bobbing */
+            }
+        }
+
+    /* Gradient Overlay */
+    .gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;                    
+      /* Edit colors live? */
+      background: linear-gradient(118deg, rgba(118, 104, 243, 0.4) 20%, rgba(3, 11, 75, 0.40) 100%);
+      z-index: -1; /* Ensures it's above the background but below everything else */
+    }
+
+    /* Circle animations */
+    @keyframes slideCircle {
+      0% { left: 20px; }
+      50% { left: 220px; }
+      100% { left: 20px; }
+    }
+
+    .animated-circle {
+      animation: slideCircle 8s ease-in-out infinite;
+      transition: background 0.5s ease;
+    }
+
+    #political {
+      animation-delay: 0s;
+    }
+
+    #economic {
+      animation-delay: 2s;
+    }
+
+    #educational {
+      animation-delay: 4s;
+    }
+
+    #tonal {
+      animation-delay: 6s;
+    }
+
+    /* JavaScript will dynamically update colors */
+  </style>
+  
+  <script>
+    // Color gradients for each alignment bar
+    const gradients = {
+      political: ['#8D76A0', '#3B5CFF'], // Purple to Blue
+      economic: ['#E8A0C9', '#FFA500'],  // Pink to Orange
+      educational: ['#8D76A0', '#3B5CFF'], // Purple to Blue
+      tonal: ['#E8A0C9', '#FFA500']      // Pink to Orange
+    };
+
+    // Function to interpolate between two colors
+    function interpolateColor(color1, color2, factor) {
+      const c1 = hexToRgb(color1);
+      const c2 = hexToRgb(color2);
+      
+      const r = Math.round(c1.r + (c2.r - c1.r) * factor);
+      const g = Math.round(c1.g + (c2.g - c1.g) * factor);
+      const b = Math.round(c1.b + (c2.b - c1.b) * factor);
+      
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    // Helper function to convert hex to RGB
+    function hexToRgb(hex) {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    }
+
+    // Update circle colors based on animation position
+    function updateCircleColors() {
+      Object.keys(gradients).forEach(id => {
+        const circle = document.getElementById(id);
+        if (!circle) return;
+        
+        const rect = circle.getBoundingClientRect();
+        const parentRect = circle.parentElement.getBoundingClientRect();
+        const relativeLeft = rect.left - parentRect.left;
+        
+        // Calculate position factor (0 to 1) based on circle position
+        const barWidth = 292;
+        const circleWidth = 9;
+        const maxPosition = barWidth - circleWidth;
+        const factor = Math.max(0, Math.min(1, (relativeLeft - 20) / (220 - 20)));
+        
+        // Interpolate color based on position
+        const colors = gradients[id];
+        const newColor = interpolateColor(colors[0], colors[1], factor);
+        circle.style.background = newColor;
+      });
+    }
+
+    // Update colors continuously
+    setInterval(updateCircleColors, 50);
+  </script>
+</head>
+<body>
+
+    <!-- Gradient Overlay -->
+    <div class="gradient-overlay"></div>
+
+    <div style="display: flex; direction: column; justify-content: center; width: 100%;">
+        <img style="width: 120px; height: auto; margin-top: 10px;" src="/images/Myst.png"/>
+    </div>
+    <div style="display: flex; direction: column; justify-content: center; width: 100%;">
+        <img id="blobImage" style="width: 180px; margin-top: 40px; height: auto;" src="/images/Blob.png" class="bobbing"/>
+    </div>
+
+     <div style="text-align: center; margin-top: 40px;"><span style="color: white; font-size: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 600; text-transform: capitalize; line-height: 28px; word-wrap: break-word">
+        Today's Summary<br/>
+      </span>
+    </div>
+  
+
+
+    <!-- Info Cards -->
+    <div style="display: flex; direction: column; justify-content: center; width: 100%; margin-top: 30px;">
+
+        <!-- Political Alignment Card-->
+        <div style="width: 300x; height: 50px; padding-top: 5px; padding-bottom: 5px; padding-left: 14px; padding-right: 14px; background: rgba(0, 0, 0, 0.18); border-radius: 10px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6.58px; display: inline-flex">
+            
+            <div style="height: 30px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+
+                <!-- Title -->
+                <div style="text-align: center; color: white; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 500; text-transform: capitalize; word-wrap: break-word; margin-bottom: 1px;">Political Alignment</div>
+
+                <div style="width: 292px; height: 8px; position: relative">
+                    <!-- Bar -->
+                    <div style="width: 292px; height: 3px; left: 0px; top: 3px; position: absolute; background: linear-gradient(90deg, #FF9AB3 0%, #7F98FF 100%); border-radius: 4px"></div>
+
+                    <!-- Circle -->
+                    <div id="political" class="animated-circle" style="width: 9px; height: 9px; left: 201.46px; top: 0px; position: absolute; background: #A299EA; border-radius: 9999px; border: 1.5px white solid"></div>
+                    <!-- Circle -->
+                </div>
+                <div style="height: 7px; position: relative">
+                    <div style="width: 50px; left: 0px; top: 0px; position: absolute; text-align: left; color: white; font-size: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; text-transform: capitalize; word-wrap: break-word">Conservative</div>
+                    <div style="width: 50px; right: -292px; top: 0px; position: absolute; text-align: right; color: white; font-size: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; text-transform: capitalize; word-wrap: break-word">Liberal</div>
+                </div>
+            </div>
+    
+          </div>
+  
+    </div>
+
+    <div style="display: flex; direction: column; justify-content: center; width: 100%; margin-top: 20px;">
+
+      <!-- Economic Alignment Card-->
+      <div style="width: 300x; height: 50px; padding-top: 5px; padding-bottom: 5px; padding-left: 14px; padding-right: 14px; background: rgba(0, 0, 0, 0.18); border-radius: 10px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6.58px; display: inline-flex">
+          
+          <div style="height: 30px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+
+              <!-- Title -->
+              <div style="text-align: center; color: white; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 500; text-transform: capitalize; word-wrap: break-word; margin-bottom: 1px;">Economic Alignment</div>
+
+              <div style="width: 292px; height: 8px; position: relative">
+                  <!-- Bar -->
+                  <div style="width: 292px; height: 3px; left: 0px; top: 3px; position: absolute; background: linear-gradient(90deg, #9FFFC7 0%, #FF7195 100%); border-radius: 4px"></div>
+
+                  <!-- Circle -->
+                  <div id="economic" class="animated-circle" style="width: 9px; height: 9px; left: 201.46px; top: 0px; position: absolute; background: #A299EA; border-radius: 9999px; border: 1.5px white solid"></div>
+                  <!-- Circle -->
+              </div>
+              <div style="height: 7px; position: relative">
+                  <div style="width: 50px; left: 0px; top: 0px; position: absolute; text-align: left; color: white; font-size: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; text-transform: capitalize; word-wrap: break-word">Capitalist</div>
+                  <div style="width: 50px; right: -292px; top: 0px; position: absolute; text-align: right; color: white; font-size: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; text-transform: capitalize; word-wrap: break-word">Socialist</div>
+              </div>
+          </div>
+  
+        </div>
+
+  </div>
+
+  <div style="display: flex; direction: column; justify-content: center; width: 100%; margin-top: 20px;">
+
+    <!-- Educational Alignment Card-->
+    <div style="width: 300x; height: 50px; padding-top: 5px; padding-bottom: 5px; padding-left: 14px; padding-right: 14px; background: rgba(0, 0, 0, 0.18); border-radius: 10px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6.58px; display: inline-flex">
+        
+        <div style="height: 30px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+
+            <!-- Title -->
+            <div style="text-align: center; color: white; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 500; text-transform: capitalize; word-wrap: break-word; margin-bottom: 1px;">Educational Alignment</div>
+
+            <div style="width: 292px; height: 8px; position: relative">
+                <!-- Bar -->
+                <div style="width: 292px; height: 3px; left: 0px; top: 3px; position: absolute; background: linear-gradient(90deg, #8D76A0 0%, #3B5CFF 100%); border-radius: 4px"></div>
+
+                <!-- Circle -->
+                <div id="educational" class="animated-circle" style="width: 9px; height: 9px; left: 201.46px; top: 0px; position: absolute; background: #A299EA; border-radius: 9999px; border: 1.5px white solid"></div>
+                <!-- Circle -->
+            </div>
+            <div style="height: 7px; position: relative">
+                <div style="width: 50px; left: 0px; top: 0px; position: absolute; text-align: left; color: white; font-size: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; text-transform: capitalize; word-wrap: break-word">Brainrot</div>
+                <div style="width: 100px; right: -292px; top: 0px; position: absolute; text-align: right; color: white; font-size: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; text-transform: capitalize; word-wrap: break-word">Educational</div>
+            </div>
+        </div>
+
+      </div>
+
+</div>
+
+<div style="display: flex; direction: column; justify-content: center; width: 100%; margin-top: 20px;">
+
+  <!-- Tonal Alignment Card-->
+  <div style="width: 300x; height: 50px; padding-top: 5px; padding-bottom: 5px; padding-left: 14px; padding-right: 14px; background: rgba(0, 0, 0, 0.18); border-radius: 10px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6.58px; display: inline-flex">
+      
+      <div style="height: 30px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+
+          <!-- Title -->
+          <div style="text-align: center; color: white; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 500; text-transform: capitalize; word-wrap: break-word; margin-bottom: 1px;">Tonal Alignment</div>
+
+          <div style="width: 292px; height: 8px; position: relative">
+              <!-- Bar -->
+              <div style="width: 292px; height: 3px; left: 0px; top: 3px; position: absolute; background: linear-gradient(90deg, #9E4BE3 0%, #FFE23B 100%); border-radius: 4px"></div>
+
+              <!-- Circle -->
+              <div id="tonal" class="animated-circle" style="width: 9px; height: 9px; left: 201.46px; top: 0px; position: absolute; background: #A299EA; border-radius: 9999px; border: 1.5px white solid"></div>
+              <!-- Circle -->
+          </div>
+          <div style="height: 7px; position: relative">
+              <div style="width: 50px; left: 0px; top: 0px; position: absolute; text-align: left; color: white; font-size: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; text-transform: capitalize; word-wrap: break-word">Pessimistic</div>
+              <div style="width: 50px; right: -292px; top: 0px; position: absolute; text-align: right; color: white; font-size: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 300; text-transform: capitalize; word-wrap: break-word">Optimistic</div>
+          </div>
+      </div>
+
+    </div>
+
+</div>
+
+<div style="text-align: center; margin-top: 40px;"><span style="color: white; font-size: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 200; text-transform: capitalize; line-height: 24.16px; word-wrap: break-word">
+ <br/>
+</span>
+</div>
+
+</div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
