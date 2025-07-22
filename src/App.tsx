@@ -3,8 +3,6 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
 import { Hero } from './components/Hero'
 import { Projects } from './components/Projects'
-import { Skills } from './components/Skills'
-import { Contact } from './components/Contact'
 import { Gallery } from './pages/Gallery'
 import { ImageWithFallback } from './components/figma/ImageWithFallback'
 import { CustomProjectLayout } from './components/CustomProjectLayout'
@@ -217,8 +215,6 @@ export default function App() {
     <div className="min-h-screen">
       <Hero />
       <Projects />
-      <Skills />
-      <Contact />
     </div>
   )
 }
