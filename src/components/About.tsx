@@ -36,7 +36,7 @@ export function About() {
     },
     {
       category: "Restaurant", 
-      imageSrc: "/images/canes.png",
+      imageSrc: "/images/Canes.png",
       imageAlt: "Cane's logo",
     },
     {
