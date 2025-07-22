@@ -213,13 +213,16 @@ function AutoScrollingPanorama() {
     middle: number;
     bottom: number;
   }>({ top: 0, middle: 0, bottom: 0 });
+  const [containerWidth, setContainerWidth] = useState(0);
 
   useEffect(() => {
     const updateDimensions = () => {
-      setDimensions({
+      const newDimensions = {
         width: window.innerWidth,
         height: window.innerHeight
-      });
+      };
+      setDimensions(newDimensions);
+      setContainerWidth(newDimensions.width);
     };
     
     updateDimensions();
@@ -271,7 +274,26 @@ function AutoScrollingPanorama() {
       ).then(widths => widths.reduce((sum, width) => sum + width, 0));
     };
 
-    const rowHeight = dimensions.height / 3;
+    // Calculate actual hero height based on responsive breakpoints
+    const getActualHeroHeight = () => {
+      const viewportHeight = dimensions.height;
+      const viewportWidth = dimensions.width;
+      
+      // Match Tailwind breakpoints: sm (640px), lg (1024px)
+      if (viewportWidth >= 1024) {
+        // lg:min-h-screen = 100vh
+        return viewportHeight;
+      } else if (viewportWidth >= 640) {
+        // sm:min-h-[33vh] = 33vh
+        return viewportHeight * 0.5;
+      } else {
+        // min-h-[40vh] = 40vh
+        return viewportHeight * 0.40;
+      }
+    };
+
+    const actualHeroHeight = getActualHeroHeight();
+    const rowHeight = actualHeroHeight / 3;
     
     Promise.all([
       calculateRowWidth(topRowImages, rowHeight),
@@ -284,7 +306,7 @@ function AutoScrollingPanorama() {
         bottom: bottomWidth
       });
     });
-  }, [dimensions.height, topRowImages, middleRowImages, bottomRowImages]);
+  }, [dimensions.height, dimensions.width, topRowImages, middleRowImages, bottomRowImages]);
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -582,7 +604,7 @@ export function Hero() {
   return (
 	<section
 	  ref={sectionRef}
-	  className="min-h-screen flex flex-col justify-center items-stretch relative overflow-hidden"
+	  className="min-h-[40vh] sm:min-h-[33vh] lg:min-h-screen flex flex-col justify-center items-stretch relative overflow-hidden"
 	  onMouseMove={activeImageId === 'shapes' ? handleMouseMove : undefined}
 	  onMouseLeave={(activeImageId === 'shapes' || activeImageId === 'graph') ? () => {
 		setMouse({ x: -9999, y: -9999 })
@@ -644,7 +666,7 @@ export function Hero() {
 		  {activeImageId === 'frames' && (
 			<div
 			  /* Carousel Container: positioned on the right side of the screen */
-			  className="absolute top-1/2 right-30 transform -translate-y-1/2 z-5 pointer-events-none"
+			  className="absolute top-1/2 right-30 sm:right-5 transform -translate-y-1/2 z-5 pointer-events-none"
 			  style={{ 
 				background: 'none'
 			  }}
@@ -678,8 +700,8 @@ export function Hero() {
 				{/* Matting inside the frame using PNG */}
 				<div
 				  style={{
-					width: 370, // Mat width
-					height: 510, // Mat height
+					width: 390, // Mat width
+					height: 537, // Mat height
 					position: 'relative',
 					display: 'flex',
 					alignItems: 'center',
@@ -695,8 +717,8 @@ export function Hero() {
 					  position: 'absolute',
 					  top: 0,
 					  left: 0,
-					  width: 370,
-					  height: 510,
+					  width: 390,
+					  height: 537,
 					  zIndex: 4, // Lower than carousel
 					  pointerEvents: 'none',
 					  userSelect: 'none',
@@ -829,22 +851,22 @@ export function Hero() {
 	  {/* Floating geometric shapes */}
 	  <div className="absolute inset-0 pointer-events-none">
 		<motion.div
-		  className="absolute top-40 right-20 w-16 h-16 border border-white/20 rotate-45"
+		  className="absolute top-20 sm:top-40 right-8 sm:right-20 w-8 sm:w-16 h-8 sm:h-16 border border-white/20 rotate-45"
 		  animate={{ rotate: [45, 225, 45] }}
 		  transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
 		/>
 		<motion.div
-		  className="absolute bottom-40 right-32 w-2 h-2 bg-white/40 rounded-full"
+		  className="absolute bottom-20 sm:bottom-40 right-12 sm:right-32 w-1 sm:w-2 h-1 sm:h-2 bg-white/40 rounded-full"
 		  animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.8, 0.4] }}
 		  transition={{ duration: 3, repeat: Infinity }}
 		/>
 	  </div>
 
   {/* Main content: two columns */}
-  <div className="relative z-50 ml-40 mt-20 flex flex-1 flex-col lg:flex-row items-center lg:items-center justify-between max-w-7xl mx-auto w-full px-8">
+  <div className="relative z-50 ml-0 sm:-ml-60 lg:ml-40 mt-8 sm:mt-16 lg:mt-20 flex flex-1 flex-col lg:flex-row items-center lg:items-center justify-between max-w-7xl mx-auto w-full px-4 sm:px-8">
 	{/* Left: Name and Role */}
-	<div className="flex flex-col items-start justify-center flex-1 py-24">
-	  <h1 className="font-bold leading-none tracking-tight text-white mt-40 mb-6 text-[clamp(3rem,8vw,10rem)] drop-shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+	<div className="flex flex-col items-start justify-center flex-1 py-8 sm:py-16 lg:py-24">
+	  <h1 className="font-bold leading-none tracking-tight text-white mt-8 sm:-mt-20 lg:mt-40 mb-4 sm:mb-6 text-[clamp(2.5rem,12vw,10rem)] sm:text-[clamp(3rem,8vw,10rem)] drop-shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
 <span
   className={
 	`transition-colors duration-500 drop-shadow-[0_6px_20px_rgba(0,0,0,0.4)] ` +
@@ -861,9 +883,9 @@ export function Hero() {
 <br />
 <span className="font-light text-white/80 drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] [text-shadow:_1px_1px_8px_rgba(0,0,0,0.9)]">Guck</span>
 	  </h1>
-	  <div className="mt-50">
-		<div className="text-xl md:text-2xl text-white font-bold drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] [text-shadow:_1px_1px_8px_rgba(0,0,0,0.9)]">Stanford University</div>
-		<div className="text-lg md:text-xl text-white/80 font-light drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] [text-shadow:_1px_1px_6px_rgba(0,0,0,0.8)]">Design &amp; Computer Science</div>
+	  <div className="mt-6 sm:mt-12 lg:mt-50">
+		<div className="text-lg sm:text-xl md:text-2xl text-white font-bold drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] [text-shadow:_1px_1px_8px_rgba(0,0,0,0.9)]">Stanford University</div>
+		<div className="text-base sm:text-lg md:text-xl text-white/80 font-light drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] [text-shadow:_1px_1px_6px_rgba(0,0,0,0.8)]">Design &amp; Computer Science</div>
 	  </div>
 	</div>
   </div>
