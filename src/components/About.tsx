@@ -191,8 +191,11 @@ export function About() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.5 }}
                     >
+                        <h2 className="text-3xl text-center md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                          About Me
+                        </h2>
                       <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-6 mx-3">
-                        I'm a Junior studying Computer Science and Design at Stanford University. 🌲 I am the Stanford Class of 2026 President, and I love to create things— software, visuals, games, music, etc.
+                        I’m a Junior at Stanford studying Computer Science and Design. 🌲 As the Class of 2026 President and founder of The Cupid Project, I’m passionate about building things that bring people together — whether through software, visuals, experiences, or music.
                       </p>
 
                       <div className="grid grid-cols-2  border-t items-center sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:-gap-100 lg:grid-cols-2 lg:gap-10 px-5">
