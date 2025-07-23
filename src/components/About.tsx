@@ -108,20 +108,27 @@ export function About() {
         </div>
 
         {/* Main content container */}
-        <div className="flex h-full pt-12 gap-1 sm:h-1/3 md:h-1/3 lg:h-full">
+        <div className="flex flex-col lg:flex-row h-full pt-12 gap-1">
           {/* Left side - Portrait section */}
           <motion.div 
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-[40%] h-full bg-black flex flex-col"
+            className="relative w-full lg:w-[40%] h-96 sm:h-[500px] md:h-[600px] lg:h-full flex flex-col overflow-hidden"
           >
             <div className="flex-1 relative">
+              {/* Mobile and tablet - use wide image */}
+              <img
+                src="/images/headshot-wide.png"
+                alt="Matthew Guck portrait"
+                className="w-full h-full object-cover object-center z-20 block lg:hidden"
+              />
+              {/* Desktop - use regular headshot */}
               <img
                 src="/images/headshot.jpg"
                 alt="Matthew Guck portrait"
-                className="w-full sm:h-[33vh] lg:h-full md:h-full object-cover z-20"
+                className="w-full h-full object-cover z-20 hidden lg:block"
               />
 
               {/* Greeting text overlay - top left corner */}
@@ -151,7 +158,7 @@ export function About() {
                     transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
                     className="p-1 bg-transparent"
                   >
-                    <img src={flag.src} alt={flag.alt} className="h-30 w-15 mb-10 object-contain" />
+                    <img src={flag.src} alt={flag.alt} className="h-30 w-15 -mb-12 object-contain" />
                   </motion.div>
                 ))}
               </div>
@@ -164,7 +171,7 @@ export function About() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative w-[60%] h-full bg-gray-100 flex flex-col gap-1"
+            className="relative w-full lg:w-[60%] flex-1 lg:h-full bg-gray-100 flex flex-col gap-1"
           >
             {/* Personal blurb section */}
             <div className="p-6">
@@ -184,14 +191,14 @@ export function About() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.5 }}
                     >
-                        <div className="grid grid-cols-2  border-b items-center sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:-gap-100 lg:grid-cols-2 lg:gap-10 px-5">
-                            <img src="/images/SCS.png" className="h-20 w-40 object-contain inline-block mx-2 mt-2" alt="Stanford University logo" />
-                            <img src="/images/dschool.png" className="h-20 w-40 object-contain inline-block mx-2 mt-2 mb-6" alt="d.school logo" />
-                        </div>
-
-                      <p className="text-gray-700 leading-relaxed text-sm md:text-base mt-6 mx-3">
+                      <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-6 mx-3">
                         I'm a Junior studying Computer Science and Design at Stanford University. 🌲 I am the Stanford Class of 2026 President, and I love to create things— software, visuals, games, music, etc.
                       </p>
+
+                      <div className="grid grid-cols-2  border-t items-center sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:-gap-100 lg:grid-cols-2 lg:gap-10 px-5">
+                        <img src="/images/SCS.png" className="h-20 w-40 object-contain inline-block mx-2 mt-2" alt="Stanford University logo" />
+                        <img src="/images/dschool.png" className="h-20 w-40 object-contain inline-block mx-2 mt-2 mb-6" alt="d.school logo" />
+                      </div>
                     </motion.div>
                   </div>
                   
