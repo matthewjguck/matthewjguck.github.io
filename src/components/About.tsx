@@ -93,8 +93,7 @@ export function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="w-full max-w-full relative overflow-hidden bg-black"
-        style={{ height: '100vh' }}
+        className="w-full max-w-full h-full relative overflow-hidden bg-black"
       >
         {/* Top banner text */}
         <div className="absolute top-2 left-0 right-0 bg-black overflow-hidden flex items-center font-bold font-wide">
@@ -109,7 +108,7 @@ export function About() {
         </div>
 
         {/* Main content container */}
-        <div className="flex h-full pt-12 gap-1">
+        <div className="flex h-full pt-12 gap-1 sm:h-1/3 md:h-1/3 lg:h-full">
           {/* Left side - Portrait section */}
           <motion.div 
             initial={{ x: -100, opacity: 0 }}
@@ -122,7 +121,7 @@ export function About() {
               <img
                 src="/images/headshot.jpg"
                 alt="Matthew Guck portrait"
-                className="w-full h-full object-cover z-20"
+                className="w-full sm:h-[33vh] lg:h-full md:h-full object-cover z-20"
               />
 
               {/* Greeting text overlay - top left corner */}
@@ -174,7 +173,7 @@ export function About() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="bg-white p-6 mx-30 rounded-xl shadow-md border border-gray-100"
+                className="bg-white p-6 rounded-xl shadow-md border border-gray-100"
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                   {/* Left column - Personal intro (2/3 width) */}
@@ -185,9 +184,9 @@ export function About() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.5 }}
                     >
-                        <div className="grid grid-cols-2 border-b md:grid-cols-1 lg:grid-cols-2 px-20">
-                            <img src="/images/SCS.png" className="h-20 w-40 object-contain inline-block mx-6 my-2" alt="Stanford University logo" />
-                            <img src="/images/dschool.png" className="h-20 w-40 object-contain inline-block mx-6 mt-2 mb-6" alt="d.school logo" />
+                        <div className="grid grid-cols-2  border-b items-center sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:-gap-100 lg:grid-cols-2 lg:gap-10 px-5">
+                            <img src="/images/SCS.png" className="h-20 w-40 object-contain inline-block mx-2 mt-2" alt="Stanford University logo" />
+                            <img src="/images/dschool.png" className="h-20 w-40 object-contain inline-block mx-2 mt-2 mb-6" alt="d.school logo" />
                         </div>
 
                       <p className="text-gray-700 leading-relaxed text-sm md:text-base mt-6 mx-3">
@@ -206,7 +205,7 @@ export function About() {
                 My favorite...
               </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 {favorites.map((item, index) => (
                   <motion.div 
                     key={index}
