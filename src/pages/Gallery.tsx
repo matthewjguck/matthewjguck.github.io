@@ -187,15 +187,9 @@ export function Gallery() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-800 text-white relative">
-      {/* Hero Background Image with Gradient Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat h-screen fixed "
-        style={{
-          backgroundImage: "url('/images/shapes.png')",
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-800/100 via-gray-800/70 to-gray-800/90" />
+    <div className="min-h-screen bg-black text-white relative pb-16">
+      {/* Black Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black to-black/80" />
       
       {/* Content */}
       <div className="relative z-10">
