@@ -12,14 +12,14 @@ export function Gallery() {
       title: "Posters",
       description: "A digital preview of my dorm room walls.",
       images: [
-        { src: "/images/perspective.png", alt: "Perspective" },
+        { src: "/images/Perspective1.png", alt: "Perspective" },
         { src: "/images/Diet Coke.png", alt: "Diet Coke" },
-        { src: "/images/risk.png", alt: "Risk" },
+        { src: "/images/Risk1.png", alt: "Risk" },
         { src: "/images/canes.png", alt: "Canes" },
         { src: "/images/delfrisco.png", alt: "Del Frisco's Double Eagle Steakhouse" },
-        { src: "/images/t1d.png", alt: "T1D" },
+        { src: "/images/t1d1.png", alt: "T1D" },
         { src: "/images/Accesible Design.png", alt: "Accessible Design" },
-        { src: "/images/lo.png", alt: "LO" },
+        { src: "/images/Lo.png", alt: "LO" },
         { src: "/images/Noodle.png", alt: "Noodle" },
         { src: "/images/Firenze.png", alt: "Firenze" },
         { src: "/images/Life Juice.png", alt: "Life Juice" }
