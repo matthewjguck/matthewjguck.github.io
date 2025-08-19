@@ -113,6 +113,23 @@ export const projects = [
     platforms: ["Chrome Extension", "Web"]
   },
   {
+    id: "cupid",
+    title: "The Cupid Project",
+    description: "An annual card-giving project delivering to nursing homes every Valentine's Day since 2018.",
+    image: "/images/Cupid Project Splash.png",
+    tags: ["Community Outreach", "Social Impact", "Design for Good"],
+    liveUrl: "https://thecupidproject.org",
+    liveUrlLabel: "Visit Website",
+    date: "February 2018 - Present",
+    type: "Community Outreach",
+    location: "Longview, TX",
+    role: "Founder, Lead Designer",
+    status: "Non-profit",
+    content: "",
+    gallery: ["/images/family.webp"],
+    layoutKey: "cupid" as LayoutKey,
+  },
+  {
     id: "slatt",
     title: "SLATT",
     description: "Spotify Language Acquisition Translation Tool - your ultimate companion for exploring music lyrics in multiple languages while enjoying your favorite tracks on Spotify.",
@@ -214,7 +231,7 @@ export const projects = [
     type: "Java Game",
     location: "San Francisco, CA",
     role: "Programming (Java), Prototyping, System & UI Design, UX Research",
-    status: "Coming Soon",
+    status: "🛠️ Under Construction 🚧",
     content: "I developed Diabetic Daycare, a Java-based educational Type 1 Diabetes simulator. The game utilizes a proprietary algorithmic model of insulin and blood glucose interactions to accurately simulate the experience of living with Type 1. Moving forward with this project, I plan to reach out to pediatric endocrinology clinics with diabetes education training.",
     gallery: ["/images/Bell Curve.png", "/images/Challenges Diabetes.png", "/images/Diabetic Daycare - Terminal.png"]
   },
@@ -230,7 +247,7 @@ export const projects = [
     type: "Design Proposals",
     location: "Stanford, CA",
     role: "Designer, Researcher",
-    status: "Coming Soon",
+    status: "🛠️ Under Construction 🚧",
     content: "A comprehensive research project focused on normalizing sustainable behaviors through design interventions on Stanford's campus.",
     gallery: ["/images/Norm1.png", "/images/Norm2.png", "/images/Norm3.png", "/images/Norm4.png"]
   },
@@ -246,7 +263,7 @@ export const projects = [
     type: "Personal Project",
     location: "San Francisco, CA",
     role: "Designer",
-    status: "Coming Soon",
+    status: "🛠️ Under Construction 🚧",
     content: "A personal project exploring the diabetic experience through digital art and print design, aiming to raise awareness and create understanding about Type 1 diabetes.",
     gallery: ["/images/T1D.png", "/images/LO.png", "/images/Life Juice.png"]
   },
@@ -262,24 +279,10 @@ export const projects = [
     type: "Class Project",
     location: "Stanford, CA",
     role: "Designer",
-    status: "Coming Soon",
+    status: "",
+    layoutKey: "skyhigh" as LayoutKey,
     content: "Sky High Hypoglycemia was a collaborative project in Stanford's DESIGN 1 Course. An immersive escape room experience designed to educate participants about hypoglycemia management.",
     gallery: ["/images/Escape Room Spread.png"]
-  },
-  {
-    id: "cupid",
-    title: "The Cupid Project",
-    description: "An annual card-giving project delivering to nursing homes every Valentine's Day since 2018.",
-    image: "/images/Cupid Project Splash.png",
-    tags: ["Community Outreach", "Social Impact", "Design for Good"],
-    liveUrl: "https://thecupidproject.org",
-    liveUrlLabel: "Visit Website",
-    date: "February 2018 - Present",
-    type: "Community Outreach",
-    location: "Longview, TX",
-    role: "Founder, Lead Designer",
-    status: "Coming Soon",
-    content: "The Cupid Project was born out of a deep-rooted passion for helping others and making a difference. It all started with my family's shared desire to spread love and joy to those in need. The journey began with the establishment of the Hearts Club at Longview High School in Longview, Texas, where monthly art projects were organized to connect with and bring happiness to individuals in nursing homes. Since 2018, our annual card-giving project has become a beacon of love, inspiring individuals and communities worldwide.",
-    gallery: ["/images/family.webp"]
   }
+  
 ]

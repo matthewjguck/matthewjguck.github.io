@@ -12,7 +12,8 @@ The portfolio now supports custom HTML layouts for project pages, allowing for r
 ### 1. Layout Files
 Custom layouts are stored as HTML files in `/src/layouts/` directory:
 - `nab3d.html` - Custom layout for the Nab 3D project
-- `ekg.html` - Custom layout for the E.K.G. project
+- `ekg.html` - Custom layout for the E.K.G. project  
+- `cupid.html` - Custom layout for The Cupid Project
 - Additional layout files can be added as needed
 
 ### 2. Layout Import System

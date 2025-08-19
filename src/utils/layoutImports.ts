@@ -5,6 +5,8 @@ import mystLayout from '../layouts/myst.html?raw';
 import slattLayout from '../layouts/slatt.html?raw';
 import vendingLayout from '../layouts/vending.html?raw';
 import engaugeLayout from '../layouts/engauge.html?raw';
+import cupidLayout from '../layouts/cupid.html?raw';
+import skyhighLayout from '../layouts/skyhigh.html?raw';
 
 // Layout mappings
 export const layouts = {
@@ -14,6 +16,8 @@ export const layouts = {
   'slatt': slattLayout,
   'vending': vendingLayout,
   'engauge': engaugeLayout,
+  'cupid': cupidLayout,
+  'skyhigh': skyhighLayout,
   // Add more layouts as we create them
 } as const;
 

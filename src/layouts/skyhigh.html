@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sky High Hypoglycemia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Remove all shadows */
+    * {
+      box-shadow: none !important;
+      --tw-shadow: none !important;
+      --tw-shadow-colored: none !important;
+    }
+    .shadow-lg, .shadow-xl, .shadow-2xl, .shadow-md, .shadow-sm, .shadow {
+      box-shadow: none !important;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+  
+  <!-- Header -->
+  <div class="bg-white py-12">
+    <div class="container mx-auto px-6 text-center">
+      <div class="flex flex-wrap justify-center gap-6 text-gray-500 text-lg mt-6">
+        <span>Stanford DESIGN 1</span>
+        <span>•</span>
+        <span>Spring 2024</span>
+        <span>•</span>
+        <span>Experience Design</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Image Display -->
+  <div class="bg-white py-8">
+    <div class="container mx-auto px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="bg-gray-100 p-4 rounded-2xl">
+          <img 
+            src="/images/Escape Room Spread.png" 
+            alt="Sky High Hypoglycemia Escape Room Design" 
+            class="w-full h-auto rounded-xl cursor-pointer hover:opacity-95 transition-opacity"
+            onclick="openImageModal(this.src)"
+          />
+        </div>
+        <p class="text-center text-gray-600 mt-4 text-lg">
+          Click image to view full size
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4" onclick="closeImageModal()">
+    <div class="relative max-w-full max-h-full">
+      <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain" />
+      <button 
+        onclick="closeImageModal()" 
+        class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
+      >
+        ×
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function openImageModal(src) {
+      document.getElementById('imageModal').classList.remove('hidden');
+      document.getElementById('modalImage').src = src;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      document.getElementById('imageModal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal with escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    });
+  </script>
+
+</body>
+</html>

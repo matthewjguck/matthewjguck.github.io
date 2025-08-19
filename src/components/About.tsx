@@ -195,12 +195,12 @@ export function About() {
                           About Me
                         </h2>
                       <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-6 mx-3">
-                        I’m a Junior at Stanford studying Computer Science and Design. 🌲 As the Class of 2026 President and founder of The Cupid Project, I’m passionate about building things that bring people together — whether through software, visuals, experiences, or music.
+                        I’m a Senior at Stanford studying Computer Science and Design. 🌲 As the Class of 2026 President and founder of The Cupid Project, I’m passionate about building things that bring people together — whether through software, visuals, experiences, or music.
                       </p>
 
-                      <div className="grid grid-cols-2  border-t items-center sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:-gap-100 lg:grid-cols-2 lg:gap-10 px-5">
-                        <img src="/images/SCS.png" className="h-20 w-40 object-contain inline-block mx-2 mt-2" alt="Stanford University logo" />
-                        <img src="/images/dschool.png" className="h-20 w-40 object-contain inline-block mx-2 mt-2 mb-6" alt="d.school logo" />
+                      <div className="grid grid-cols-2 border-t items-center sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:-gap-100 lg:grid-cols-2 lg:gap-10 px-5">
+                        <img src="/images/SCS.png" className="h-20 w-40 object-contain inline-block mx-auto mt-2" alt="Stanford University logo" />
+                        <img src="/images/dschool.png" className="h-20 w-40 object-contain inline-block mx-auto mt-6 mb-6" alt="d.school logo" />
                       </div>
                     </motion.div>
                   </div>
