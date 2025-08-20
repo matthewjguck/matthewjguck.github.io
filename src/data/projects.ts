@@ -124,7 +124,7 @@ export const projects = [
     type: "Community Outreach",
     location: "Longview, TX",
     role: "Founder, Lead Designer",
-    status: "Non-profit",
+    status: "501(c)(3) Non-profit",
     content: "",
     gallery: ["/images/family.webp"],
     layoutKey: "cupid" as LayoutKey,
@@ -202,71 +202,83 @@ export const projects = [
     teamSize: "3 designers",
     platforms: ["Web", "Mobile Web"]
   },
-  {
-    id: "engauge",
-    title: "EnGauge",
-    description: "An Event Planning and Notification platform for Stanford students.",
-    image: "/images/EnGauge Splash.png",
-    tags: ["Mobile App", "Social Computing", "UI/UX Design"],
-    liveUrl: "",
-    liveUrlLabel: "View Project",
-    date: "Spring 2024",
-    type: "Mobile App",
-    location: "Stanford, CA",
-    role: "Designer",
-    content: "",
-    layoutKey: "engauge" as LayoutKey,
-    gallery: ["/images/EnGauge Spread.png", "/images/Final1.png", "/images/Final2.png", "/images/Final3.png", "/images/Final4.png", "/images/Final5.png", "/images/Final6.png", "/images/Final7.png"]
-  },
+
+
+
+  
+  // {
+  //   id: "engauge",
+  //   title: "EnGauge",
+  //   description: "An Event Planning and Notification platform for Stanford students.",
+  //   image: "/images/EnGauge Splash.png",
+  //   tags: ["Mobile App", "Social Computing", "UI/UX Design"],
+  //   liveUrl: "",
+  //   liveUrlLabel: "View Project",
+  //   date: "Spring 2024",
+  //   type: "Mobile App",
+  //   location: "Stanford, CA",
+  //   role: "Designer",
+  //   content: "",
+  //   layoutKey: "engauge" as LayoutKey,
+  //   gallery: ["/images/EnGauge Spread.png", "/images/Final1.png", "/images/Final2.png", "/images/Final3.png", "/images/Final4.png", "/images/Final5.png", "/images/Final6.png", "/images/Final7.png"]
+  // },
   // Additional projects below the top 6
-  {
-    id: "daycare",
-    title: "Diabetic Daycare",
-    description: "A Java-based Type 1 Diabetes simulator to help non-diabetics better understand blood sugar management.",
-    image: "/images/Diabetic Daycare Splash.png",
-    tags: ["Java", "Game Design", "Educational Technology", "Health Awareness"],
-    liveUrl: "#",
-    liveUrlLabel: "Play Game",
-    date: "Summer 2024",
-    type: "Java Game",
-    location: "San Francisco, CA",
-    role: "Programming (Java), Prototyping, System & UI Design, UX Research",
-    status: "🛠️ Under Construction 🚧",
-    content: "I developed Diabetic Daycare, a Java-based educational Type 1 Diabetes simulator. The game utilizes a proprietary algorithmic model of insulin and blood glucose interactions to accurately simulate the experience of living with Type 1. Moving forward with this project, I plan to reach out to pediatric endocrinology clinics with diabetes education training.",
-    gallery: ["/images/Bell Curve.png", "/images/Challenges Diabetes.png", "/images/Diabetic Daycare - Terminal.png"]
-  },
-  {
-    id: "sustainability",
-    title: "Normalizing Sustainable Behaviors",
-    description: "Proposals for normalizing sustainable behaviors on Stanford's campus.",
-    image: "/images/Norm Splash.png",
-    tags: ["Design Research", "Sustainability", "Social Impact"],
-    liveUrl: "#",
-    liveUrlLabel: "View Research",
-    date: "Spring 2024",
-    type: "Design Proposals",
-    location: "Stanford, CA",
-    role: "Designer, Researcher",
-    status: "🛠️ Under Construction 🚧",
-    content: "A comprehensive research project focused on normalizing sustainable behaviors through design interventions on Stanford's campus.",
-    gallery: ["/images/Norm1.png", "/images/Norm2.png", "/images/Norm3.png", "/images/Norm4.png"]
-  },
-  {
-    id: "ontype1",
-    title: "On Type 1",
-    description: "On Type 1 is a series of digital prints that aims to capture various facets of the diabetic experience.",
-    image: "/images/On Type 1 Splash.png",
-    tags: ["Digital Art", "Health Advocacy", "Print Design"],
-    liveUrl: "#",
-    liveUrlLabel: "View Art Series",
-    date: "Summer 2023",
-    type: "Personal Project",
-    location: "San Francisco, CA",
-    role: "Designer",
-    status: "🛠️ Under Construction 🚧",
-    content: "A personal project exploring the diabetic experience through digital art and print design, aiming to raise awareness and create understanding about Type 1 diabetes.",
-    gallery: ["/images/T1D.png", "/images/LO.png", "/images/Life Juice.png"]
-  },
+
+
+
+  // {
+  //   id: "daycare",
+  //   title: "Diabetic Daycare",
+  //   description: "A Java-based Type 1 Diabetes simulator to help non-diabetics better understand blood sugar management.",
+  //   image: "/images/Diabetic Daycare Splash.png",
+  //   tags: ["Java", "Game Design", "Educational Technology", "Health Awareness"],
+  //   liveUrl: "#",
+  //   liveUrlLabel: "Play Game",
+  //   date: "Summer 2024",
+  //   type: "Java Game",
+  //   location: "San Francisco, CA",
+  //   role: "Programming (Java), Prototyping, System & UI Design, UX Research",
+  //   status: "🛠️ Under Construction 🚧",
+  //   content: "I developed Diabetic Daycare, a Java-based educational Type 1 Diabetes simulator. The game utilizes a proprietary algorithmic model of insulin and blood glucose interactions to accurately simulate the experience of living with Type 1. Moving forward with this project, I plan to reach out to pediatric endocrinology clinics with diabetes education training.",
+  //   gallery: ["/images/Bell Curve.png", "/images/Challenges Diabetes.png", "/images/Diabetic Daycare - Terminal.png"]
+  // },
+  // {
+  //   id: "sustainability",
+  //   title: "Normalizing Sustainable Behaviors",
+  //   description: "Proposals for normalizing sustainable behaviors on Stanford's campus.",
+  //   image: "/images/Norm Splash.png",
+  //   tags: ["Design Research", "Sustainability", "Social Impact"],
+  //   liveUrl: "#",
+  //   liveUrlLabel: "View Research",
+  //   date: "Spring 2024",
+  //   type: "Design Proposals",
+  //   location: "Stanford, CA",
+  //   role: "Designer, Researcher",
+  //   status: "🛠️ Under Construction 🚧",
+  //   content: "A comprehensive research project focused on normalizing sustainable behaviors through design interventions on Stanford's campus.",
+  //   gallery: ["/images/Norm1.png", "/images/Norm2.png", "/images/Norm3.png", "/images/Norm4.png"]
+  // },
+  // {
+  //   id: "ontype1",
+  //   title: "On Type 1",
+  //   description: "On Type 1 is a series of digital prints that aims to capture various facets of the diabetic experience.",
+  //   image: "/images/On Type 1 Splash.png",
+  //   tags: ["Digital Art", "Health Advocacy", "Print Design"],
+  //   liveUrl: "#",
+  //   liveUrlLabel: "View Art Series",
+  //   date: "Summer 2023",
+  //   type: "Personal Project",
+  //   location: "San Francisco, CA",
+  //   role: "Designer",
+  //   status: "🛠️ Under Construction 🚧",
+  //   content: "A personal project exploring the diabetic experience through digital art and print design, aiming to raise awareness and create understanding about Type 1 diabetes.",
+  //   gallery: ["/images/T1D.png", "/images/LO.png", "/images/Life Juice.png"]
+  // },
+
+
+
+
+
   {
     id: "skyhigh",
     title: "Sky High Hypoglycemia",
