@@ -483,14 +483,14 @@ export function Hero() {
   // Carousel state for frames effect (vertical scroll, right side)
   const framesCarouselImages = [
 	'/images/headshot.png',
-	'/images/canes.png',
-	'/images/risk.png',
+	'/images/Canes.png',
+	'/images/Risk1.png',
 	'/images/delfrisco.png',
 	'/images/dietcoke.png',
 	'/images/italy.png',
 	'/images/lifejuice.png',
-	'/images/lo.png',
-	'/images/perspective.png',
+	'/images/Lo.png',
+	'/images/Perspective1.png',
 	'/images/t1d.png',
   ];
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -538,12 +538,11 @@ export function Hero() {
 	  setTimeout(() => {
 		setCarouselIndex((prev) => {
 		  const nextIndex = prev + 1;
-		  // Reset to 0 when we complete the cycle, this happens during fade so it's invisible
 		  return nextIndex >= framesCarouselImages.length ? 0 : nextIndex;
 		});
-		setTimeout(() => setIsTransitioning(false), 300); // Fade back in after image change
-	  }, 300); // Fade out duration
-	}, 9000); // 9 second intervals for longer viewing time
+		setTimeout(() => setIsTransitioning(false), 300);
+	  }, 300);
+	}, 4000);
 	return () => clearInterval(interval);
   }, [activeImageId, framesCarouselImages.length]);
 
@@ -725,93 +724,39 @@ export function Hero() {
 					}}
 					draggable={false}
 				  />
-				  {/* --- CAROUSEL VIEWPORT: Dynamically sized to fit current image --- */}
+				  {/* --- CAROUSEL VIEWPORT: Simple single image display --- */}
 				  <motion.div
 					initial={{ opacity: 1 }}
 					animate={{ 
-					  opacity: isTransitioning ? 0 : 1,
-					  width: imageDimensions[carouselIndex]?.width || 320,
-					  height: imageDimensions[carouselIndex]?.height || 400
+					  opacity: isTransitioning ? 0 : 1
 					}}
 					transition={{ 
-					  opacity: { duration: 0.3, ease: 'easeInOut' },
-					  width: { duration: 0.5, ease: 'easeInOut' },
-					  height: { duration: 0.5, ease: 'easeInOut' }
+					  opacity: { duration: 0.3, ease: 'easeInOut' }
 					}}
 					style={{
+					  width: 320,
+					  height: 400,
 					  overflow: 'hidden',
 					  position: 'relative',
 					  display: 'flex',
-					  flexDirection: 'column',
 					  alignItems: 'center',
-					  justifyContent: 'flex-start', // Align to top instead of center
+					  justifyContent: 'center',
 					  zIndex: 10,
-					  background: 'rgba(255,255,255,0.05)',
-					  backdropFilter: 'blur(20px)',
-					  border: '1px solid rgba(255,255,255,0.1)'
+					  background: 'transparent',
+					  border: 'none',
+					  boxShadow: 'none'
 					}}
 				  >
-					{/* --- CAROUSEL IMAGES: Each image sized to fit perfectly --- */}
-					<motion.div
-					  className="flex flex-col"
-					  initial={false}
-					  animate={{ 
-						y: -imageDimensions.slice(0, carouselIndex)
-							.reduce((sum, dim, idx) => {
-							  const gap = 600; // Match the actual marginBottom gap
-							  return sum + (dim?.height || 400) + gap;
-							}, 0)
+					{/* Show only the current image */}
+					<ImageWithFallback
+					  src={framesCarouselImages[carouselIndex]}
+					  alt={`Gallery image ${carouselIndex + 1}`}
+					  className="max-w-full max-h-full object-contain"
+					  style={{
+						objectPosition: 'center center',
+						objectFit: 'contain'
 					  }}
-					  transition={{ 
-						type: 'spring', 
-						stiffness: 200, // Much faster scrolling (was 40)
-						damping: 30,    // Higher damping for quick settle (was 25)
-						duration: 0.2   // Very short duration to complete during fade (was 1.2)
-					  }}
-					  style={{ 
-						willChange: 'transform',
-						display: 'flex',
-						flexDirection: 'column',
-						alignItems: 'center'
-					  }}
-					>
-					  {/* Render images with infinite loop via reset during fade */}
-					  {framesCarouselImages.map((img, idx) => {
-						const imgDimensions = imageDimensions[idx] || { width: 320, height: 400 };
-						return (
-						  <div
-							key={`${img}-${idx}`}
-							style={{ 
-							  width: imgDimensions.width, 
-							  height: imgDimensions.height, 
-							  marginBottom: idx < framesCarouselImages.length - 1 ? 600 : 0, // Gap for all but last image
-							  position: 'relative',
-							  // Perfect centering
-							  display: 'flex',
-							  alignItems: 'center',
-							  justifyContent: 'center',
-							  overflow: 'hidden',
-							  boxShadow: '0 12px 40px 0 rgba(0,0,0,0.6), 0 4px 16px 0 rgba(0, 0, 0, 0.51)', // Darker, more realistic canvas shadow
-							  background: 'rgba(255,255,255,0.05)',
-							  backdropFilter: 'blur(8px)',
-							  border: '1px solid rgba(255,255,255,0.1)'
-							}}
-							className="flex-shrink-0"
-						  >
-							<ImageWithFallback
-							  src={img}
-							  alt={`Gallery image ${idx + 1}`}
-							  className="w-full h-full object-cover"
-							  style={{
-								// Ensure the image fills its container perfectly and is centered
-								objectPosition: 'center center',
-								objectFit: 'cover'
-							  }}
-							/>
-						  </div>
-						);
-					  })}
-					</motion.div>
+					/>
 				  </motion.div>
 				  
 
@@ -823,7 +768,7 @@ export function Hero() {
 		{/* Enhanced gradient overlay for better text legibility - hidden for graph theme */}
 		{activeImageId !== 'graph' && (
 		  <>
-			<div className="absolute z-10 inset-0 bg-gradient-to-r from-black/80 via-black/10 to-black/0 z-20 pointer-events-none" />
+			<div className="absolute z-10 inset-0 bg-gradient-to-r from-black/30 via-black/20 to-black/0 z-20 pointer-events-none" />
       <div className="absolute z-10 inset-0"/>
 		  </>
 		)}
@@ -871,9 +816,9 @@ export function Hero() {
   className={
 	`transition-colors duration-500 drop-shadow-[0_6px_20px_rgba(0,0,0,0.4)] ` +
 	(activeImageId === 'shapes' ? 'text-blue-300 [text-shadow:_2px_2px_8px_rgba(0,0,0,0.05),_0px_0px_16px_rgba(59,130,246,0.3)]' :
-	 activeImageId === 'frames' ? 'text-green-300 [text-shadow:_2px_2px_8px_rgba(0,0,0,0.05),_0px_0px_16px_rgba(34,197,94,0.03)]' :
+	 activeImageId === 'frames' ? 'text-green-300 [text-shadow:_1px_1px_4px_rgba(0,0,0,0.05)' :
 	 activeImageId === 'graph' ? 'text-red-300' :
-	 activeImageId === 'panorama' ? 'text-orange-300' :
+	 activeImageId === 'panorama' ? 'text-orange-300 [text-shadow:_1px_1px_4px_rgba(0,0,0,0.5)]' :
 	 activeImageId === 'desert' ? 'text-orange-300 [text-shadow:_2px_2px_8px_rgba(0,0,0,0.9),_0px_0px_16px_rgba(251,146,60,0.3)]' :
 	 activeImageId === 'lake' ? 'text-indigo-300 [text-shadow:_2px_2px_8px_rgba(0,0,0,0.9),_0px_0px_16px_rgba(99,102,241,0.3)]' : 'text-white [text-shadow:_2px_2px_8px_rgba(0,0,0,0.9)]')
   }
@@ -881,7 +826,7 @@ export function Hero() {
   Matthew
 </span>
 <br />
-<span className="font-light text-white/80 drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] [text-shadow:_1px_1px_8px_rgba(0,0,0,0.9)]">Guck</span>
+<span className="font-light text-white/80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] [text-shadow:_1px_1px_8px_rgba(0,0,0,0.5)]">Guck</span>
 	  </h1>
 	  <div className="mt-6 sm:mt-12 lg:mt-50">
 		<div className="text-lg sm:text-xl md:text-2xl text-white font-bold drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] [text-shadow:_1px_1px_8px_rgba(0,0,0,0.9)]">Stanford University</div>
