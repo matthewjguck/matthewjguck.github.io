@@ -490,7 +490,7 @@ export function Hero() {
     { src: '/images/italy.png', alt: 'Italy travel photo' },
     { src: '/images/lifejuice.png', alt: 'Life Juice design' },
     { src: '/images/Lo.png', alt: 'LO poster' },
-    { src: '/images/Perspective1.png', alt: 'Perspective study' },
+    { src: '/images/perspective.png', alt: 'Perspective study' },
     { src: '/images/t1d.png', alt: 'Type 1 diabetes awareness' },
   ] as const;
   const [carouselIndex, setCarouselIndex] = useState(0);
