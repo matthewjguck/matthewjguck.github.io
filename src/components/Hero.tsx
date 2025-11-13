@@ -643,45 +643,45 @@ export function Hero() {
                 <img src="/images/frame.png" alt="Picture frame" style={{position:'absolute',top:0,left:0,width:420,height:560,zIndex:20,pointerEvents:'none',userSelect:'none'}} draggable={false} />
                 <div style={{width:390,height:537,position:'relative',display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden',zIndex:5}}>
                   <img src="/images/frame-mat.png" alt="Frame mat" style={{position:'absolute',top:0,left:0,width:390,height:537,zIndex:4,pointerEvents:'none',userSelect:'none'}} draggable={false} />
-                  <div style={{width:320,height:400,position:'relative',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    {framesCarouselImages.map((imgObj, idx) => {
-                      const active = idx === carouselIndex;
-                      return (
-                        <motion.div
-                          key={imgObj.src}
-                          initial={false}
-                          animate={active ? {opacity:1,scale:1, y:0} : {opacity:0,scale:0.96,y:20}}
-                          transition={{duration:0.6,ease:[0.22,0.61,0.36,1]}}
-                          style={{position:active? 'relative':'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center'}}
-                          aria-hidden={!active}
-                        >
-                          {!failed[idx] ? (
-                            <img
-                              src={imgObj.src}
-                              alt={imgObj.alt}
-                              draggable={false}
-                              style={{
-                                maxWidth:'100%',
-                                maxHeight:'100%',
-                                objectFit:'contain',
-                                filter: !loaded[idx] ? 'blur(12px) brightness(0.7)' : 'none',
-                                transition:'filter 0.4s ease'
-                              }}
-                            />
-                          ) : (
-                            <div className="text-xs text-white/60">Image failed</div>
-                          )}
-                        </motion.div>
-                      );
-                    })}
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 1 }}
+                    animate={{ 
+                      opacity: isTransitioning ? 0 : 1
+                    }}
+                    transition={{ 
+                      opacity: { duration: 0.3, ease: 'easeInOut' }
+                    }}
+                    style={{
+                      width: 320,
+                      height: 400,
+                      overflow: 'hidden',
+                      position: 'relative',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      zIndex: 10,
+                      background: 'transparent',
+                      border: 'none',
+                      boxShadow: 'none'
+                    }}
+                  >
+                    <ImageWithFallback
+                      src={framesCarouselImages[carouselIndex].src}
+                      alt={framesCarouselImages[carouselIndex].alt}
+                      className="max-w-full max-h-full object-contain"
+                      style={{
+                        objectPosition: 'center center',
+                        objectFit: 'contain'
+                      }}
+                    />
+                  </motion.div>
                 </div>
               </div>
             </div>
           )}
 		</AnimatePresence>
-		{/* Enhanced gradient overlay for better text legibility - hidden for graph theme */}
-		{activeImageId !== 'graph' && (
+		{/* Enhanced gradient overlay for better text legibility - hidden for graph and frames themes */}
+		{activeImageId !== 'graph' && activeImageId !== 'frames' && (
 		  <>
 			<div className="absolute z-10 inset-0 bg-gradient-to-r from-black/30 via-black/20 to-black/0 z-20 pointer-events-none" />
       <div className="absolute z-10 inset-0"/>
