@@ -482,68 +482,43 @@ export function Hero() {
 	const [edgeButtonsVisible, setEdgeButtonsVisible] = useState(true);
   // Carousel state for frames effect (vertical scroll, right side)
   const framesCarouselImages = [
-	'/images/headshot.png',
-	'/images/Canes.png',
-	'/images/Risk1.png',
-	'/images/delfrisco.png',
-	'/images/dietcoke.png',
-	'/images/italy.png',
-	'/images/lifejuice.png',
-	'/images/Lo.png',
-	'/images/Perspective1.png',
-	'/images/t1d.png',
-  ];
+    { src: '/images/headshot.png', alt: 'Portrait' },
+    { src: '/images/Canes.png', alt: "Raising Cane's poster" },
+    { src: '/images/Risk1.png', alt: 'Risk poster' },
+    { src: '/images/delfrisco.png', alt: "Del Frisco's steakhouse" },
+    { src: '/images/dietcoke.png', alt: 'Diet Coke poster' },
+    { src: '/images/italy.png', alt: 'Italy travel photo' },
+    { src: '/images/lifejuice.png', alt: 'Life Juice design' },
+    { src: '/images/Lo.png', alt: 'LO poster' },
+    { src: '/images/Perspective1.png', alt: 'Perspective study' },
+    { src: '/images/t1d.png', alt: 'Type 1 diabetes awareness' },
+  ] as const;
   const [carouselIndex, setCarouselIndex] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [imageDimensions, setImageDimensions] = useState<{width: number, height: number}[]>([]);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  
-  // Load image dimensions for proper viewport sizing
+  const [loaded, setLoaded] = useState<boolean[]>(Array(framesCarouselImages.length).fill(false));
+  const [failed, setFailed] = useState<boolean[]>(Array(framesCarouselImages.length).fill(false));
+
+  // Preload images once (improves first transition smoothness)
   useEffect(() => {
-    const loadImageDimensions = async () => {
-      const dimensions = await Promise.all(
-        framesCarouselImages.map((src) => {
-          return new Promise<{width: number, height: number}>((resolve) => {
-            const img = new Image();
-            img.onload = () => {
-              // Calculate dimensions to fit within frame (max 320x400)
-              const maxWidth = 320;
-              const maxHeight = 400;
-              const aspectRatio = img.width / img.height;
-              
-              let width = maxWidth;
-              let height = width / aspectRatio;
-              
-              if (height > maxHeight) {
-                height = maxHeight;
-                width = height * aspectRatio;
-              }
-              
-              resolve({ width: Math.round(width), height: Math.round(height) });
-            };
-            img.src = src;
-          });
-        })
-      );
-      setImageDimensions(dimensions);
-    };
-    
-    loadImageDimensions();
-  }, [framesCarouselImages]);
-  // Auto-scroll effect for vertical carousel with infinite loop
+    framesCarouselImages.forEach((imgObj, idx) => {
+      const img = new Image();
+      img.onload = () => setLoaded(prev => { const c=[...prev]; c[idx]=true; return c; });
+      img.onerror = () => setFailed(prev => { const c=[...prev]; c[idx]=true; return c; });
+      img.src = imgObj.src;
+    });
+  }, []);
+
+  // Auto advance
   useEffect(() => {
-	if (activeImageId !== 'frames') return;
-	const interval = setInterval(() => {
-	  setIsTransitioning(true);
-	  setTimeout(() => {
-		setCarouselIndex((prev) => {
-		  const nextIndex = prev + 1;
-		  return nextIndex >= framesCarouselImages.length ? 0 : nextIndex;
-		});
-		setTimeout(() => setIsTransitioning(false), 300);
-	  }, 300);
-	}, 4000);
-	return () => clearInterval(interval);
+    if (activeImageId !== 'frames') return;
+    const id = setInterval(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCarouselIndex(p => (p + 1) % framesCarouselImages.length);
+        setTimeout(() => setIsTransitioning(false), 350);
+      }, 350);
+    }, 4500);
+    return () => clearInterval(id);
   }, [activeImageId, framesCarouselImages.length]);
 
 	const scrollToProjects = () => {
@@ -663,107 +638,47 @@ export function Hero() {
 		  </motion.div>
 		  {/* --- VERTICAL CAROUSEL: Images scroll into the frame on the wall --- */}
 		  {activeImageId === 'frames' && (
-			<div
-			  /* Carousel Container: positioned on the right side of the screen */
-			  className="absolute top-1/2 right-30 sm:right-5 transform -translate-y-1/2 z-5 pointer-events-none"
-			  style={{ 
-				background: 'none'
-			  }}
-			>
-			  {/* Frame on the wall using transparent PNG */}
-			  <div
-				className="relative flex flex-col items-center justify-center"
-				style={{
-				  width: 420, // Outer frame width
-				  height: 560, // Outer frame height
-				  marginRight: '5vw', // Distance from right edge
-				  zIndex: 5,
-				}}
-			  >
-				{/* Frame PNG overlay (absolute, pointer-events-none) */}
-				<img
-				  src="/images/frame.png"
-				  alt="Picture frame"
-				  style={{
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					width: 420,
-					height: 560,
-					zIndex: 20, // Above everything
-					pointerEvents: 'none',
-					userSelect: 'none',
-				  }}
-				  draggable={false}
-				/>
-				{/* Matting inside the frame using PNG */}
-				<div
-				  style={{
-					width: 390, // Mat width
-					height: 537, // Mat height
-					position: 'relative',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-					overflow: 'hidden',
-					zIndex: 5,
-				  }}
-				>
-				  <img
-					src="/images/frame-mat.png"
-					alt="Frame mat"
-					style={{
-					  position: 'absolute',
-					  top: 0,
-					  left: 0,
-					  width: 390,
-					  height: 537,
-					  zIndex: 4, // Lower than carousel
-					  pointerEvents: 'none',
-					  userSelect: 'none',
-					}}
-					draggable={false}
-				  />
-				  {/* --- CAROUSEL VIEWPORT: Simple single image display --- */}
-				  <motion.div
-					initial={{ opacity: 1 }}
-					animate={{ 
-					  opacity: isTransitioning ? 0 : 1
-					}}
-					transition={{ 
-					  opacity: { duration: 0.3, ease: 'easeInOut' }
-					}}
-					style={{
-					  width: 320,
-					  height: 400,
-					  overflow: 'hidden',
-					  position: 'relative',
-					  display: 'flex',
-					  alignItems: 'center',
-					  justifyContent: 'center',
-					  zIndex: 10,
-					  background: 'transparent',
-					  border: 'none',
-					  boxShadow: 'none'
-					}}
-				  >
-					{/* Show only the current image */}
-					<ImageWithFallback
-					  src={framesCarouselImages[carouselIndex]}
-					  alt={`Gallery image ${carouselIndex + 1}`}
-					  className="max-w-full max-h-full object-contain"
-					  style={{
-						objectPosition: 'center center',
-						objectFit: 'contain'
-					  }}
-					/>
-				  </motion.div>
-				  
-
-				</div>
-			  </div>
-			</div>
-		  )}
+            <div className="absolute top-1/2 right-30 sm:right-5 -translate-y-1/2 z-5 pointer-events-none" style={{background:'none'}}>
+              <div className="relative flex flex-col items-center justify-center" style={{width:420,height:560,marginRight:'5vw',zIndex:5}}>
+                <img src="/images/frame.png" alt="Picture frame" style={{position:'absolute',top:0,left:0,width:420,height:560,zIndex:20,pointerEvents:'none',userSelect:'none'}} draggable={false} />
+                <div style={{width:390,height:537,position:'relative',display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden',zIndex:5}}>
+                  <img src="/images/frame-mat.png" alt="Frame mat" style={{position:'absolute',top:0,left:0,width:390,height:537,zIndex:4,pointerEvents:'none',userSelect:'none'}} draggable={false} />
+                  <div style={{width:320,height:400,position:'relative',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                    {framesCarouselImages.map((imgObj, idx) => {
+                      const active = idx === carouselIndex;
+                      return (
+                        <motion.div
+                          key={imgObj.src}
+                          initial={false}
+                          animate={active ? {opacity:1,scale:1, y:0} : {opacity:0,scale:0.96,y:20}}
+                          transition={{duration:0.6,ease:[0.22,0.61,0.36,1]}}
+                          style={{position:active? 'relative':'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center'}}
+                          aria-hidden={!active}
+                        >
+                          {!failed[idx] ? (
+                            <img
+                              src={imgObj.src}
+                              alt={imgObj.alt}
+                              draggable={false}
+                              style={{
+                                maxWidth:'100%',
+                                maxHeight:'100%',
+                                objectFit:'contain',
+                                filter: !loaded[idx] ? 'blur(12px) brightness(0.7)' : 'none',
+                                transition:'filter 0.4s ease'
+                              }}
+                            />
+                          ) : (
+                            <div className="text-xs text-white/60">Image failed</div>
+                          )}
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 		</AnimatePresence>
 		{/* Enhanced gradient overlay for better text legibility - hidden for graph theme */}
 		{activeImageId !== 'graph' && (
@@ -816,7 +731,7 @@ export function Hero() {
   className={
 	`transition-colors duration-500 drop-shadow-[0_6px_20px_rgba(0,0,0,0.4)] ` +
 	(activeImageId === 'shapes' ? 'text-blue-300 [text-shadow:_2px_2px_8px_rgba(0,0,0,0.05),_0px_0px_16px_rgba(59,130,246,0.3)]' :
-	 activeImageId === 'frames' ? 'text-green-300 [text-shadow:_1px_1px_4px_rgba(0,0,0,0.05)' :
+	 activeImageId === 'frames' ? 'text-green-300 [text-shadow:_1px_1px_4px_rgba(0,0,0,0.05)]' :
 	 activeImageId === 'graph' ? 'text-red-300' :
 	 activeImageId === 'panorama' ? 'text-orange-300 [text-shadow:_1px_1px_4px_rgba(0,0,0,0.5)]' :
 	 activeImageId === 'desert' ? 'text-orange-300 [text-shadow:_2px_2px_8px_rgba(0,0,0,0.9),_0px_0px_16px_rgba(251,146,60,0.3)]' :

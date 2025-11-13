@@ -28,12 +28,12 @@ export function ProjectCard({ title, description, image, tags, liveUrl, githubUr
       viewport={{ once: true, margin: "-100px" }}
       className="group"
     >
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 focus-within:ring-2 focus-within:ring-blue-500">
         <div className="relative overflow-hidden">
           <ImageWithFallback
             src={image}
             alt={title}
-            className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-56 md:h-64 object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -42,12 +42,13 @@ export function ProjectCard({ title, description, image, tags, liveUrl, githubUr
                   href={liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-gray-800 p-3 rounded-full hover:bg-gray-100 transition-colors pointer-events-auto"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="bg-white/90 backdrop-blur px-3 py-2 text-gray-800 rounded-full hover:bg-white transition-colors pointer-events-auto shadow-md"
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
                   onClick={(e) => e.stopPropagation()}
+                  aria-label={`Open live site for ${title}`}
                 >
-                  <ExternalLink className="w-5 h-5" />
+                  <ExternalLink className="w-4 h-4" />
                 </motion.a>
               )}
               {githubUrl && githubUrl !== "#" && (
@@ -55,49 +56,45 @@ export function ProjectCard({ title, description, image, tags, liveUrl, githubUr
                   href={githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-gray-800 p-3 rounded-full hover:bg-gray-100 transition-colors pointer-events-auto"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="bg-white/90 backdrop-blur px-3 py-2 text-gray-800 rounded-full hover:bg-white transition-colors pointer-events-auto shadow-md"
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
                   onClick={(e) => e.stopPropagation()}
+                  aria-label={`View code for ${title}`}
                 >
-                  <Github className="w-5 h-5" />
+                  <Github className="w-4 h-4" />
                 </motion.a>
               )}
             </div>
           </div>
         </div>
-        
-        <div className="p-6">
-          <div className="flex justify-between items-start mb-3">
-            <h3 className="text-xl text-gray-800 font-bold">{title}</h3>
+        <div className="p-5 md:p-6">
+          <div className="flex justify-between items-start mb-2 md:mb-3">
+            <h3 className="text-lg md:text-xl text-gray-800 font-bold leading-snug tracking-tight">{title}</h3>
             {status && (
-              <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full text-nowrap">
+              <span className="bg-yellow-100 text-yellow-800 text-[10px] md:text-xs px-2 py-1 rounded-full text-nowrap font-medium">
                 {status}
               </span>
             )}
           </div>
-          
           {(date || type) && (
-            <div className="flex gap-4 mb-3 text-sm text-gray-500">
+            <div className="flex flex-wrap gap-2 mb-3 text-xs md:text-sm text-gray-500 font-medium">
               {date && <span>{date}</span>}
-              {type && <span>• {type}</span>}
+              {type && <span className="before:content-['•'] before:mx-1 before:text-gray-300">{type}</span>}
             </div>
           )}
-          
-          <p className="text-gray-600 mb-4 leading-relaxed">{description}</p>
-          
+          <p className="text-gray-600 mb-4 text-sm md:text-base leading-relaxed line-clamp-4">{description}</p>
           {(location || role) && (
-            <div className="mb-4 text-sm text-gray-500">
+            <div className="mb-4 text-xs md:text-sm text-gray-500 space-y-1">
               {location && <div>📍 {location}</div>}
               {role && <div>👤 {role}</div>}
             </div>
           )}
-          
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 md:gap-2" aria-label="Project tags">
             {tags.map((tag, tagIndex) => (
               <span
                 key={tagIndex}
-                className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                className="bg-gray-100 text-gray-700 px-2.5 py-1 rounded-full text-[10px] md:text-xs font-medium tracking-wide"
               >
                 {tag}
               </span>
