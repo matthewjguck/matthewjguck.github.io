@@ -80,7 +80,7 @@ export const projects = [
     title: "Myst",
     description: "Chrome Extension that analyzes browsing habits using AI to break echo chambers and promote diverse content consumption.",
     image: "/images/Myst Splash.png",
-    tags: ["Chrome Extension", "AI", "Computer Vision", "Flask", "Python"],
+    tags: ["Chrome Extension", "AI", "Flask", "Python"],
     liveUrl: "https://devpost.com/software/myst-p09ai2",
     liveUrlLabel: "View on Devpost",
     githubUrl: "#",

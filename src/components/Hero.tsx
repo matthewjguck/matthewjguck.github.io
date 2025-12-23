@@ -252,6 +252,7 @@ function AutoScrollingPanorama() {
     '/images/platypus.jpeg',
     '/images/ski.jpeg',
     '/images/AutumnSpread.png',
+    '/images/seniorfall.png'
   ];
 
   // Calculate total width of images for each row
@@ -468,13 +469,8 @@ function EdgeButton({
 }
 
 export function Hero() {
-	// Randomly select initial theme on component mount
-	const getRandomTheme = () => {
-		const themes = ['panorama', 'frames'];
-		return themes[Math.floor(Math.random() * themes.length)];
-	}
 	
-	const [activeImageId, setActiveImageId] = useState(getRandomTheme())
+	const [activeImageId, setActiveImageId] = useState('panorama')
 	const [mouse, setMouse] = useState({ x: 0, y: 0 })
 	const [graphMouse, setGraphMouse] = useState({ x: 0, y: 0 })
 	const [showDock, setShowDock] = useState(false);
