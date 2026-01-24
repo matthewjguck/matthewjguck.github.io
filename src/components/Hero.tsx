@@ -242,6 +242,7 @@ function AutoScrollingPanorama() {
   const middleRowImages = [
     '/images/junior-formal.jpeg',
     '/images/2point.jpeg',
+    '/images/headshotbig.jpeg',
     '/images/mountain.jpeg',
     '/images/llama-painting.jpeg',
     '/images/sophomore-formal.jpeg',
