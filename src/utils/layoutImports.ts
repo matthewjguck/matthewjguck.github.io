@@ -7,6 +7,7 @@ import vendingLayout from '../layouts/vending.html?raw';
 import engaugeLayout from '../layouts/engauge.html?raw';
 import cupidLayout from '../layouts/cupid.html?raw';
 import skyhighLayout from '../layouts/skyhigh.html?raw';
+import claritygridLayout from '../layouts/claritygrid.html?raw';
 
 // Layout mappings
 export const layouts = {
@@ -18,6 +19,7 @@ export const layouts = {
   'engauge': engaugeLayout,
   'cupid': cupidLayout,
   'skyhigh': skyhighLayout,
+  'claritygrid': claritygridLayout,
   // Add more layouts as we create them
 } as const;
 

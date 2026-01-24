@@ -2,7 +2,7 @@
 
 /* Custom styles for project layouts */
 .custom-project-content img {
-  @apply w-full h-auto rounded-lg shadow-md;
+  @apply w-full h-auto rounded-lg;
 }
 
 .custom-project-content h1 {
@@ -49,4 +49,17 @@
 /* Style for highlight boxes */
 .custom-project-content .highlight-box {
   @apply bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6;
+}
+
+/* Override default image styling for small icon graphics inside cards */
+.custom-project-content img.icon-img {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Larger icon variant to normalize visual height across columns */
+.custom-project-content img.icon-img.icon-lg {
+  height: 12rem !important; /* ~192px, similar visual height */
 }

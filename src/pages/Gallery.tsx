@@ -20,8 +20,6 @@ export function Gallery() {
         { src: "/images/t1d.png", alt: "T1D" },
         { src: "/images/Accesible Design.png", alt: "Accessible Design" },
         { src: "/images/Lo.png", alt: "LO" },
-        { src: "/images/delfrisco.png", alt: "Del Frisco's Double Eagle Steakhouse" },
-        { src: "/images/Accesible Design.png", alt: "Accessible Design" },
         { src: "/images/Noodle.png", alt: "Noodle" },
         { src: "/images/Firenze.png", alt: "Firenze" },
         { src: "/images/Life Juice.png", alt: "Life Juice" }

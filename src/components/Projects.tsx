@@ -32,8 +32,8 @@ export function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl mb-6 text-gray-800">My Projects</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A collection of my recent work spanning design, development, and social impact. 
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+            A collection of my recent work spanning design, software development, and social impact. 
           </p>
         </motion.div>
 

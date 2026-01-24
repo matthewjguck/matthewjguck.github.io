@@ -2,6 +2,24 @@ import type { LayoutKey } from '../utils/layoutImports';
 
 export const projects = [
   {
+    id: "claritygrid",
+    title: "ClarityGrid",
+    description: "ClarityGrid integrates with existing Building Management Systems to generate actionable recommendations based on potential impact and technician availability, proximity, and workload.",
+    image: "/images/ClarityGrid.svg",
+    tags: ["Branding", "UX Design", "Graphic Design"],
+    date: "Fall 2025",
+    type: "Start Up Concept + Branding",
+    status: "",
+    layoutKey: "claritygrid" as LayoutKey,
+    features: [
+      "Unified visibility across tasks and technician progress",
+      "Impact-driven prioritization with risk awareness",
+      "Proximity- and workload-aware technician routing",
+      "Seamless integration with existing BMS data"
+    ],
+    technologies: ["Figma"],
+  },
+  {
     id: "nab3d",
     title: "Nab 3D",
     description: "A way to 'nab' any object straight out of the real world and into your website, with just a short video and a single line of code.",
@@ -36,6 +54,23 @@ export const projects = [
     duration: "36 hours",
     teamSize: "4 developers",
     platforms: ["Web", "iOS", "Android"]
+  },
+  {
+    id: "cupid",
+    title: "The Cupid Project",
+    description: "An annual card-giving project delivering to nursing homes every Valentine's Day since 2018.",
+    image: "/images/TCP Splash New.png",
+    tags: ["Community Outreach", "Social Impact", "Design for Good"],
+    liveUrl: "https://thecupidproject.org",
+    liveUrlLabel: "Visit Website",
+    date: "February 2018 - Present",
+    type: "Community Outreach",
+    location: "Longview, TX",
+    role: "Founder, Lead Designer",
+    status: "501(c)(3) Non-profit",
+    content: "",
+    gallery: ["/images/family.webp"],
+    layoutKey: "cupid" as LayoutKey,
   },
   {
     id: "ekg",
@@ -88,7 +123,7 @@ export const projects = [
     type: "Hackathon Project",
     location: "Stanford, CA",
     role: "Developer",
-    status: "TreeHacks 2025",
+    status: "",
     content: "",
     layoutKey: "myst" as LayoutKey,
     features: [
@@ -111,23 +146,6 @@ export const projects = [
     duration: "36-hour hackathon sprint",
     teamSize: "4 developers",
     platforms: ["Chrome Extension", "Web"]
-  },
-  {
-    id: "cupid",
-    title: "The Cupid Project",
-    description: "An annual card-giving project delivering to nursing homes every Valentine's Day since 2018.",
-    image: "/images/Cupid Project Splash.png",
-    tags: ["Community Outreach", "Social Impact", "Design for Good"],
-    liveUrl: "https://thecupidproject.org",
-    liveUrlLabel: "Visit Website",
-    date: "February 2018 - Present",
-    type: "Community Outreach",
-    location: "Longview, TX",
-    role: "Founder, Lead Designer",
-    status: "501(c)(3) Non-profit",
-    content: "",
-    gallery: ["/images/family.webp"],
-    layoutKey: "cupid" as LayoutKey,
   },
   {
     id: "slatt",
