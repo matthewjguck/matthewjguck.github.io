@@ -234,7 +234,6 @@ function AutoScrollingPanorama() {
     '/images/mcdonalds.jpeg',
     '/images/ItalySpread.jpeg',
     '/images/billboards.jpeg',
-    '/images/BathroomsSpread.jpeg',
   ];
 
   // Different order for each row
