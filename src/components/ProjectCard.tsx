@@ -33,7 +33,7 @@ export function ProjectCard({ title, description, image, tags, liveUrl, githubUr
           <ImageWithFallback
             src={image}
             alt={title}
-            className="w-full h-56 md:h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

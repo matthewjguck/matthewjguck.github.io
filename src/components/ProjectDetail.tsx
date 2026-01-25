@@ -33,7 +33,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
             Back to Projects
           </motion.button>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <div className="space-y-5">
                 <h1 id="project-title" className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight tracking-tight">
@@ -102,12 +102,12 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
               </div>
             </div>
 
-            <div className="relative group mt-4 lg:mt-0">
-              <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-gray-200/60">
+            <div className="relative group mt-4 lg:mt-0 w-full lg:w-auto flex justify-center">
+              <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-gray-200/60 w-[85vw] lg:w-full">
                 <ImageWithFallback
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-64 md:h-80 object-cover"
+                  className="w-full object-contain"
                 />
               </div>
             </div>
