@@ -203,6 +203,35 @@ export function Resume() {
 
               <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
                 <div className="flex-shrink-0">
+                  <img src="/images/TCP-logo.png" alt="The Cupid Project" className="w-20 h-20 object-contain" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                    <div>
+                      <h4 className="text-2xl font-bold text-gray-900">The Cupid Project</h4>
+                      <p className="text-lg text-gray-600 mt-1">501(c)(3) Non-profit</p>
+                    </div>
+                    <p className="text-gray-600 mt-2 md:mt-0">January 2018 - Present</p>
+                  </div>
+                  <ul className="space-y-2 text-gray-700">
+                  <li className="flex">
+                    <span className="mr-3">•</span>
+                    <span>Founded and digitally scaled a nonprofit focused on engaging GenZ in community service and reducing elderly loneliness.</span>
+                  </li>
+                  <li className="flex">
+                    <span className="mr-3">•</span>
+                    <span>Scaled volunteer base 1,250% through social media, uniting 44,000+ volunteers to deliver 150,000+ Valentine's Cards.</span>
+                  </li>
+                  <li className="flex">
+                    <span className="mr-3">•</span>
+                    <span>Designed and distributed marketing media with Figma, Photoshop, Illustrator, After Effects, Canva, GIMP, Procreate, Wix, & Shopify.</span>
+                  </li>
+                </ul>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
+                <div className="flex-shrink-0">
                   <img src="/images/schiff.png" alt="Stanford Residential Assistant" className="w-20 h-20 object-contain" />
                 </div>
                 <div className="flex-1">
