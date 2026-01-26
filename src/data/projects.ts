@@ -12,7 +12,7 @@ export const projects = [
     date: "Winter 2026",
     type: "Web Application",
     location: "Stanford, CA",
-    role: "Developer",
+    role: "Developer, Designer",
     status: "Site Under Construction!",
     content: "",
     layoutKey: "doorjam" as LayoutKey,
