@@ -110,7 +110,7 @@ export const projects = [
     location: "Stanford, CA",
     role: "Designer, UX Researcher",
     status: "",
-    content: "E.K.G. is an educational technology solution that revolutionizes how teachers understand and connect with their students. Through carefully designed in-class games and interactive activities, the app provides valuable insights into student emotions, learning preferences, and classroom dynamics while maintaining strict privacy and building trust between educators and learners.",
+    content: "",
     layoutKey: "ekg" as LayoutKey,
     features: [
       "Interactive classroom games that reveal student emotional states",
