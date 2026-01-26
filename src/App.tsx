@@ -58,7 +58,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <div aria-live="polite" className="sr-only">{announcement}</div>
       <Hero />
       <Projects />

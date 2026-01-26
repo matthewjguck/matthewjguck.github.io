@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 /* Custom styles for project layouts */
 .custom-project-content img {
   @apply w-full h-auto rounded-lg;

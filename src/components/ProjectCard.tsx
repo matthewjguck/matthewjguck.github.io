@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import { ImageWithFallback } from './figma/ImageWithFallback'
@@ -20,6 +20,41 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ title, description, image, tags, liveUrl, githubUrl, index, date, type, location, role, status }: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false)
+  const [colorIndex, setColorIndex] = useState(0)
+  
+  // Check if this is the DoorJam project
+  const isDoorJam = image.includes('DoorJam')
+  
+  // Color cycle array for DoorJam
+  const doorJamColors = [
+    'Red',
+    'Orange',
+    'Cyan',
+    'Pink',
+    'Green',
+    'Purple',
+    'Blue',
+    'Yellow'
+  ]
+  
+  useEffect(() => {
+    if (isDoorJam && isHovered) {
+      const interval = setInterval(() => {
+        setColorIndex((prevIndex) => (prevIndex + 1) % doorJamColors.length)
+      }, 200)
+      
+      return () => clearInterval(interval)
+    } else {
+      setColorIndex(0)
+    }
+  }, [isHovered, isDoorJam])
+  
+  // Determine which image to display
+  const displayImage = isDoorJam && isHovered
+    ? `/images/DoorJam-${doorJamColors[colorIndex]}.png`
+    : image
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -27,11 +62,13 @@ export function ProjectCard({ title, description, image, tags, liveUrl, githubUr
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true, margin: "-100px" }}
       className="group"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 focus-within:ring-2 focus-within:ring-blue-500">
         <div className="relative overflow-hidden">
           <ImageWithFallback
-            src={image}
+            src={displayImage}
             alt={title}
             className="w-full aspect-[16/9] object-cover transition-transform duration-500 group-hover:scale-110"
           />

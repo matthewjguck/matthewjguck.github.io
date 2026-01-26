@@ -2,6 +2,29 @@ import type { LayoutKey } from '../utils/layoutImports';
 
 export const projects = [
   {
+    id: "doorjam",
+    title: "DoorJam",
+    description: "The party doorbell that keeps your guests from being stuck outside. Visual door alerts sync with Spotify so the music never stops.",
+    image: "/images/DoorJam-White.png",
+    tags: ["Next.js", "React", "Web Development", "Real-time"],
+    liveUrl: "https://doorjam.vercel.app/",
+    liveUrlLabel: "Visit Site",
+    date: "Winter 2026",
+    type: "Web Application",
+    location: "Stanford, CA",
+    role: "Developer",
+    status: "Site Under Construction!",
+    content: "",
+    layoutKey: "doorjam" as LayoutKey,
+    features: [
+      "Real-time synchronized music playback across multiple devices",
+      "Collaborative listening rooms for shared experiences",
+      "Intuitive room creation and joining interface",
+      "Cross-device compatibility"
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Vercel"],
+  },
+  {
     id: "claritygrid",
     title: "ClarityGrid",
     description: "ClarityGrid integrates with existing Building Management Systems to generate actionable recommendations based on potential impact and technician availability, proximity, and workload.",

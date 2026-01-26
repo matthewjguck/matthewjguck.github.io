@@ -28,9 +28,9 @@ export function Resume() {
               Education
             </h3>
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
-                <div className="flex-shrink-0">
-                  <img src="/images/stanford.png" alt="Stanford University" className="w-20 h-20 object-contain" />
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-wrap gap-6">
+                <div className="flex-shrink-0 w-full min-[500px]:w-auto flex justify-center min-[500px]:justify-start">
+                  <img src="/images/stanford.png" alt="Stanford University" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -49,9 +49,9 @@ export function Resume() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
-                <div className="flex-shrink-0">
-                  <img src="/images/longview-logo.png" alt="Longview High School" className="w-20 h-20 object-contain" />
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-wrap gap-6">
+                <div className="flex-shrink-0 w-full min-[500px]:w-auto flex justify-center min-[500px]:justify-start">
+                  <img src="/images/longview-logo.png" alt="Longview High School" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -78,9 +78,9 @@ export function Resume() {
               Work Experience
             </h3>
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
-                <div className="flex-shrink-0">
-                  <img src="/images/Summerall.avif" alt="Summerall Law" className="w-20 h-20 object-contain" />
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-wrap gap-6">
+                <div className="flex-shrink-0 w-full min-[500px]:w-auto flex justify-center min-[500px]:justify-start">
+                  <img src="/images/Summerall.avif" alt="Summerall Law" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -107,9 +107,9 @@ export function Resume() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
-                <div className="flex-shrink-0">
-                  <img src="/images/stanford.png" alt="Stanford Computer Science" className="w-20 h-20 object-contain" />
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-wrap gap-6">
+                <div className="flex-shrink-0 w-full min-[500px]:w-auto flex justify-center min-[500px]:justify-start">
+                  <img src="/images/stanford.png" alt="Stanford Computer Science" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 </div>
                 <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -135,9 +135,9 @@ export function Resume() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
-                <div className="flex-shrink-0">
-                  <img src="/images/IXXIA.png" alt="IXXIA Jewelry" className="w-20 h-20 object-contain" />
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-wrap gap-6">
+                <div className="flex-shrink-0 w-full min-[500px]:w-auto flex justify-center min-[500px]:justify-start">
+                  <img src="/images/IXXIA.png" alt="IXXIA Jewelry" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 </div>
                 <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -176,9 +176,9 @@ export function Resume() {
               Leadership Experience and Activities
             </h3>
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
-                <div className="flex-shrink-0">
-                  <img src="/images/stanford.png" alt="Stanford Class President" className="w-20 h-20 object-contain" />
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-wrap gap-6">
+                <div className="flex-shrink-0 w-full min-[500px]:w-auto flex justify-center min-[500px]:justify-start">
+                  <img src="/images/stanford.png" alt="Stanford Class President" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -201,9 +201,9 @@ export function Resume() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
-                <div className="flex-shrink-0">
-                  <img src="/images/TCP-logo.png" alt="The Cupid Project" className="w-20 h-20 object-contain" />
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-wrap gap-6">
+                <div className="flex-shrink-0 w-full min-[500px]:w-auto flex justify-center min-[500px]:justify-start">
+                  <img src="/images/TCP-logo.png" alt="The Cupid Project" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -230,9 +230,9 @@ export function Resume() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
-                <div className="flex-shrink-0">
-                  <img src="/images/schiff.png" alt="Stanford Residential Assistant" className="w-20 h-20 object-contain" />
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-wrap gap-6">
+                <div className="flex-shrink-0 w-full min-[500px]:w-auto flex justify-center min-[500px]:justify-start">
+                  <img src="/images/schiff.png" alt="Stanford Residential Assistant" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -255,9 +255,9 @@ export function Resume() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex gap-6">
-                <div className="flex-shrink-0">
-                  <img src="/images/bsa-logo.jpg" alt="Boy Scouts of America" className="w-20 h-20 object-contain" />
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-wrap gap-6">
+                <div className="flex-shrink-0 w-full min-[500px]:w-auto flex justify-center min-[500px]:justify-start">
+                  <img src="/images/bsa-logo.jpg" alt="Boy Scouts of America" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">

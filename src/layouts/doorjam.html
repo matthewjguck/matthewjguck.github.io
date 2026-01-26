@@ -1,0 +1,145 @@
+<style>
+  .gradient-text {
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Override any image shadows */
+  .custom-project-content img,
+  .story-image {
+    --tw-shadow: 0 0 0 0 transparent !important;
+    --tw-shadow-color: transparent !important;
+    box-shadow: 0 0 0 0 transparent !important;
+    -webkit-box-shadow: 0 0 0 0 transparent !important;
+    -moz-box-shadow: 0 0 0 0 transparent !important;
+  }
+</style>
+
+<!-- DoorJam Layout Content (injected into React) -->
+
+<!-- Section 1: What is DoorJam -->
+<div class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+      <div>
+        <h3 class="text-3xl font-bold text-gray-900 mb-6">What is DoorJam?</h3>
+        <p class="text-lg text-gray-700 mb-6">
+          With DoorJam, guests can let you (and everyone else) know they've arrived. Gone are the days of phone calls and text alerts interrupting your jam.
+        </p>
+        <p class="text-lg text-gray-700">
+          DoorJam displays your currently playing Spotify track, and will visually alert you when someone is at the door. Display it on a TV or Projector to elevate your party.
+        </p>
+      </div>
+      <div class="shadow-none">
+        <img src="/images/DoorJam Ringing.gif" alt="DoorJam Ringing Feature" class="w-full max-w-md mx-auto shadow-none rounded-lg">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 2: Key Features -->
+<div class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold text-gray-900 mb-6">How It Works</h2>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Feature 1: Guest Alert -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+        <div class="text-4xl mb-4">🔔</div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Guest Notifications</h3>
+        <p class="text-gray-700">
+          Guests can ring the doorbell with a simple tap. Visual alerts appear immediately without interrupting your music.
+        </p>
+      </div>
+      
+      <!-- Feature 2: Music Integration -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+        <div class="text-4xl mb-4">🎵</div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Spotify Integration</h3>
+        <p class="text-gray-700">
+          Displays your currently playing track in real-time. Your guests know what vibe you're going for while they wait.
+        </p>
+      </div>
+      
+      <!-- Feature 3: Display Ready -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+        <div class="text-4xl mb-4">📺</div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">TV/Projector Display</h3>
+        <p class="text-gray-700">
+          Optimized for large screens. Project DoorJam on your TV or projector to create an immersive party experience.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: UI Highlights -->
+<div class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold text-gray-900 mb-4">UI Highlights</h2>
+      <p class="text-lg text-gray-600">A quick look at the core DoorJam screens.</p>
+    </div>
+
+    <!-- Row 1: Text + Image -->
+    <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+      <div>
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Seamless Onboarding</h3>
+        <p class="text-lg text-gray-700">
+          Getting started is effortless. The sign-up flow guides you through party creation with smooth animations and intuitive choices—start or join a party in seconds.
+        </p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200">
+        <img src="/images/Doorjam UI Design.gif" alt="DoorJam sign up flow" class="w-full h-auto object-cover">
+      </div>
+    </div>
+
+    <!-- Row 2: Image + Text -->
+    <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+      <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 md:order-1">
+        <img src="/images/DoorJam Ringing.gif" alt="Ringing alert on TV" class="w-full h-auto object-cover">
+      </div>
+      <div class="md:order-2">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Visual Ring Alerts</h3>
+        <p class="text-lg text-gray-700">
+          When someone rings the doorbell, a vibrant visual alert pulses across the screen—no sound needed. Your party stays uninterrupted while you get notified instantly.
+        </p>
+      </div>
+    </div>
+
+    <!-- Row 4: Image + Text -->
+    <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+      
+      <div class="md:order-1">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Live Music Display</h3>
+        <p class="text-lg text-gray-700">
+          Your currently playing Spotify track is displayed in real-time with album art and track details. Guests see what's playing before they even walk in.
+        </p>
+      </div>
+
+      <div class="md:order-2">
+        <img src="/images/Alejandro.png" alt="DoorJam cyan theme with music" class="w-full h-auto object-cover">
+      </div>
+
+    </div>
+
+    <!-- Row 5: Text + Image (Blink-182) -->
+    <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+        <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200">
+        <img src="/images/Blink182.png" alt="DoorJam showing Blink-182" class="w-full h-auto object-cover">
+      </div>
+      <div>
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Rich Album Art</h3>
+        <p class="text-lg text-gray-700">
+          From punk rock to pop anthems, DoorJam beautifully showcases album artwork. Every track gets the visual treatment it deserves.
+        </p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
