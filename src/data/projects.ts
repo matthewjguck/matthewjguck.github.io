@@ -32,6 +32,8 @@ export const projects = [
     tags: ["Branding", "UX Design", "Graphic Design"],
     date: "Fall 2025",
     type: "Start Up Concept + Branding",
+    location: "Stanford, CA",
+    role: "Designer",
     status: "",
     layoutKey: "claritygrid" as LayoutKey,
     features: [
