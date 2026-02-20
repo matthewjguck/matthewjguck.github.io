@@ -18,6 +18,27 @@
       background-size: 20px 20px;
     }
 
+    .cupid-logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3rem 0 2rem;
+    }
+
+    .cupid-logo {
+      height: auto;
+      width: 30%;
+      max-width: 500px;
+    }
+
+    @media (min-width: 768px) {
+      .cupid-logo {
+        width: 20%;
+        max-width: 520px;
+      }
+    }
+
     
     /* Carousel styles */
     .carousel-container {
@@ -70,6 +91,10 @@
   </style>
 </head>
 <body class="bg-white">
+
+  <div class="cupid-logo-container">
+    <img src="/images/The Cupid Project Logo.png" alt="The Cupid Project" class="cupid-logo">
+  </div>
 
   <!-- Section 1: Explain TCP -->
   <div class="py-20 bg-white">

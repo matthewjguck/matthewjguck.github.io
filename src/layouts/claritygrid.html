@@ -1,9 +1,40 @@
+<style>
+  /* ClarityGrid Logo Header */
+  .clarity-logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 4rem;
+  }
+
+  .clarity-logo {
+    height: auto;
+    width: 50%;
+    max-width: 280px;
+  }
+
+  @media (min-width: 768px) {
+    .clarity-logo {
+      width: 30%;
+      max-width: 400px;
+    }
+  }
+</style>
+
+<div class="clarity-logo-container">
+  <img src="/images/claritygrid_logo.png" alt="ClarityGrid" class="clarity-logo">
+</div>
+
 <div class="space-y-16">
   <!-- Hero / Overview -->
   <section class="items-center">
     <div class="relative flex justify-center">
       <img src="/images/ClarityGrid.png" style="height: auto; width: 90vw;" alt="ClarityGrid hero" class="rounded-2xl" />
     </div>
+    <p class="mt-15 mx-auto text-center text-2xl md:text-3xl font-medium text-gray-900 tracking-wider" style="font-family: roc-grotesk-wide, roc-grotesk, sans-serif;">
+      Save time and energy with no new hardware.
+    </p>
   </section>
 
 

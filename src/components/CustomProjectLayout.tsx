@@ -1,15 +1,15 @@
-import React, { ComponentType } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion';
-import { getLayoutComponent, type LayoutKey } from '../components/ProjectLayouts';
+import { getLayoutContent, type LayoutKey } from '../utils/layoutImports';
 
 interface CustomProjectLayoutProps {
   layoutKey: LayoutKey;
 }
 
 export function CustomProjectLayout({ layoutKey }: CustomProjectLayoutProps) {
-  const Component = getLayoutComponent(layoutKey);
+  const htmlContent = getLayoutContent(layoutKey);
 
-  if (!Component) {
+  if (!htmlContent) {
     return null;
   }
 
@@ -18,8 +18,12 @@ export function CustomProjectLayout({ layoutKey }: CustomProjectLayoutProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
+      className="max-w-7xl mx-auto px-4 py-16 custom-project-content"
     >
-      <Component />
+      <div 
+        className="prose prose-lg max-w-none"
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
+      />
     </motion.div>
   );
 }

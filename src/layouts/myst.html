@@ -1,24 +1,71 @@
-<div class="space-y-12">
+<style>
+  .myst-logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 1.5rem 4rem;
+    position: relative;
+    z-index: 20;
+  }
+
+  .myst-page-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .myst-page-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .myst-page-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
+  }
+
+  .myst-page-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .myst-logo {
+    height: auto;
+    width: 40vw;
+    max-width: 420px;
+    animation: myst-bob 4s ease-in-out infinite;
+  }
+
+  @keyframes myst-bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+</style>
+
+<div class="myst-page-bg">
+  <img src="/images/background.png" alt="Background" />
+</div>
+
+<div class="myst-page-content">
+  <div class="myst-logo-container">
+    <img src="/images/myst logo.png" alt="Myst" class="myst-logo">
+  </div>
+
+  <div class="space-y-12">
   <!-- Hero Section with Project Overview -->
-  <section class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 relative overflow-hidden">
-    <!-- Background Image with Gradient Fade -->
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="/images/background.png" 
-        alt="Background" 
-        class="w-full h-full object-cover"
-        style="mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);"
-      />
-      <!-- Dark gradient overlay for better text readability -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/0 to-transparent"></div>
-    </div>
-    
-    <!-- Myst Logo -->
-    <div class="relative z-10 -top-3 text-center mb-10 text-white font-medium text-3xl">
-      Myst
-    </div>
-    
-    <div class="grid lg:grid-cols-3 gap-8 mb-1 items-start relative z-10">
+  <section class="bg-transparent p-8 pt-24 -mt-24 relative w-screen left-1/2 right-1/2 -mx-[50vw]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid lg:grid-cols-3 gap-8 mb-1 items-start relative z-10">
       
       <!-- Project Explanation and Categories -->
       <div class="lg:col-span-2 space-y-6 relative">
@@ -126,6 +173,8 @@
           </iframe>
         </div>
       </div>
+      </div>
     </div>
   </section>
+  </div>
 </div>
