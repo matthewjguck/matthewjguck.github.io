@@ -16,7 +16,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-white fixed inset-0 z-[100] overflow-y-auto"
+      className="min-h-screen bg-white fixed inset-0 z-[100] overflow-y-auto overflow-x-hidden"
       role="dialog" aria-modal="true" aria-labelledby="project-title"
     >
       {!hasCustomLayout && (
