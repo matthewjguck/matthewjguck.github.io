@@ -243,6 +243,7 @@ function AutoScrollingPanorama() {
     '/images/2point.jpeg',
     '/images/headshotbig.jpeg',
     '/images/mountain.jpeg',
+    '/images/hero-scroll-image.jpg',
     '/images/llama-painting.jpeg',
     '/images/sophomore-formal.jpeg',
     '/images/chris.jpeg'
@@ -251,6 +252,8 @@ function AutoScrollingPanorama() {
     '/images/SummerSpread.jpeg',
     '/images/platypus.jpeg',
     '/images/ski.jpeg',
+    '/images/instagram-post-1.jpg',
+    '/images/hero-bottom-image.jpg',
     '/images/AutumnSpread.png',
     '/images/seniorfall.png'
   ];
