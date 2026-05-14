@@ -64,9 +64,9 @@ export default function App() {
       <div aria-live="polite" className="sr-only">{announcement}</div>
       <Hero />
       <Projects />
+      <MyArt />
       <PitchDecks />
       <About />
-      <MyArt />
       <Resume />
     </div>
   )

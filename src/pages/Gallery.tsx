@@ -10,7 +10,7 @@ export function Gallery() {
   const galleryData = {
     posters: {
       title: "Posters",
-      description: "A digital preview of my dorm room walls.",
+      description: "",
       images: [
         { src: "/images/perspective.png", alt: "Perspective", name: "Perspective Matters", madeIn: "Figma",
 
@@ -442,6 +442,18 @@ export function Gallery() {
       {/* Light Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-gray-50" />
 
+      {/* Video Background */}
+      <div className="absolute top-0 left-0 right-0 h-66 overflow-hidden group">
+        <video
+          src="/videos/my-art.mp4"
+          className="absolute inset-0 w-full h-full object-cover brightness-50 saturate-150"
+          autoPlay
+          muted
+          loop
+        />
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+
       {/* Content */}
       <div className="relative z-10">
         {/* Back Button */}
@@ -462,14 +474,18 @@ export function Gallery() {
 
         {/* Header */}
         <motion.section
-          className="container mx-auto px-4 py-16"
+          className="relative h-96 flex flex-col items-center justify-center"
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: -25 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl font-bold text-center mb-8 text-black">Gallery</h1>
-          <p className="text-xl text-gray-700 text-center max-w-2xl mx-auto">
-            A collection of my visual design work, from personal art to Stanford class projects.
+          <img
+            src="/images/gallery-title.svg"
+            alt="Gallery"
+            className="w-[clamp(50vw,50%,80vw)]"
+          />
+          <p className="text-xl text-gray-700 text-center max-w-3xl mx-auto px-16 mt-24">
+            A collection of my creative design work, from personal art to Stanford class projects.
           </p>
         </motion.section>
 
