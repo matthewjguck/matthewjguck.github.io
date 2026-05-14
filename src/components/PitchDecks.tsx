@@ -11,14 +11,19 @@ interface PitchDeck {
 
 const pitchDecks: PitchDeck[] = [
   {
+    title: 'Queer Peer Marketplace',
+    svg: '/pdfs/Queer%20Peer%20Marketplace.svg',
+    pdf: '/pdfs/Queer%20Peer%20Marketplace.pdf',
+  },
+  {
     title: 'ClarityGrid Opportunity Analysis',
     svg: '/pdfs/ClarityGrid%20AI%20OEP%20Slides.svg',
     pdf: '/pdfs/ClarityGrid%20AI%20OEP%20Slides.pdf',
   },
   {
-    title: 'HCI Research Presentation',
-    svg: '/pdfs/CS%20197%20Presentation.svg',
-    pdf: '/pdfs/CS%20197%20Presentation.pdf',
+    title: 'Thirsty Girl Bottle Co.',
+    svg: '/pdfs/Thirsty%20Girl%20Group%20Presentation.svg',
+    pdf: '/pdfs/Thirsty%20Girl%20Group%20Presentation.pdf',
   },
   {
     title: 'Guild — Corporate Partner Needfinding',
@@ -29,6 +34,11 @@ const pitchDecks: PitchDeck[] = [
     title: 'Spanish 2 Presentation',
     svg: '/pdfs/Spanish%202%20Presentation.svg',
     pdf: '/pdfs/Spanish%202%20Presentation.pdf',
+  },
+  {
+    title: 'HCI Research Presentation',
+    svg: '/pdfs/CS%20197%20Presentation.svg',
+    pdf: '/pdfs/CS%20197%20Presentation.pdf',
   },
   {
     title: 'Shark Pro',
