@@ -450,6 +450,7 @@ export function Gallery() {
           autoPlay
           muted
           loop
+          playsInline
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>

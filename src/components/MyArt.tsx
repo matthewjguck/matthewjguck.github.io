@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import { ArrowRight } from 'lucide-react'
 
 export function MyArt() {
   return (
@@ -11,19 +10,19 @@ export function MyArt() {
       >
         <video
           src="/videos/my-art.mp4"
-          className="absolute inset-0 w-full h-full object-cover brightness-50 saturate-170 group-hover:scale-110 transition-transform duration-300"
+          className="absolute inset-0 w-full h-full object-cover brightness-60 saturate-170 group-hover:scale-110 transition-transform duration-300 group-hover:brightness-100"
           autoPlay
           muted
           loop
+          playsInline
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="relative flex flex-col items-center gap-12">
+        <div className="relative flex items-center gap-6">
           <img
             src="/images/gallery-title.svg"
             alt="Gallery"
-            className="w-96 md:w-[600px] border-4 border-white rounded-lg px-8 py-6"
+            className="w-96 md:w-[600px] border-4 border-white px-8 py-6 group-hover:bg-black"
           />
-          <ArrowRight className="w-8 h-8 text-white" />
         </div>
       </a>
     </section>
