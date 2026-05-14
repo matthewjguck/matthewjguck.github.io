@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import { ArrowRight } from 'lucide-react'
 
 export function MyArt() {
   return (
@@ -16,12 +17,13 @@ export function MyArt() {
           loop
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="relative flex items-center">
+        <div className="relative flex flex-col items-center gap-12">
           <img
             src="/images/gallery-title.svg"
             alt="Gallery"
             className="w-96 md:w-[600px] border-4 border-white rounded-lg px-8 py-6"
           />
+          <ArrowRight className="w-8 h-8 text-white" />
         </div>
       </a>
     </section>
