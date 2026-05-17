@@ -69,3 +69,13 @@ html, body {
 .custom-project-content img.icon-img.icon-lg {
   height: 12rem !important; /* ~192px, similar visual height */
 }
+
+/* Hide scrollbar for video gallery */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
