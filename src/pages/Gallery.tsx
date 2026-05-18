@@ -735,7 +735,7 @@ export function Gallery() {
 
             {/* LIFT Puns Scrollable Row */}
             <div className="mt-20">
-              <h4 className="text-lg font-semibold mb-6 text-gray-700">LIFT Campaign Puns</h4>
+              <h4 className="text-lg font-semibold mb-6 text-gray-700 text-center">LIFT Campaign Puns</h4>
               <div className="overflow-x-auto pb-4">
                 <div className="flex space-x-4 min-w-max">
                   {galleryData.stanford.subsections.junior.liftPuns.map((image, index) => (
@@ -760,7 +760,7 @@ export function Gallery() {
 
             {/* Wrapped Images Scrollable Row */}
             <div className="mt-20">
-              <h4 className="text-lg font-semibold mb-6 text-gray-700">Junior Year Wrapped</h4>
+              <h4 className="text-lg font-semibold mb-6 text-gray-700 text-center">Junior Year Wrapped</h4>
               <div className="overflow-x-auto pb-4">
                 <div className="flex space-x-4 min-w-max">
                   {galleryData.stanford.subsections.junior.wrappedImages.map((image, index) => (
