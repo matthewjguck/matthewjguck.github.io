@@ -313,17 +313,19 @@ export function Gallery() {
             }
             if (item.type === 'triptych') {
               return (
-                <div key={idx} className="flex justify-center gap-6 py-8">
-                  {item.images.map((img, imgIdx) => (
-                    <div key={imgIdx} className="flex-1 text-center flex flex-col">
-                      <img
-                        src={img.src}
-                        alt={img.alt}
-                        className="w-full h-80 object-cover"
-                      />
-                      <p className="text-gray-700 font-medium mt-4">{img.label}</p>
-                    </div>
-                  ))}
+                <div key={idx} className="w-screen -mx-[calc((100vw-100%)/2)] px-4">
+                  <div className="flex gap-6 py-8">
+                    {item.images.map((img, imgIdx) => (
+                      <div key={imgIdx} className="flex-1 text-center flex flex-col">
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          className="w-full h-80 object-cover"
+                        />
+                        <p className="text-gray-700 font-medium mt-4">{img.label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               );
             }
@@ -342,7 +344,7 @@ export function Gallery() {
           return (
             <motion.div
               key={index}
-              className="flex flex-col items-center"
+              className="w-screen -mx-[calc((100vw-100%)/2)] px-4 py-12 flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
