@@ -67,7 +67,6 @@ export function Gallery() {
           { type: 'text', content: 'Topic: Insulin Price Gouging' }
         ] },
         { src: "/images/The Hall.png", alt: "The Man", name: "The Man", madeIn: "Google Slides", isTriptych: true, description: [
-          { type: 'text', content: 'The Man', center: true, style: 'bold large' },
           { type: 'triptych', images: [
             { src: '/images/The Hall.png', alt: 'The Man in the Hall', label: 'The Man in the Hall' },
             { src: '/images/The River.png', alt: 'The Man by the River', label: 'The Man by the River' },
