@@ -67,6 +67,7 @@ export function Gallery() {
           { type: 'text', content: 'Topic: Insulin Price Gouging' }
         ] },
         { src: "/images/The Hall.png", alt: "The Man", name: "The Man", madeIn: "Google Slides", isTriptych: true, description: [
+          { type: 'text', content: 'Vector Art study in Google Slides. December 2022' },
           { type: 'triptych', images: [
             { src: '/images/The Hall.png', alt: 'The Man in the Hall', label: 'The Man in the Hall' },
             { src: '/images/The River.png', alt: 'The Man by the River', label: 'The Man by the River' },
