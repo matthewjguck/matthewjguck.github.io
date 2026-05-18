@@ -558,7 +558,7 @@ export function Gallery() {
               {galleryData.posters.simpleImages.map((image, index) => (
                 <motion.div
                   key={index}
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 text-center"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -569,6 +569,7 @@ export function Gallery() {
                     alt={image.alt}
                     className="h-120 object-contain"
                   />
+                  <p className="text-gray-700 font-medium mt-4 text-center">{image.name}</p>
                 </motion.div>
               ))}
             </div>
