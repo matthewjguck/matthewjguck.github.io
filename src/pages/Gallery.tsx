@@ -320,7 +320,7 @@ export function Gallery() {
                         <img
                           src={img.src}
                           alt={img.alt}
-                          className="w-full h-80 object-cover"
+                          className="w-full h-[70vh] object-cover"
                         />
                         <p className="text-gray-700 font-medium mt-4">{img.label}</p>
                       </div>
