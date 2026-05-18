@@ -66,7 +66,7 @@ export function Gallery() {
           { type: 'text', content: 'Assignment for IB Theory of Knowledge | Junior Year HS' },
           { type: 'text', content: 'Topic: Insulin Price Gouging' }
         ] },
-        { src: "/images/The Hall.png", alt: "The Man", name: "The Man", madeIn: "Google Slides", description: [
+        { src: "/images/The Hall.png", alt: "The Man", name: "The Man", madeIn: "Google Slides", isTriptych: true, description: [
           { type: 'text', content: 'The Man', center: true, style: 'bold large' },
           { type: 'triptych', images: [
             { src: '/images/The Hall.png', alt: 'The Man in the Hall', label: 'The Man in the Hall' },
@@ -337,6 +337,31 @@ export function Gallery() {
   const AlternatingImageGrid = ({ images }) => (
     <div className="space-y-20">
       {images.map((image, index) => {
+        // Handle triptych layout
+        if (image.isTriptych) {
+          return (
+            <motion.div
+              key={index}
+              className="flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-full mb-8">
+                <h3 className="text-4xl font-semibold text-black text-center mb-4">{image.name}</h3>
+                {(image.madeIn === "Slides" || image.madeIn === "Google Slides") && (
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-sm text-gray-600">Made in</p>
+                    <img src="/images/slides-logo.png" alt="Google Slides" className="h-8" />
+                  </div>
+                )}
+              </div>
+              {renderDescription(image.description)}
+            </motion.div>
+          );
+        }
+
         const isImageFirst = index % 2 === 0;
         return (
           <motion.div
