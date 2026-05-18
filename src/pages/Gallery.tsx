@@ -691,7 +691,7 @@ export function Gallery() {
 
           {/* Junior Year */}
           <div className="mb-20">
-            <h3 className="text-2xl font-semibold mb-12">{galleryData.stanford.subsections.junior.title}</h3>
+            <h3 className="text-2xl font-semibold mb-12 text-center">{galleryData.stanford.subsections.junior.title}</h3>
             <div className="mb-20 grid grid-cols-3 gap-4">
               {galleryData.stanford.subsections.junior.headerTriptych.map((image, index) => (
                 <motion.div
@@ -786,7 +786,7 @@ export function Gallery() {
 
           {/* Sophomore Year */}
           <div className="mb-20">
-            <h3 className="text-2xl font-semibold mb-12">{galleryData.stanford.subsections.sophomore.title}</h3>
+            <h3 className="text-2xl font-semibold mb-12 text-center">{galleryData.stanford.subsections.sophomore.title}</h3>
             <div className="mb-20 grid grid-cols-3 gap-4">
               {galleryData.stanford.subsections.sophomore.headerTriptych.map((image, index) => (
                 <motion.div
@@ -818,7 +818,7 @@ export function Gallery() {
 
           {/* Freshman Year */}
           <div className="mb-20">
-            <h3 className="text-2xl font-semibold mb-12">{galleryData.stanford.subsections.freshman.title}</h3>
+            <h3 className="text-2xl font-semibold mb-12 text-center">{galleryData.stanford.subsections.freshman.title}</h3>
             <div className="mb-20 grid grid-cols-3 gap-4">
               {galleryData.stanford.subsections.freshman.headerTriptych.map((image, index) => (
                 <motion.div
