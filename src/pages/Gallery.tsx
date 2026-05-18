@@ -672,7 +672,7 @@ export function Gallery() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <img src={image.src} alt={image.alt} className="w-full h-auto object-cover" />
+                <img src={image.src} alt={image.alt} className={`w-full h-auto object-cover ${index === 1 ? 'brightness-125' : ''}`} />
               </motion.div>
             ))}
           </div>
