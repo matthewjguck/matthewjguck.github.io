@@ -355,7 +355,7 @@ export function Gallery() {
                 {(image.madeIn === "Slides" || image.madeIn === "Google Slides") && (
                   <div className="flex items-center justify-center gap-2">
                     <p className="text-sm text-gray-600">Made in</p>
-                    <img src="/images/slides-logo.png" alt="Google Slides" className="h-8" />
+                    <img src="/images/slides-logo.png" alt="Google Slides" className="h-13" />
                   </div>
                 )}
               </div>
