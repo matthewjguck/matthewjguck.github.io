@@ -65,6 +65,14 @@ export function Gallery() {
         { src: "/images/Life Juice.png", alt: "Life Juice", name: "Life Juice", madeIn: "Slides", description: [
           { type: 'text', content: 'Assignment for IB Theory of Knowledge | Junior Year HS' },
           { type: 'text', content: 'Topic: Insulin Price Gouging' }
+        ] },
+        { src: "/images/The Hall.png", alt: "The Man", name: "The Man", madeIn: "Google Slides", description: [
+          { type: 'text', content: 'The Man', center: true, style: 'bold large' },
+          { type: 'triptych', images: [
+            { src: '/images/The Hall.png', alt: 'The Man in the Hall', label: 'The Man in the Hall' },
+            { src: '/images/The River.png', alt: 'The Man by the River', label: 'The Man by the River' },
+            { src: '/images/The Street.png', alt: 'The Man in the Window', label: 'The Man in the Window' }
+          ] }
         ] }
       ],
       simpleImages: [
@@ -265,8 +273,9 @@ export function Gallery() {
             if (item.type === 'text') {
               const textColor = item.style === 'italic grey' ? 'text-gray-500' : 'text-gray-700';
               const textAlign = item.center ? 'text-center' : '';
+              const textSize = item.style === 'bold large' ? 'text-2xl font-bold' : '';
               return (
-                <p key={idx} className={`${textColor} leading-relaxed ${textAlign}`}>
+                <p key={idx} className={`${textColor} leading-relaxed ${textAlign} ${textSize}`}>
                   {parseText(item.content)}
                 </p>
               );
@@ -297,6 +306,22 @@ export function Gallery() {
                       {item.labels && item.labels[imgIdx] && (
                         <p className="text-gray-500 italic text-sm mt-2">{item.labels[imgIdx]}</p>
                       )}
+                    </div>
+                  ))}
+                </div>
+              );
+            }
+            if (item.type === 'triptych') {
+              return (
+                <div key={idx} className="flex justify-center gap-6 py-8">
+                  {item.images.map((img, imgIdx) => (
+                    <div key={imgIdx} className="flex-1 text-center flex flex-col">
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full h-80 object-cover"
+                      />
+                      <p className="text-gray-700 font-medium mt-4">{img.label}</p>
                     </div>
                   ))}
                 </div>
@@ -340,7 +365,7 @@ export function Gallery() {
                         <img src="/images/figma-logo.png" alt="Figma" className="h-8" />
                       </div>
                     )}
-                    {image.madeIn === "Slides" && (
+                    {(image.madeIn === "Slides" || image.madeIn === "Google Slides") && (
                       <div className="flex items-center gap-2 mt-2">
                         <p className="text-sm text-gray-600">Made in</p>
                         <img src="/images/slides-logo.png" alt="Google Slides" className="h-8" />
@@ -370,7 +395,7 @@ export function Gallery() {
                         <img src="/images/figma-logo.png" alt="Figma" className="h-8" />
                       </div>
                     )}
-                    {image.madeIn === "Slides" && (
+                    {(image.madeIn === "Slides" || image.madeIn === "Google Slides") && (
                       <div className="flex items-center gap-2 mt-2">
                         <p className="text-sm text-gray-600">Made in</p>
                         <img src="/images/slides-logo.png" alt="Google Slides" className="h-13" />
@@ -382,7 +407,7 @@ export function Gallery() {
                         <img src="/images/blender-logo.png" alt="Blender" className="h-8" />
                       </div>
                     )}
-                    {image.madeIn && image.madeIn !== "Figma" && image.madeIn !== "Slides" && image.madeIn !== "Blender" && (
+                    {image.madeIn && image.madeIn !== "Figma" && image.madeIn !== "Slides" && image.madeIn !== "Google Slides" && image.madeIn !== "Blender" && (
                       <p className="text-sm text-gray-600 mt-2">Made in {image.madeIn}</p>
                     )}
                   </div>
