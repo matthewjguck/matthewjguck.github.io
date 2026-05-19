@@ -94,7 +94,7 @@ export const projects = [
     role: "Founder, Lead Designer",
     status: "501(c)(3) Non-profit",
     content: "",
-    gallery: ["/images/family.webp"],
+    gallery: ["/images/TCP Collage.png", "/images/family.webp"],
     layoutKey: "cupid" as LayoutKey,
   },
   {
