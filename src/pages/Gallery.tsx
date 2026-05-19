@@ -65,6 +65,14 @@ export function Gallery() {
         { src: "/images/Life Juice.png", alt: "Life Juice", name: "Life Juice", madeIn: "Slides", description: [
           { type: 'text', content: 'Assignment for IB Theory of Knowledge | Junior Year HS' },
           { type: 'text', content: 'Topic: Insulin Price Gouging' }
+        ] },
+        { src: "/images/The Hall.png", alt: "The Man", name: "The Man", madeIn: "Google Slides", isTriptych: true, description: [
+          { type: 'text', content: 'Vector Art study in Google Slides. December 2022' },
+          { type: 'triptych', images: [
+            { src: '/images/The Hall.png', alt: 'The Man in the Hall', label: 'The Man in the Hall' },
+            { src: '/images/The River.png', alt: 'The Man by the River', label: 'The Man by the River' },
+            { src: '/images/The Street.png', alt: 'The Man in the Window', label: 'The Man in the Window' }
+          ] }
         ] }
       ],
       simpleImages: [
@@ -265,8 +273,9 @@ export function Gallery() {
             if (item.type === 'text') {
               const textColor = item.style === 'italic grey' ? 'text-gray-500' : 'text-gray-700';
               const textAlign = item.center ? 'text-center' : '';
+              const textSize = item.style === 'bold large' ? 'text-2xl font-bold' : '';
               return (
-                <p key={idx} className={`${textColor} leading-relaxed ${textAlign}`}>
+                <p key={idx} className={`${textColor} leading-relaxed ${textAlign} ${textSize}`}>
                   {parseText(item.content)}
                 </p>
               );
@@ -302,6 +311,24 @@ export function Gallery() {
                 </div>
               );
             }
+            if (item.type === 'triptych') {
+              return (
+                <div key={idx} className="w-screen -mx-[calc((100vw-100%)/2)] px-4">
+                  <div className="flex gap-6 py-8">
+                    {item.images.map((img, imgIdx) => (
+                      <div key={imgIdx} className="flex-1 text-center flex flex-col">
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          className="w-full h-[70vh] object-cover"
+                        />
+                        <p className="text-gray-700 font-medium mt-4">{img.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
           })}
         </div>
       );
@@ -312,6 +339,31 @@ export function Gallery() {
   const AlternatingImageGrid = ({ images }) => (
     <div className="space-y-20">
       {images.map((image, index) => {
+        // Handle triptych layout
+        if (image.isTriptych) {
+          return (
+            <motion.div
+              key={index}
+              className="w-screen -mx-[calc((100vw-100%)/2)] px-4 py-12 flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-full mb-8">
+                <h3 className="text-4xl font-semibold text-black text-center mb-4">{image.name}</h3>
+                {(image.madeIn === "Slides" || image.madeIn === "Google Slides") && (
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-sm text-gray-600">Made in</p>
+                    <img src="/images/slides-logo.png" alt="Google Slides" className="h-13" />
+                  </div>
+                )}
+              </div>
+              {renderDescription(image.description)}
+            </motion.div>
+          );
+        }
+
         const isImageFirst = index % 2 === 0;
         return (
           <motion.div
@@ -340,7 +392,7 @@ export function Gallery() {
                         <img src="/images/figma-logo.png" alt="Figma" className="h-8" />
                       </div>
                     )}
-                    {image.madeIn === "Slides" && (
+                    {(image.madeIn === "Slides" || image.madeIn === "Google Slides") && (
                       <div className="flex items-center gap-2 mt-2">
                         <p className="text-sm text-gray-600">Made in</p>
                         <img src="/images/slides-logo.png" alt="Google Slides" className="h-8" />
@@ -370,7 +422,7 @@ export function Gallery() {
                         <img src="/images/figma-logo.png" alt="Figma" className="h-8" />
                       </div>
                     )}
-                    {image.madeIn === "Slides" && (
+                    {(image.madeIn === "Slides" || image.madeIn === "Google Slides") && (
                       <div className="flex items-center gap-2 mt-2">
                         <p className="text-sm text-gray-600">Made in</p>
                         <img src="/images/slides-logo.png" alt="Google Slides" className="h-13" />
@@ -382,7 +434,7 @@ export function Gallery() {
                         <img src="/images/blender-logo.png" alt="Blender" className="h-8" />
                       </div>
                     )}
-                    {image.madeIn && image.madeIn !== "Figma" && image.madeIn !== "Slides" && image.madeIn !== "Blender" && (
+                    {image.madeIn && image.madeIn !== "Figma" && image.madeIn !== "Slides" && image.madeIn !== "Google Slides" && image.madeIn !== "Blender" && (
                       <p className="text-sm text-gray-600 mt-2">Made in {image.madeIn}</p>
                     )}
                   </div>
@@ -506,7 +558,7 @@ export function Gallery() {
               {galleryData.posters.simpleImages.map((image, index) => (
                 <motion.div
                   key={index}
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 text-center"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -517,6 +569,7 @@ export function Gallery() {
                     alt={image.alt}
                     className="h-120 object-contain"
                   />
+                  <p className="text-gray-700 font-medium mt-4 text-center">{image.name}</p>
                 </motion.div>
               ))}
             </div>
@@ -619,7 +672,7 @@ export function Gallery() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <img src={image.src} alt={image.alt} className="w-full h-auto object-cover" />
+                <img src={image.src} alt={image.alt} className={`w-full h-auto object-cover ${index === 1 ? 'brightness-115' : ''}`} />
               </motion.div>
             ))}
           </div>
@@ -638,7 +691,7 @@ export function Gallery() {
 
           {/* Junior Year */}
           <div className="mb-20">
-            <h3 className="text-2xl font-semibold mb-12">{galleryData.stanford.subsections.junior.title}</h3>
+            <h3 className="text-2xl font-semibold mb-12 text-center">{galleryData.stanford.subsections.junior.title}</h3>
             <div className="mb-20 grid grid-cols-3 gap-4">
               {galleryData.stanford.subsections.junior.headerTriptych.map((image, index) => (
                 <motion.div
@@ -682,7 +735,7 @@ export function Gallery() {
 
             {/* LIFT Puns Scrollable Row */}
             <div className="mt-20">
-              <h4 className="text-lg font-semibold mb-6 text-gray-700">LIFT Campaign Puns</h4>
+              <h4 className="text-lg font-semibold mb-6 text-gray-700 text-center">LIFT Campaign Puns</h4>
               <div className="overflow-x-auto pb-4">
                 <div className="flex space-x-4 min-w-max">
                   {galleryData.stanford.subsections.junior.liftPuns.map((image, index) => (
@@ -707,7 +760,7 @@ export function Gallery() {
 
             {/* Wrapped Images Scrollable Row */}
             <div className="mt-20">
-              <h4 className="text-lg font-semibold mb-6 text-gray-700">Junior Year Wrapped</h4>
+              <h4 className="text-lg font-semibold mb-6 text-gray-700 text-center">Junior Year Wrapped</h4>
               <div className="overflow-x-auto pb-4">
                 <div className="flex space-x-4 min-w-max">
                   {galleryData.stanford.subsections.junior.wrappedImages.map((image, index) => (
@@ -733,7 +786,7 @@ export function Gallery() {
 
           {/* Sophomore Year */}
           <div className="mb-20">
-            <h3 className="text-2xl font-semibold mb-12">{galleryData.stanford.subsections.sophomore.title}</h3>
+            <h3 className="text-2xl font-semibold mb-12 text-center">{galleryData.stanford.subsections.sophomore.title}</h3>
             <div className="mb-20 grid grid-cols-3 gap-4">
               {galleryData.stanford.subsections.sophomore.headerTriptych.map((image, index) => (
                 <motion.div
@@ -765,7 +818,7 @@ export function Gallery() {
 
           {/* Freshman Year */}
           <div className="mb-20">
-            <h3 className="text-2xl font-semibold mb-12">{galleryData.stanford.subsections.freshman.title}</h3>
+            <h3 className="text-2xl font-semibold mb-12 text-center">{galleryData.stanford.subsections.freshman.title}</h3>
             <div className="mb-20 grid grid-cols-3 gap-4">
               {galleryData.stanford.subsections.freshman.headerTriptych.map((image, index) => (
                 <motion.div
