@@ -1,0 +1,346 @@
+<style>
+  @font-face {
+    font-family: 'Printvetica';
+    src: url('/fonts/Printvetica.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  .custom-project-content {
+    font-family: 'Printvetica', sans-serif;
+  }
+
+  /* Override any image shadows */
+  .custom-project-content img,
+  .inklings-story-image {
+    --tw-shadow: 0 0 0 0 transparent !important;
+    --tw-shadow-color: transparent !important;
+    box-shadow: 0 0 0 0 transparent !important;
+    -webkit-box-shadow: 0 0 0 0 transparent !important;
+    -moz-box-shadow: 0 0 0 0 transparent !important;
+  }
+
+  .inklings-logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  .inklings-wordmark {
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .inklings-wordmark img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .inklings-spread-love {
+    background-image: url('/images/inklings/inklings-p12-1.png');
+    background-size: 220px auto;
+    background-repeat: repeat;
+  }
+
+  .inklings-quadrant-box {
+    border: 2px solid #111827;
+  }
+
+  .inklings-video-mask {
+    -webkit-mask-image: url('/images/inklings/rough-video-mask.svg');
+    mask-image: url('/images/inklings/rough-video-mask.svg');
+    -webkit-mask-mode: alpha;
+    mask-mode: alpha;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+</style>
+
+<div class="inklings-logo-container">
+  <div class="inklings-wordmark">
+    <img src="/images/inklings/inklings-combined-header.svg" alt="Inklings">
+  </div>
+</div>
+
+<div class="md:max-w-6xl mx-auto px-0 md:px-4 mt-16 mb-16">
+  <video
+    src="/videos/Inklings.mp4"
+    controls
+    preload="yes"
+    playsinline
+    class="w-full md:w-4/5 mx-auto inklings-story-image inklings-video-mask"
+  ></video>
+</div>
+
+<div class="flex flex-col flex-col-reverse md:grid md:grid-cols-10 gap-8 items-center max-w-6xl mx-auto px-0">
+
+    <!-- Content container: Full width on mobile, spans 4 columns on desktop -->
+    <div class="md:col-span-4 flex flex-col gap-8">
+      <h1>What is an Inkling?</h1>
+      <p class="text-2xl text-gray-700 leading-relaxed">
+        Inklings are a tangible reminder that someone is thinking about you.
+      </p>
+      <p class="text-2xl text-gray-700 leading-relaxed">
+        They turn kind, passing thoughts into meaningful connection between friends.
+      </p>
+    </div>
+
+     <!-- Image container: Full width on mobile, spans 6 columns on desktop -->
+    <div class="md:col-span-6 flex justify-center align-center w-full">
+      <div>
+          <img src="/images/inklings/user-made-inklings.png" alt="Inklings Illustration" class="rounded-lg shadow-lg w-full h-auto object-cover" />
+          <p class="text-md text-gray-700 text-center">User Generated Inklings</p>
+      </div>
+    </div>
+
+  </div>
+
+<!-- Section: How Does Inklings Work -->
+ <div class="max-w-6xl mx-auto mt-16 mb-16">
+
+    <h1>How does Inklings work?</h1>
+    <p class="text-2xl text-gray-700 leading-relaxed">
+          Inklings consists of a network of physical receipt printers and a web app.
+    </p>
+
+    <div class="grid md:grid-cols-10 gap-8 items-center mt-16">
+      <div class="md:col-span-6 flex flex-col gap-6">
+        <h2 class="text-4xl font-semibold">Sending</h2>
+        <p class="text-xl text-gray-700 leading-relaxed">
+          Senders create their message on the Inklings web app, and send a notification to their friend's Stanford University email.
+        </p>
+        <p class="text-xl text-gray-700 leading-relaxed">
+          The message editor allows users to write with unique fonts, dither images for B&amp;W printing, and add fun stickers via GIPHY's sticker API.
+        </p>
+      </div>
+      <div class="md:col-span-4 flex justify-center">
+        <img src="/images/inklings/sending.png" alt="Inklings web app message editor showing a composed message with fonts and stickers" class="rounded-lg shadow-lg w-full h-auto object-cover" />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-10 gap-8 items-center mt-20">
+      <div class="md:col-span-6 flex flex-col gap-6">
+        <h2 class="text-4xl font-semibold">Receiving</h2>
+        <p class="text-xl text-gray-700 leading-relaxed">
+          Recipients of an Inkling receive an email notification prompting them to go to an Inklings printer and print their message.
+        </p>
+        <p class="text-xl text-gray-700 leading-relaxed">
+          Once they sign in and click print, Inklings will ensure that device's location is within 10m of a printer. If it is, the message will print within 3 seconds.
+        </p>
+      </div>
+      <div class="md:col-span-1"></div>
+      <div class="md:col-span-3 flex justify-center">
+        <img src="/images/inklings/receiving.png" alt="Inklings printer confirming a recipient's location before printing their message" class="rounded-lg shadow-lg w-full h-auto object-cover" />
+      </div>
+    </div>
+
+    <div class="mt-20">
+      <h3 class="text-2xl font-semibold mb-6 text-center">Technical</h3>
+      <p class="text-xl text-gray-700 leading-relaxed text-center max-w-4xl mx-auto mb-10">
+        Each printer is connected to a Raspberry Pi running a custom print server, which continuously polls our Supabase backend for new print jobs and processes them automatically.
+      </p>
+      <div class="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <img src="/images/inklings/wire printer.png" alt="Wiring inside an Inklings receipt printer" class="rounded-lg w-full h-auto object-cover" />
+        <img src="/images/inklings/inklings-p9-8.png" alt="Inklings print server hardware" class="rounded-lg w-full h-auto object-cover" />
+      </div>
+    </div>
+  </div>
+
+<!-- Section: The Problem -->
+<div class="py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">The Problem</h2>
+        <p class="text-lg text-gray-700 mb-6">
+          Our team originally set out to address the problem of connecting with loved ones at a distance.
+        </p>
+        <p class="text-lg text-gray-700">
+          Every existing way of reaching someone forced a tradeoff. Mailed letters and handwritten cards feel
+          intentional, but they're slow and take real commitment. Texts, DMs, and social feeds are fast, but
+          they're often passive — easy to send without much thought, and just as easy to forget. Nothing let
+          you send something quick that still felt like it meant something.
+        </p>
+      </div>
+      <div class="inklings-quadrant-box rounded-2xl p-6 bg-white">
+        <div class="grid grid-cols-[auto_1fr_1fr] grid-rows-[auto_1fr_1fr] gap-1 text-sm">
+          <div></div>
+          <div class="text-center font-semibold text-gray-500 pb-1">Slow</div>
+          <div class="text-center font-semibold text-gray-500 pb-1">Fast</div>
+
+          <div class="flex items-center justify-center font-semibold text-gray-500 [writing-mode:vertical-lr] rotate-180">Intentional</div>
+          <div class="border border-gray-200 rounded-lg p-3 space-y-1">
+            <div class="text-gray-700">Mailed letter</div>
+            <div class="text-gray-700">Handwritten card</div>
+          </div>
+          <div class="border-2 border-[#ff2d78] rounded-lg p-3 bg-pink-50 flex items-center justify-center">
+            <span class="font-bold text-[#ff2d78]">Inklings</span>
+          </div>
+
+          <div class="flex items-center justify-center font-semibold text-gray-500 [writing-mode:vertical-lr] rotate-180">Passive</div>
+          <div class="border border-gray-200 rounded-lg p-3"></div>
+          <div class="border border-gray-200 rounded-lg p-3 space-y-1">
+            <div class="text-gray-700">Email</div>
+            <div class="text-gray-700">Texting/DM</div>
+            <div class="text-gray-700">Social feed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section: The Solution -->
+<div class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">The Solution</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Inklings is a new form of communication that is more intentional than a text, but less commitment than
+        a posted letter.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-center mb-16">
+      <div class="bg-white border-2 border-gray-900 rounded-2xl p-8">
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Inkling</h3>
+        <p class="text-sm text-gray-500 italic mb-4">[ink-ling] · noun</p>
+        <p class="text-lg text-gray-800">
+          1. a small, tangible reminder that someone is thinking about you
+        </p>
+      </div>
+      <div class="text-center">
+        <img src="/images/inklings/inklings-p6-3.png" alt="The Inklings receipt printer, stickered with the Inklings logo and a QR code" class="w-full max-w-sm mx-auto">
+      </div>
+    </div>
+
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto text-center">
+      Users compose an "Inkling" on the web app and send it to a friend's Stanford SUNet ID. It shows up as a
+      surprise — printed out on one of a network of receipt printers placed around campus, ready for the
+      recipient to find, rip off, and keep.
+    </p>
+  </div>
+</div>
+
+
+<!-- Section: Web App -->
+<div class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Inklings Web App</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <img src="/images/inklings/inklings-p6-6.png" alt="Inklings app Home screen with Send and Print buttons" class="w-full max-w] mx-auto mb-4">
+        <h3 class="text-xl font-bold text-gray-900 mb-2">1. Start an Inkling</h3>
+        <p class="text-gray-600">Open the web app and choose to send or print a new Inkling.</p>
+      </div>
+      <div class="text-center">
+        <img src="/images/inklings/inklings-p6-5.png" alt="Inklings app screen asking who you want to send this to, with a SUNet ID field" class="w-full max-w mx-auto mb-4">
+        <h3 class="text-xl font-bold text-gray-900 mb-2">2. Pick a Friend</h3>
+        <p class="text-gray-600">Address it to their Stanford SUNet ID — no accounts or contact syncing needed.</p>
+      </div>
+      <div class="text-center">
+        <img src="/images/inklings/inklings-p6-4.png" alt="Inklings app compose screen with a hand-drawn sun sticker and the message You light up my life" class="w-full max-w mx-auto mb-4">
+        <h3 class="text-xl font-bold text-gray-900 mb-2">3. Add a Note</h3>
+        <p class="text-gray-600">Write a message, drop in a photo or sticker, and send it off.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section: Under the Hood -->
+<div class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Under the Hood</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        A network of Raspberry Pi-powered receipt printers, built and shipped in five weeks.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="text-center">
+        <img src="/images/inklings/inklings-p9-3.png" alt="Raspberry Pi Zero board used to power each Inklings print server" class="w-full max-w-md mx-auto">
+      </div>
+      <div class="space-y-4">
+        <div class="border border-gray-200 rounded-xl p-5">
+          <h3 class="font-semibold text-gray-900 mb-1">Frontend</h3>
+          <p class="text-gray-600">React</p>
+        </div>
+        <div class="border border-gray-200 rounded-xl p-5">
+          <h3 class="font-semibold text-gray-900 mb-1">Backend</h3>
+          <p class="text-gray-600">Supabase</p>
+        </div>
+        <div class="border border-gray-200 rounded-xl p-5">
+          <h3 class="font-semibold text-gray-900 mb-1">Print Server</h3>
+          <p class="text-gray-600">Raspberry Pi running a custom Python print server and USB driver, connected over Stanford Wi-Fi</p>
+        </div>
+        <div class="border border-gray-200 rounded-xl p-5">
+          <h3 class="font-semibold text-gray-900 mb-1">Email &amp; Hosting</h3>
+          <p class="text-gray-600">Resend for notifications, Wix + Porkbun for domain hosting</p>
+        </div>
+        <p class="text-sm text-gray-500 pt-2">310 GitHub commits in 5 weeks</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section: Impact -->
+<div class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Impact</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div class="bg-pink-50 rounded-2xl p-6 text-center border border-pink-100">
+        <div class="text-3xl font-bold text-[#ff2d78] mb-1">326</div>
+        <p class="text-sm text-gray-700">users</p>
+      </div>
+      <div class="bg-pink-50 rounded-2xl p-6 text-center border border-pink-100">
+        <div class="text-3xl font-bold text-[#ff2d78] mb-1">641</div>
+        <p class="text-sm text-gray-700">Inklings sent</p>
+      </div>
+      <div class="bg-pink-50 rounded-2xl p-6 text-center border border-pink-100">
+        <div class="text-3xl font-bold text-[#ff2d78] mb-1">68%</div>
+        <p class="text-sm text-gray-700">sent more than one</p>
+      </div>
+      <div class="bg-pink-50 rounded-2xl p-6 text-center border border-pink-100">
+        <div class="text-3xl font-bold text-[#ff2d78] mb-1">85%</div>
+        <p class="text-sm text-gray-700">included an image</p>
+      </div>
+      <div class="bg-pink-50 rounded-2xl p-6 text-center border border-pink-100">
+        <div class="text-3xl font-bold text-[#ff2d78] mb-1">14%</div>
+        <p class="text-sm text-gray-700">included a sticker</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section: The Team -->
+<div class="py-20 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold text-gray-900 mb-8">The Team</h2>
+    <img src="/images/inklings/inklings-p11-3.png" alt="The Inklings team taking a group selfie in the d.school studio" class="w-full max-w-sm mx-auto rounded-2xl mb-6 inklings-story-image">
+    <p class="text-lg text-gray-700">Thanks for a great quarter!</p>
+  </div>
+</div>
+
+<!-- Closing -->
+<div class="inklings-spread-love py-20">
+  <div class="max-w-3xl mx-auto px-4 text-center bg-white/90 rounded-2xl py-10">
+    <p class="text-2xl font-bold text-gray-900">
+      Most of the time, you don't have to say or do much to make someone else feel seen.
+    </p>
+  </div>
+</div>
