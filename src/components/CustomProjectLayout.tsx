@@ -48,6 +48,24 @@ export function CustomProjectLayout({ layoutKey }: CustomProjectLayoutProps) {
     );
   }
 
+  if (layoutKey === 'inklings') {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="custom-project-content receipt-page-bg py-24 px-4 md:px-8"
+      >
+        <div className="receipt-paper max-w-6xl mx-auto">
+          <div
+            className="prose prose-lg max-w-none px-6 py-16 md:px-16"
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          />
+        </div>
+      </motion.div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

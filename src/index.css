@@ -79,3 +79,46 @@ html, body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Receipt-paper page treatment: content sits on a torn strip of paper
+   over a neutral backdrop, with a soft drop shadow. The strip is a normal
+   block element (no internal scroll) so it scrolls with the page. */
+.receipt-page-bg {
+  background-image: url('/images/inklings/background.png');
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  background-position: top center;
+}
+
+.receipt-paper {
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.45), 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.receipt-paper::before,
+.receipt-paper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background-image:
+    linear-gradient(-45deg, transparent 9px, #ffffff 9px),
+    linear-gradient(45deg, transparent 9px, #ffffff 9px);
+  background-size: 18px 18px;
+  background-repeat: repeat-x;
+  pointer-events: none;
+}
+
+.receipt-paper::before {
+  top: -17px;
+  background-position: left bottom;
+}
+
+.receipt-paper::after {
+  bottom: -17px;
+  transform: scaleY(-1);
+  background-position: left bottom;
+}
