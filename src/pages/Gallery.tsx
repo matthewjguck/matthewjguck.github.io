@@ -85,7 +85,7 @@ export function Gallery() {
     },
     alternativeMedia: {
       title: "Alternative Media",
-      description: "",
+      description: "A collection of my creative work in alternative media, including 3D renders, drawings, and paintings.",
       images: [
         {
           src: "/images/blender-dorm-room.png",
@@ -544,13 +544,13 @@ export function Gallery() {
 
         {/* Posters Section */}
         <motion.section
-          className="container mx-auto px-4 mb-24"
+          className="container mx-auto px-4 mb-44"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl font-semibold mb-2 text-black text-center">{galleryData.posters.title}</h2>
+          <h2 className="text-5xl font-semibold mb-18 text-black text-center">{galleryData.posters.title}</h2>
           <p className="text-lg text-gray-700 mb-12 text-center">{galleryData.posters.description}</p>
           <AlternatingImageGrid images={galleryData.posters.images} />
           <div className="overflow-x-auto pb-4 mt-20">
@@ -578,15 +578,40 @@ export function Gallery() {
 
         {/* Alternative Media Section */}
         <motion.section
-          className="container mx-auto px-4 mb-24"
+          className="container mx-auto px-4 mb-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
           <h2 className="text-5xl font-semibold mb-2 text-black text-center">{galleryData.alternativeMedia.title}</h2>
-          <p className="text-lg text-gray-700 mb-12 text-center">{galleryData.alternativeMedia.description}</p>
+          <p className="text-lg text-gray-700 mb-2 text-center">{galleryData.alternativeMedia.description}</p>
           <AlternatingImageGrid images={galleryData.alternativeMedia.images} />
+        </motion.section>
+
+        {/* Paintings Section */}
+        <motion.section
+          className="container mx-auto px-4 mb-24"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-5xl font-semibold mb-2 text-black text-center">{galleryData.paintings.title}</h2>
+          <p className="text-lg text-gray-700 mb-12 text-center">{galleryData.paintings.description}</p>
+          <div className="grid grid-cols-3 gap-4">
+            {galleryData.paintings.images.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <img src={image.src} alt={image.alt} className={`w-full h-auto object-cover ${index === 1 ? 'brightness-115' : ''}`} />
+              </motion.div>
+            ))}
+          </div>
         </motion.section>
 
         {/* Drawings Section */}
@@ -648,31 +673,6 @@ export function Gallery() {
                 viewport={{ once: true }}
               >
                 <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Paintings Section */}
-        <motion.section
-          className="container mx-auto px-4 mb-24"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-5xl font-semibold mb-2 text-black text-center">{galleryData.paintings.title}</h2>
-          <p className="text-lg text-gray-700 mb-12 text-center">{galleryData.paintings.description}</p>
-          <div className="grid grid-cols-3 gap-4">
-            {galleryData.paintings.images.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <img src={image.src} alt={image.alt} className={`w-full h-auto object-cover ${index === 1 ? 'brightness-115' : ''}`} />
               </motion.div>
             ))}
           </div>
