@@ -17,12 +17,15 @@ export function MyArt() {
           playsInline
         />
         <div className="absolute inset-0 bg-black/30" />
-        <div className="relative flex items-center gap-6">
+        <div className="relative flex flex-col items-center gap-6">
           <img
             src="/images/gallery-title.svg"
             alt="Gallery"
             className="w-96 md:w-[600px] border-4 border-white px-8 py-6 group-hover:bg-black"
           />
+          <p className="text-white text-md md:text-md font-light -mb-8">
+            [ Click to view ]
+          </p>
         </div>
       </a>
     </section>

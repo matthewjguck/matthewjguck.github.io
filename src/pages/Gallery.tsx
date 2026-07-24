@@ -12,6 +12,23 @@ export function Gallery() {
       title: "Posters",
       description: "",
       images: [
+         { src: "/images/star rider.png", alt: "Star Rider", name: "Star Rider", madeIn: "Figma", 
+          description: { type: 'text', content: '*Inspired by the lime lips meme.*' },
+         },
+        { src: "/images/Lime.png", alt: "Drip", name: "Drip", madeIn: "Figma", 
+        description: [
+            { type: 'text', content: '*Inspired by the lime lips meme.*' },
+            { type: 'images', srcs: [
+              { src: '/images/lime-lips-reference.jpg', alt: 'Lime lips reference 1' },
+              { src: '/images/lime-ref2.webp', alt: 'Lime lips reference 2' }
+          ] },
+      ] },
+        { src: "/images/Lincoln Memorial.png", alt: "Reflections on the Reflecting Pool", name: "Reflections on the Reflecting Pool", madeIn: "Figma", 
+          description: 
+          [ { type: 'text', content: 'Summer 2026: the Lincoln Memorial Reflecting Pool got a $17 million facelift, repainted "American flag blue" in time for the country\'s 250th birthday.' },
+            { type: 'text', content: 'Weeks later, it was algae-green, the coating was peeling off in sheets, and the administration was blaming vandals for a mess that looked a lot more like a paint job gone wrong.' },
+            { type: 'text', content: '*I like to stay up to date on creative tech. This is the result of exploring Figma\'s new features for creatives.*', style: 'italic grey' },
+      ] },
         { src: "/images/perspective.png", alt: "Perspective", name: "Perspective Matters", madeIn: "Figma",
 
           description:
@@ -614,70 +631,6 @@ export function Gallery() {
           </div>
         </motion.section>
 
-        {/* Drawings Section */}
-        <motion.section
-          className="container mx-auto px-4 mb-24"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-5xl font-semibold mb-2 text-black text-center">{galleryData.drawings.title}</h2>
-          <p className="text-lg text-gray-700 mb-12 text-center">{galleryData.drawings.description}</p>
-          <div className="grid grid-cols-5 gap-4 mb-4">
-            {[0, 2, 3, 4, 5].map((idx, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
-              </motion.div>
-            ))}
-          </div>
-          <div className="grid grid-cols-5 gap-4 mb-4">
-            {[6, 7, 8, 9, 10].map((idx, i) => (
-              <motion.div
-                key={i + 5}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: (i + 5) * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
-              </motion.div>
-            ))}
-          </div>
-          <div className="grid grid-cols-4 gap-4 mb-4">
-            {[11, 12, 13, 15].map((idx, i) => (
-              <motion.div
-                key={i + 10}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: (i + 10) * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
-              </motion.div>
-            ))}
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {[1, 14].map((idx, i) => (
-              <motion.div
-                key={i + 14}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: (i + 14) * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
         {/* Stanford Class Work Section */}
         <motion.section
           className="container mx-auto px-4 mb-24"
@@ -860,6 +813,70 @@ export function Gallery() {
           <h2 className="text-5xl font-semibold mb-2 text-center">{galleryData.spotify.title}</h2>
           <p className="text-lg text-gray-700 mb-8 text-center">{galleryData.spotify.description}</p>
           <SpotifyPlaylistRow playlists={galleryData.spotify.playlists} />
+        </motion.section>
+
+        {/* Drawings Section */}
+        <motion.section
+          className="container mx-auto px-4 mb-24"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-5xl font-semibold mb-2 text-black text-center">{galleryData.drawings.title}</h2>
+          <p className="text-lg text-gray-700 mb-12 text-center">{galleryData.drawings.description}</p>
+          <div className="grid grid-cols-5 gap-4 mb-4">
+            {[0, 2, 3, 4, 5].map((idx, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+              </motion.div>
+            ))}
+          </div>
+          <div className="grid grid-cols-5 gap-4 mb-4">
+            {[6, 7, 8, 9, 10].map((idx, i) => (
+              <motion.div
+                key={i + 5}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: (i + 5) * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+              </motion.div>
+            ))}
+          </div>
+          <div className="grid grid-cols-4 gap-4 mb-4">
+            {[11, 12, 13, 15].map((idx, i) => (
+              <motion.div
+                key={i + 10}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: (i + 10) * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+              </motion.div>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[1, 14].map((idx, i) => (
+              <motion.div
+                key={i + 14}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: (i + 14) * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+              </motion.div>
+            ))}
+          </div>
         </motion.section>
       </div>
     </div>

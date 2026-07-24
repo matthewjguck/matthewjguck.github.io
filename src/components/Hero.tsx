@@ -1,13 +1,12 @@
 import React, { useState, useRef, useEffect, Suspense } from 'react'
 import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion'
-import { ChevronDown, ArrowDown, ChevronRight } from 'lucide-react'
+import { ChevronDown, ArrowDown } from 'lucide-react'
 // import { Canvas, useLoader, useFrame } from '@react-three/fiber'
 // import { Center, Environment } from '@react-three/drei'
 // import { OBJLoader } from 'three/addons/loaders/OBJLoader.js'
 // import { MTLLoader } from 'three/addons/loaders/MTLLoader.js'
 // import * as THREE from 'three'
 import { ImageWithFallback } from './figma/ImageWithFallback'
-import { ImageDock } from './ImageDock'
 
 
 
@@ -232,7 +231,9 @@ function AutoScrollingPanorama() {
 
   const panoramicImages = [
     '/images/mcdonalds.jpeg',
+    '/images/star rider.png',
     '/images/ItalySpread.jpeg',
+    
     '/images/billboards.jpeg',
   ];
 
@@ -251,10 +252,10 @@ function AutoScrollingPanorama() {
   const bottomRowImages = [
     '/images/SummerSpread.jpeg',
     '/images/platypus.jpeg',
+    '/images/Hero Memorial.png',
     '/images/ski.jpeg',
     '/images/instagram-post-1.jpg',
-    '/images/hero-bottom-image.jpg',
-    '/images/AutumnSpread.png',
+    
     '/images/seniorfall.png'
   ];
 
@@ -386,7 +387,7 @@ function AutoScrollingPanorama() {
           className="flex h-full"
           animate={{ x: [0, -imageWidths.bottom] }}
           transition={{
-            duration: 35,
+            duration: 55,
             repeat: Infinity,
             ease: "linear",
             repeatType: "loop"
@@ -473,10 +474,9 @@ function EdgeButton({
 
 export function Hero() {
 	
-	const [activeImageId, setActiveImageId] = useState('panorama')
+	const activeImageId: string = 'panorama'
 	const [mouse, setMouse] = useState({ x: 0, y: 0 })
 	const [graphMouse, setGraphMouse] = useState({ x: 0, y: 0 })
-	const [showDock, setShowDock] = useState(false);
 	const sectionRef = useRef<HTMLDivElement>(null)
 	const [edgeButtonsVisible, setEdgeButtonsVisible] = useState(true);
   // Carousel state for frames effect (vertical scroll, right side)
@@ -522,10 +522,6 @@ export function Hero() {
 
 	const scrollToProjects = () => {
 		document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
-	}
-
-	const handleImageChange = (imageId: string) => {
-		setActiveImageId(imageId)
 	}
 
 	const activeImage =
@@ -687,24 +683,11 @@ export function Hero() {
 		  </>
 		)}
 		
-		{/* Edge button shadows for better visibility */}
+		{/* Edge button shadow for better visibility */}
 		{edgeButtonsVisible && (
-		  <>
-			{/* Top edge shadow for theme dock button */}
-			<div className="fixed top-0 left-0 right-0 h-20 z-30 pointer-events-none" style={{
-			  background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)'
-			}} />
-			
-			{/* Right edge shadow for gallery button */}
-			<div className="fixed top-0 right-0 w-20 h-full z-30 pointer-events-none" style={{
-			  background: 'linear-gradient(to left, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)'
-			}} />
-			
-			{/* Bottom edge shadow for portfolio button */}
-			<div className="fixed bottom-0 left-0 right-0 h-20 z-30 pointer-events-none" style={{
-			  background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)'
-			}} />
-		  </>
+		  <div className="fixed bottom-0 left-0 right-0 h-20 z-30 pointer-events-none" style={{
+			background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)'
+		  }} />
 		)}
 	  </div>
 	  {/* Floating geometric shapes */}
@@ -732,7 +715,7 @@ export function Hero() {
 	(activeImageId === 'shapes' ? 'text-blue-300 [text-shadow:_2px_2px_8px_rgba(0,0,0,0.05),_0px_0px_16px_rgba(59,130,246,0.3)]' :
 	 activeImageId === 'frames' ? 'text-green-300 [text-shadow:_1px_1px_4px_rgba(0,0,0,0.05)]' :
 	 activeImageId === 'graph' ? 'text-red-300' :
-	 activeImageId === 'panorama' ? 'text-orange-300 [text-shadow:_1px_1px_4px_rgba(0,0,0,0.5)]' :
+	 activeImageId === 'panorama' ? 'text-orange-300 [text-shadow:_1px_1px_4px_rgba(0,0,0,0.8)]' :
 	 activeImageId === 'desert' ? 'text-orange-300 [text-shadow:_2px_2px_8px_rgba(0,0,0,0.9),_0px_0px_16px_rgba(251,146,60,0.3)]' :
 	 activeImageId === 'lake' ? 'text-indigo-300 [text-shadow:_2px_2px_8px_rgba(0,0,0,0.9),_0px_0px_16px_rgba(99,102,241,0.3)]' : 'text-white [text-shadow:_2px_2px_8px_rgba(0,0,0,0.9)]')
   }
@@ -749,93 +732,8 @@ export function Hero() {
 	</div>
   </div>
 
-  {/* Right Edge: View Gallery Edge Button */}
-  <motion.div
-		initial={false}
-		animate={{ opacity: edgeButtonsVisible ? 1 : 0, pointerEvents: edgeButtonsVisible ? 'auto' : 'none' }}
-		transition={{ duration: 0.3 }}
-		className="fixed top-0 right-0 h-full w-16 z-40 flex items-center justify-center group cursor-pointer"
-	  >
-		<div className="relative flex flex-col items-center justify-center h-full w-full">
-		  <span className="sr-only">View Gallery</span>
-		  <EdgeButton onClick={() => {
-			// Navigate to gallery page
-			window.location.hash = '#/gallery';
-		  }}>
-			<ChevronRight className="w-8 h-8 text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]" />
-			<span className="text-white text-xs mt-2 opacity-90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">Gallery</span>
-		  </EdgeButton>
-		</div>
-	  </motion.div>
-
-
-
-  {/* Bottom Edge: View Portfolio Edge Button */}
-
   {/* Bottom Edge: View Portfolio Edge Button (disappears on scroll) */}
   <PortfolioEdgeButton scrollToProjects={scrollToProjects} />
-
-
-{/* Top Center: Dock Toggle Button (Show when dock is closed) */}
-
-<AnimatePresence>
-  {!showDock && (
-<motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: edgeButtonsVisible ? 1 : 0 }}
-  exit={{ opacity: 0 }}
-  transition={{ duration: 0.4, ease: 'easeInOut' }}
-  className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center pointer-events-none"
-  style={{ pointerEvents: edgeButtonsVisible ? 'auto' : 'none' }}
->
-  <div className="pointer-events-auto flex flex-col items-center justify-center mt-2">
-	<EdgeButton onClick={() => setShowDock(true)}>
-	  <ChevronDown style={{ transform: 'rotate(180deg)' }} className="w-8 h-8 text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]" />
-	  <motion.span
-		className="mt-1"
-		initial={{ opacity: 0 }}
-		animate={{ opacity: 1 }}
-		exit={{ opacity: 0 }}
-		transition={{ duration: 0.4, ease: 'easeInOut' }}
-	  >
-		Theme
-	  </motion.span>
-	</EdgeButton>
-  </div>
-</motion.div>
-  )}
-</AnimatePresence>
-
-{/* Centered Image Dock, toggled by button */}
-
-<AnimatePresence>
-  {showDock && (
-	<>
-	  {/* Dock itself */}
-	  <motion.div
-		initial={{ opacity: 0, y: -40 }}
-		animate={{ opacity: 1, y: 0 }}
-		exit={{ opacity: 0, y: -40 }}
-		transition={{ duration: 0.4, ease: 'easeInOut' }}
-		className="absolute top-8 right-1/2 translate-x-1/2 z-50"
-	  >
-		<ImageDock
-		  images={dockImages}
-		  activeImageId={activeImageId}
-		  onImageChange={handleImageChange}
-		/>
-	  </motion.div>
-	  {/* Close Dock Button: below the dock, top-center */}
-	  <div className="fixed left-0 right-0 z-50 flex items-center justify-center pointer-events-none" style={{ top: 'calc(9rem)' }}>
-		<div className="pointer-events-auto flex flex-col items-center justify-center">
-		  <EdgeButton onClick={() => setShowDock(false)}>
-			<ChevronDown className="w-8 h-8 text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]" />
-		  </EdgeButton>
-		</div>
-	  </div>
-	</>
-  )}
-</AnimatePresence>
 
 	</section>
   )
