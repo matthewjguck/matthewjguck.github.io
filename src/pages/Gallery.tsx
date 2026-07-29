@@ -46,12 +46,14 @@ export function Gallery() {
             { type: 'text',
               content: '• that every individual is more than the label you may first give them.' },
             { type: 'text',
-              content: '• that new perspectives can bring positive, colorful change into your life.' }, 
-          
+              content: '• that new perspectives can bring positive, colorful change into your life.' },
+
           ]
         },
 
-        
+        { src: "/images/love radically.png", alt: "Love Radically", name: "Love Radically", madeIn: "Figma" },
+
+
         { src: "/images/Diet Coke.png", alt: "Diet Coke", name: "Diet Coke in the style of Mondrian", madeIn: "Figma", description: [
           { type: 'text', content: 'During COVID, my family had a painting night. The theme?' },
           { type: 'text', content: '*Paint your favorite food.*', center: true },
