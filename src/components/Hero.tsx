@@ -230,9 +230,10 @@ function AutoScrollingPanorama() {
   }, []);
 
   const panoramicImages = [
-    '/images/mcdonalds.jpeg',
-    '/images/star rider.png',
-    '/images/ItalySpread.jpeg',
+    // '/images/mcdonalds.jpeg',
+    '/images/star rider hero.png',
+    // '/images/ItalySpread.jpeg',
+    'images/speaker.jpg',
     
     '/images/billboards.jpeg',
   ];
@@ -240,23 +241,29 @@ function AutoScrollingPanorama() {
   // Different order for each row
   const topRowImages = panoramicImages; // Original order
   const middleRowImages = [
+    '/images/love radically hero.png',
     '/images/junior-formal.jpeg',
-    '/images/2point.jpeg',
+    
+    
     '/images/headshotbig.jpeg',
     '/images/mountain.jpeg',
     '/images/hero-scroll-image.jpg',
     '/images/llama-painting.jpeg',
     '/images/sophomore-formal.jpeg',
-    '/images/chris.jpeg'
+    // '/images/chris.jpeg'
   ];
   const bottomRowImages = [
-    '/images/SummerSpread.jpeg',
-    '/images/platypus.jpeg',
-    '/images/Hero Memorial.png',
+    // '/images/platypus.jpeg',
+    // '/images/2point.jpeg',
     '/images/ski.jpeg',
+    '/images/award flick.jpg',
+    '/images/Hero Memorial.png',
     '/images/instagram-post-1.jpg',
     
-    '/images/seniorfall.png'
+    '/images/excellence.jpg',
+    '/images/SummerSpread.jpeg'
+   
+    
   ];
 
   // Calculate total width of images for each row

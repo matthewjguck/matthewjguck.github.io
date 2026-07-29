@@ -82,7 +82,7 @@ export function About() {
     { alt: "California flag", src: "/images/california-flag.png" },
     { alt: "Pride flag", src: "/images/pride-flag.png" }, 
     { alt: "Philippines flag", src: "/images/philippines-flag.png" },
-    { alt: "Germany flag", src: "/images/germany-flag.png" },
+    //  { alt: "Germany flag", src: "/images/germany-flag.png" },
     { alt: "USA flag", src: "/images/usa-flag.png" },
   ];
 
@@ -140,9 +140,9 @@ export function About() {
                   transition={{ duration: 0.6, delay: 0.5 }}
                   className="text-left"
                 >
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-1 drop-shadow-lg">Hi there! 👋 I'm</h3>
-                  <h2 className="text-6xl md:text-6xl font-bold bg-gradient-to-r from-yellow-400 to-pink-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
-                    Matthew Guck
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-1 drop-shadow-lg">Hi! 👋 I'm</h3>
+                  <h2 className="text-6xl md:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+                    Matthew!
                   </h2>
                 </motion.div>
               </div>
