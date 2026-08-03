@@ -126,7 +126,7 @@ export function About() {
               />
               {/* Desktop - use regular headshot */}
               <img
-                src="/images/headshot.jpg"
+                src="/images/Grad Balloons.jpeg"
                 alt="Matthew Guck portrait"
                 className="w-full h-full object-cover object-center z-20 hidden lg:block"
               />
