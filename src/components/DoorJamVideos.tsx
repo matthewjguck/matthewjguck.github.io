@@ -13,57 +13,57 @@ const videos: Video[] = [
   {
     id: '1',
     title: 'Setup & Customization',
-    src: '/videos/screen-1.mov',
+    src: '/videos/screen-1.mp4',
   },
   {
     id: '2',
     title: 'Party Creation',
-    src: '/videos/screen-2.mov',
+    src: '/videos/screen-2.mp4',
   },
   {
     id: '3',
     title: 'Guest Notifications',
-    src: '/videos/screen-3.mov',
+    src: '/videos/screen-3.mp4',
   },
   {
     id: '4',
     title: 'Music Display',
-    src: '/videos/screen-4.mov',
+    src: '/videos/screen-4.mp4',
   },
   {
     id: '5',
     title: 'Theme Switching',
-    src: '/videos/screen-5.mov',
+    src: '/videos/screen-5.mp4',
   },
   {
     id: '6',
     title: 'Ring Alert Animation',
-    src: '/videos/screen-6.mov',
+    src: '/videos/screen-6.mp4',
   },
   {
     id: '7',
     title: 'Full Experience',
-    src: '/videos/screen-7.mov',
+    src: '/videos/screen-7.mp4',
   },
   {
     id: '8',
     title: 'Party Control Panel',
-    src: '/videos/screen-8.mov',
+    src: '/videos/screen-8.mp4',
   },
   {
     id: '9',
     title: 'Featured Demo',
-    src: '/videos/screen-9.mov',
+    src: '/videos/screen-9.mp4',
   },
   {
     id: '10',
     title: 'Demo 1',
-    src: '/videos/screen-10.mov',
+    src: '/videos/screen-10.mp4',
   },
   {
     id: '11',
     title: 'Demo 2',
-    src: '/videos/screen-11.mov',
+    src: '/videos/screen-11.mp4',
   },
 ]
 

@@ -15,6 +15,18 @@ export function Gallery() {
          { src: "/images/star rider.png", alt: "Star Rider", name: "Star Rider", madeIn: "Figma", 
           description: { type: 'text', content: '*Inspired by the lime lips meme.*' },
          },
+          { src: "/images/Diet Coke.png", alt: "Diet Coke", name: "Diet Coke in the style of Mondrian", madeIn: "Figma", description: [
+          { type: 'text', content: 'During COVID, my family had a painting night. The theme?' },
+          { type: 'text', content: '*Paint your favorite food.*', center: true },
+          { type: 'text', content: '"As a newly diagnosed Type 1 Diabetic, I was freshly introduced to the wonders of Diet Coke. The red stripe down the side of cans reminded me of Piet Mondrian\'s colorblocking."' },
+          { type: 'images', srcs: [
+            { src: '/images/diet-coke-2.png', alt: 'Diet Coke painting reference' },
+            { src: '/images/diet-coke-3.jpeg', alt: 'Diet Coke can reference' }
+          ] },
+          { type: 'image', src: '/images/diet-coke-4.png', alt: 'Diet Coke final painting', size: 'large' },
+          { type: 'text', content: 'Recreating this painting as an 11x17" print was one of my first forays into digital print-making and designing in Figma.' },
+          { type: 'text', content: '*The similarity between "Piet" and "Diet" was hard to ignore. Alt. Title: Piet Coke.*', style: 'italic grey' }
+        ] },
         { src: "/images/Lime.png", alt: "Drip", name: "Drip", madeIn: "Figma", 
         description: [
             { type: 'text', content: '*Inspired by the lime lips meme.*' },
@@ -23,12 +35,9 @@ export function Gallery() {
               { src: '/images/lime-ref2.webp', alt: 'Lime lips reference 2' }
           ] },
       ] },
-        { src: "/images/Lincoln Memorial.png", alt: "Reflections on the Reflecting Pool", name: "Reflections on the Reflecting Pool", madeIn: "Figma", 
-          description: 
-          [ { type: 'text', content: 'Summer 2026: the Lincoln Memorial Reflecting Pool got a $17 million facelift, repainted "American flag blue" in time for the country\'s 250th birthday.' },
-            { type: 'text', content: 'Weeks later, it was algae-green, the coating was peeling off in sheets, and the administration was blaming vandals for a mess that looked a lot more like a paint job gone wrong.' },
-            { type: 'text', content: '*I like to stay up to date on creative tech. This is the result of exploring Figma\'s new features for creatives.*', style: 'italic grey' },
-      ] },
+        { src: "/images/love radically.png", alt: "Love Radically", name: "Love Radically", madeIn: "Figma", 
+          description: { type: 'text', content: 'Artwork for The Cupid Project.' },
+        },
         { src: "/images/perspective.png", alt: "Perspective", name: "Perspective Matters", madeIn: "Figma",
 
           description:
@@ -50,22 +59,16 @@ export function Gallery() {
 
           ]
         },
+        { src: "/images/Lincoln Memorial.png", alt: "Reflections on the Reflecting Pool", name: "Reflections on the Reflecting Pool", madeIn: "Figma", 
+          description: 
+          [ { type: 'text', content: 'Summer 2026: the Lincoln Memorial Reflecting Pool got a $17 million facelift, repainted "American flag blue" in time for the country\'s 250th birthday.' },
+            { type: 'text', content: 'Weeks later, it was algae-green, the coating was peeling off in sheets, and the administration was blaming vandals for a mess that looked a lot more like a paint job gone wrong.' },
+            { type: 'text', content: '*I like to stay up to date on creative tech. This is the result of exploring Figma\'s new features for creatives.*', style: 'italic grey' },
+      ] },
+        
 
-        { src: "/images/love radically.png", alt: "Love Radically", name: "Love Radically", madeIn: "Figma" },
 
-
-        { src: "/images/Diet Coke.png", alt: "Diet Coke", name: "Diet Coke in the style of Mondrian", madeIn: "Figma", description: [
-          { type: 'text', content: 'During COVID, my family had a painting night. The theme?' },
-          { type: 'text', content: '*Paint your favorite food.*', center: true },
-          { type: 'text', content: '"As a newly diagnosed Type 1 Diabetic, I was freshly introduced to the wonders of Diet Coke. The red stripe down the side of cans reminded me of Piet Mondrian\'s colorblocking."' },
-          { type: 'images', srcs: [
-            { src: '/images/diet-coke-2.png', alt: 'Diet Coke painting reference' },
-            { src: '/images/diet-coke-3.jpeg', alt: 'Diet Coke can reference' }
-          ] },
-          { type: 'image', src: '/images/diet-coke-4.png', alt: 'Diet Coke final painting', size: 'large' },
-          { type: 'text', content: 'Recreating this painting as an 11x17" print was one of my first forays into digital print-making and designing in Figma.' },
-          { type: 'text', content: '*The similarity between "Piet" and "Diet" was hard to ignore. Alt. Title: Piet Coke.*', style: 'italic grey' }
-        ] },
+       
         { src: "/images/Risk1.png", alt: "Risk", name: "Risk: Go When Others Stop", madeIn: "Figma", description: [
           { type: 'text', content: 'As a broke college student and creative, I found that the best gifts I could give were ones I made myself. My brother is one of my biggest inspirations in life. When he told me his New Years Resolution was to "take more risks," I wanted to make something that would remind him to bet on himself, even when it feels uncomfortable or uncertain.' },
           { type: 'image', src: '/images/traffic-light.jpg', alt: 'Red traffic light', size: 'medium' },
