@@ -12,7 +12,7 @@ export function Gallery() {
       title: "Posters",
       description: "",
       images: [
-         { src: "/images/star rider.png", alt: "Star Rider", name: "Star Rider", madeIn: "Figma", 
+         { src: "/images/star rider.gif", alt: "Star Rider", name: "Star Rider", madeIn: "Figma", 
           description: { type: 'text', content: '*Inspired by the lime lips meme.*' },
          },
           { src: "/images/Diet Coke.png", alt: "Diet Coke", name: "Diet Coke in the style of Mondrian", madeIn: "Figma", description: [
@@ -369,8 +369,8 @@ export function Gallery() {
               className="w-screen -mx-[calc((100vw-100%)/2)] px-4 py-12 flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
+              viewport={{ once: true, margin: '-100px' }}
             >
               <div className="w-full mb-8">
                 <h3 className="text-4xl font-semibold text-black text-center mb-4">{image.name}</h3>
@@ -393,8 +393,8 @@ export function Gallery() {
             className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.35, delay: index * 0.05 }}
+            viewport={{ once: true, margin: '-100px' }}
           >
             {isImageFirst ? (
               <>
