@@ -1,10 +1,66 @@
+<style>
+  /* NAB 3D Logo Header */
+  .nab3d-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .nab3d-logo {
+    height: auto !important;
+    width: 55vw !important;
+     animation: nab3d-bob 4s ease-in-out infinite;
+  }
+
+  .custom-project-content img.nab3d-logo {
+    width: 55vw !important;
+    height: auto !important;
+  }
+
+  @media (max-width: 640px) {
+    .nab3d-logo,
+    .custom-project-content img.nab3d-logo {
+      width: 80vw !important;
+    }
+  }
+
+    @keyframes nab3d-bob {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+</style>
+
+<div class="nab3d-logo-container">
+  <img src="/images/Nab 3D Header.png" alt="NAB 3D" class="nab3d-logo">
+</div>
+
 <div class="space-y-12">
+  <!-- Demo Video Section -->
+  <section class="">
+    <div class="relative aspect-video rounded-xl overflow-hidden" style="width: 80%; margin: 0 auto;">
+          <iframe
+            src="https://www.youtube.com/embed/-RIqBdwPtAk"
+            title="Nab 3D Demo Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            class="absolute inset-0 w-full h-full"
+          ></iframe>
+        </div>
+  </section>
+
   <!-- Usage & Live Demo Section -->
   <section class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8">
     <h2 class="text-2xl font-bold text-gray-900 pb-4 text-center">Usage & Demo</h2>
     <div class="grid lg:grid-cols-2 gap-8 mb-1 items-center">
       <div class="space-y-4 relative">
-        <div class="absolute -top-7 left-1/2 transform -translate-x-1/2 bg-blue-100 text-blue-600 px-16 py-2 rounded-full text-base font-semibold z-10 shadow-lg">
+        <div class="absolute -top-7 left-1/2 transform -translate-x-1/2 bg-blue-100 text-blue-600 px-12 sm:px-16 py-2 rounded-full text-base font-semibold z-10 shadow-lg whitespace-nowrap">
           Code Example
         </div>
         <div class="bg-gray-900 rounded-xl p-6 text-green-400 font-mono text-sm h-100">
@@ -33,7 +89,7 @@
       
       <!-- 3D Model Viewer -->
       <div class="space-y-4 relative">
-        <div class="absolute -top-7 left-1/2 transform -translate-x-1/2 bg-purple-100 text-purple-600 px-16 py-2 rounded-full text-base font-semibold z-10 shadow-lg">
+        <div class="absolute -top-7 left-1/2 transform -translate-x-1/2 bg-purple-100 text-purple-600 px-12 sm:px-16 py-2 rounded-full text-base font-semibold z-10 shadow-lg whitespace-nowrap">
           Live 3D Model
         </div>
         <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl h-100 relative overflow-hidden">
@@ -60,27 +116,19 @@
     </div>
   </section>
 
-  <section class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8">
+  <section class="p-8">
     <h2 class="text-3xl font-bold text-gray-900 text-center pb-5">The Problem</h2>
-    <div class="grid lg:grid-cols-2 gap-8 items-start">
+    <div class=" gap-8 items-start">
     <div class="space-y-6">
       <p class="text-lg text-gray-700 leading-relaxed">
         3D content creation has always been a barrier for web developers. Traditional 3D modeling requires 
         specialized skills, expensive software, and significant time investment. Most developers simply 
         avoid 3D content altogether.
       </p>
-      <div class="bg-red-50 border border-red-200 rounded-lg p-6 mt-5">
-        <h3 class="font-semibold text-red-900 mb-1">3D Modeling Workflow Issues</h3>
-        <ul class="text-red-800 space-y-1">
-          <li>Steep learning curve for 3D modeling software</li>
-          <li>Hours of work for simple objects</li>
-          <li>Complex web-integration processes</li>
-          <li>Limited web optimization options</li>
-        </ul>
-      </div>
+      
     </div>
     <div class="relative">
-    <img src="/images/slowflow.png" alt="Nab 3D Interface" class="w-full shadow-lg rounded-none" style="border-radius: 0;" />
+    <img src="/images/slowflow.png" alt="Nab 3D Interface" class="shadow-lg rounded-none" style="display: block; width: 80%; max-width: 100%; margin: 0 auto; border-radius: 0;" />
     <p class="justify-center text-center text-gray-900 font-medium font-italic mt-4">
       Archaic photogrammetry processes are overcomplicated and time-consuming
     </div>
@@ -89,29 +137,6 @@
 
   <section class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8">
     <h2 class="text-2xl font-bold text-gray-900 mt-4 text-center">The Solution</h2>
-
-    <!-- YouTube Video -->
-    <div class="text-center m-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
-          <iframe 
-            src="https://www.youtube.com/embed/-RIqBdwPtAk" 
-            title="Nab 3D Demo Video"
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen
-            class="absolute inset-0 w-full h-full"
-          ></iframe>
-        </div>
-        <div class="mt-12 max-w-3xl mx-auto">
-          <p class="text-lg text-gray-700 leading-relaxed">
-            Nab 3D is an improved photogrammetry workflow that revolutionizes 3D model creation. 
-            By streamlining the traditional complex process, we make high-quality 3D content 
-            accessible to developers and creators without specialized training or expensive software.
-          </p>
-        </div>
-      </div>
-    </div>
 
     <!-- Process Steps Container with darker background -->
     <div class="bg-white/50 backdrop-blur-sm rounded-3xl p-8 mb-16 border border-white/20 shadow-lg">

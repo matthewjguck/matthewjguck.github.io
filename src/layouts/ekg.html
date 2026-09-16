@@ -1,3 +1,35 @@
+<style>
+  /* EKG Logo Header */
+  .ekg-logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0 2rem;
+  }
+
+  .ekg-logo {
+    height: auto;
+    width: 60vw;
+    max-width: 360px;
+  }
+
+  @media (min-width: 768px) {
+    .ekg-logo {
+      width: 33vw;
+      max-width: 480px;
+    }
+
+    .ekg-logo-container {
+      margin-bottom: 5rem;
+    }
+  }
+</style>
+
+<div class="ekg-logo-container">
+  <img src="/images/EKG Logo.png" alt="E.K.G." class="ekg-logo">
+</div>
+
 <div class="space-y-16">
   <section class="text-center">
     <div class="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">

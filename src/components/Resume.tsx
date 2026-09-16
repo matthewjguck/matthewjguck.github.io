@@ -191,6 +191,10 @@ export function Resume() {
                   <ul className="space-y-2 text-gray-700">
                   <li className="flex">
                     <span className="mr-3">•</span>
+                    <span>Owned an Instagram "Senior Shoutout" series, coordinating interviews, gathering quotes, and designing digital collateral on a weekly basis.</span>
+                  </li>
+                  <li className="flex">
+                    <span className="mr-3">•</span>
                     <span>Created comprehensive marketing collateral and organized events, securing 52% of the class vote in a competitive 4-way election.</span>
                   </li>
                   <li className="flex">

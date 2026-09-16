@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
+import { MyArt } from './components/MyArt'
 import { Resume } from './components/Resume'
 import { Projects } from './components/Projects'
+import { PitchDecks } from './components/PitchDecks'
 import { Gallery } from './pages/Gallery'
 import { ProjectDetail } from './components/ProjectDetail'
 import { projects } from './data/projects'
@@ -62,6 +64,8 @@ export default function App() {
       <div aria-live="polite" className="sr-only">{announcement}</div>
       <Hero />
       <Projects />
+      <MyArt />
+      <PitchDecks />
       <About />
       <Resume />
     </div>

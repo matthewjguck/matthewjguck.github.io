@@ -1,3 +1,39 @@
+<style>
+  .slatt-logo-container {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    padding: 3rem 0;
+    background-color: #0E1117;
+  }
+
+  .slatt-logo {
+    height: auto;
+    width: 80vw;
+    max-width: 920px;
+    animation: slatt-bob 4s ease-in-out infinite;
+  }
+
+  @keyframes slatt-bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+</style>
+
+<div class="slatt-logo-container">
+  <img src="/images/slatt logo.png" alt="SLATT" class="slatt-logo">
+</div>
+
 <div class="space-y-16">
   <!-- Hero Section -->
   <section class="text-center">

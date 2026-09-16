@@ -52,7 +52,7 @@ export function Projects() {
                   handleProjectClick(project.id)
                 }
               }}
-              className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-2xl"
+              className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-2xl h-full"
               tabIndex={0}
               role="button"
               aria-label={`View ${project.title} project details`}
@@ -76,7 +76,7 @@ export function Projects() {
           >
             <motion.button
               onClick={() => setShowAllProjects(!showAllProjects)}
-              className="bg-gradient-to-r from-red-600 to-yellow-500 text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300"
+              className="bg-gray-800 text-white px-8 py-3 rounded-full hover:bg-gray-700 transition-colors duration-300 font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

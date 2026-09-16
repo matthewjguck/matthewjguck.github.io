@@ -9,6 +9,7 @@ import cupidLayout from '../layouts/cupid.html?raw';
 import skyhighLayout from '../layouts/skyhigh.html?raw';
 import claritygridLayout from '../layouts/claritygrid.html?raw';
 import doorjamLayout from '../layouts/doorjam.html?raw';
+import inklingsLayout from '../layouts/inklings.html?raw';
 
 // Layout mappings
 export const layouts = {
@@ -22,6 +23,7 @@ export const layouts = {
   'doorjam': doorjamLayout,
   'skyhigh': skyhighLayout,
   'claritygrid': claritygridLayout,
+  'inklings': inklingsLayout,
   // Add more layouts as we create them
 } as const;
 
