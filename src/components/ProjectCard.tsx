@@ -61,11 +61,11 @@ export function ProjectCard({ title, description, image, tags, liveUrl, githubUr
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true, margin: "-100px" }}
-      className="group"
+      className="group h-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 focus-within:ring-2 focus-within:ring-blue-500">
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 focus-within:ring-2 focus-within:ring-blue-500 h-full flex flex-col">
         <div className="relative overflow-hidden">
           <ImageWithFallback
             src={displayImage}
@@ -105,7 +105,7 @@ export function ProjectCard({ title, description, image, tags, liveUrl, githubUr
             </div>
           </div>
         </div>
-        <div className="p-5 md:p-6">
+        <div className="p-5 md:p-6 flex flex-col flex-1">
           <div className="flex justify-between items-start mb-2 md:mb-3">
             <h3 className="text-lg md:text-xl text-gray-800 font-bold leading-snug tracking-tight">{title}</h3>
             {status && (
@@ -127,7 +127,7 @@ export function ProjectCard({ title, description, image, tags, liveUrl, githubUr
               {role && <div>👤 {role}</div>}
             </div>
           )}
-          <div className="flex flex-wrap gap-1.5 md:gap-2" aria-label="Project tags">
+          <div className="flex flex-wrap gap-1.5 md:gap-2 mt-auto" aria-label="Project tags">
             {tags.map((tag, tagIndex) => (
               <span
                 key={tagIndex}
