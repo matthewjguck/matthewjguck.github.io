@@ -52,7 +52,7 @@ export function Projects() {
                   handleProjectClick(project.id)
                 }
               }}
-              className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-2xl"
+              className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-2xl h-full"
               tabIndex={0}
               role="button"
               aria-label={`View ${project.title} project details`}

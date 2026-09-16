@@ -236,6 +236,7 @@ function AutoScrollingPanorama() {
     'images/speaker.jpg',
     
     '/images/billboards.jpeg',
+    '/images/heart hands.jpeg',
   ];
 
   // Different order for each row
