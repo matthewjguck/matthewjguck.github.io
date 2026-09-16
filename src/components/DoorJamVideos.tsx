@@ -13,7 +13,7 @@ const videos: Video[] = [
   {
     id: '1',
     title: 'Setup & Customization',
-    src: '/videos/screen-1.mp4',
+    src: '/videos/rainbow-halftone.mp4',
   },
   {
     id: '2',
@@ -33,12 +33,12 @@ const videos: Video[] = [
   {
     id: '5',
     title: 'Theme Switching',
-    src: '/videos/screen-5.mp4',
+    src: '/videos/fold-theme.mov',
   },
   {
     id: '6',
     title: 'Ring Alert Animation',
-    src: '/videos/screen-6.mp4',
+    src: '/videos/screen-5.mp4',
   },
   {
     id: '7',
@@ -58,7 +58,7 @@ const videos: Video[] = [
   {
     id: '10',
     title: 'Demo 1',
-    src: '/videos/screen-10.mp4',
+    src: '/videos/doorjam-scroller.mp4',
   },
   {
     id: '11',

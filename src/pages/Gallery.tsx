@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
+import { ImageZoom } from '../components/ui/image-zoom';
 
 export function Gallery() {
   const handleBackToHome = () => {
@@ -307,11 +308,13 @@ export function Gallery() {
               const width = widthMap[item.size] || 'w-1/4';
               return (
                 <div key={idx} className={`${width} mx-auto`}>
-                  <img
+                  <ImageZoom zoomScale={2.5}>
+<img
                     src={item.src}
                     alt={item.alt || ''}
                     className="w-full h-auto object-contain"
                   />
+</ImageZoom>
                 </div>
               );
             }
@@ -320,11 +323,13 @@ export function Gallery() {
                 <div key={idx} className="flex justify-center gap-6">
                   {item.srcs.map((img, imgIdx) => (
                     <div key={imgIdx} className="flex-1 text-center flex flex-col">
-                      <img
+                      <ImageZoom zoomScale={2.5}>
+<img
                         src={typeof img === 'string' ? img : img.src}
                         alt={typeof img === 'string' ? '' : (img.alt || '')}
                         className="w-full h-64 object-cover"
                       />
+</ImageZoom>
                       {item.labels && item.labels[imgIdx] && (
                         <p className="text-gray-500 italic text-sm mt-2">{item.labels[imgIdx]}</p>
                       )}
@@ -339,11 +344,13 @@ export function Gallery() {
                   <div className="flex gap-6 py-8">
                     {item.images.map((img, imgIdx) => (
                       <div key={imgIdx} className="flex-1 text-center flex flex-col">
-                        <img
+                        <ImageZoom zoomScale={2.5}>
+<img
                           src={img.src}
                           alt={img.alt}
                           className="w-full h-[70vh] object-cover"
                         />
+</ImageZoom>
                         <p className="text-gray-700 font-medium mt-4">{img.label}</p>
                       </div>
                     ))}
@@ -399,11 +406,13 @@ export function Gallery() {
             {isImageFirst ? (
               <>
                 <div className="flex justify-center">
-                  <img
+                  <ImageZoom zoomScale={2.5}>
+<img
                     src={image.src}
                     alt={image.alt}
                     className="h-220 object-contain"
                   />
+</ImageZoom>
                 </div>
                 <div className="space-y-4 md:pl-8">
                   <div>
@@ -463,11 +472,13 @@ export function Gallery() {
                   {renderDescription(image.description)}
                 </div>
                 <div className="flex justify-center">
-                  <img
+                  <ImageZoom zoomScale={2.5}>
+<img
                     src={image.src}
                     alt={image.alt}
                     className="h-220 object-contain"
                   />
+</ImageZoom>
                 </div>
               </>
             )}
@@ -489,11 +500,13 @@ export function Gallery() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
           >
-            <img
+            <ImageZoom zoomScale={2.5}>
+<img
               src={playlist.image}
               alt={playlist.alt}
               className="w-full h-80 object-contain mb-4"
             />
+</ImageZoom>
             <iframe
               style={{ borderRadius: '12px' }}
               src={playlist.embedUrl}
@@ -586,11 +599,13 @@ export function Gallery() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <img
+                  <ImageZoom zoomScale={2.5}>
+<img
                     src={image.src}
                     alt={image.alt}
                     className="h-120 object-contain"
                   />
+</ImageZoom>
                   <p className="text-gray-700 font-medium mt-4 text-center">{image.name}</p>
                 </motion.div>
               ))}
@@ -630,7 +645,9 @@ export function Gallery() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <img src={image.src} alt={image.alt} className={`w-full h-auto object-cover ${index === 1 ? 'brightness-115' : ''}`} />
+                <ImageZoom zoomScale={2.5}>
+<img src={image.src} alt={image.alt} className={`w-full h-auto object-cover ${index === 1 ? 'brightness-115' : ''}`} />
+</ImageZoom>
               </motion.div>
             ))}
           </div>
@@ -659,7 +676,9 @@ export function Gallery() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+                  <ImageZoom zoomScale={2.5}>
+<img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+</ImageZoom>
                 </motion.div>
               ))}
             </div>
@@ -670,7 +689,9 @@ export function Gallery() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <img src="/images/Slice 4.png" alt="Slice 4" className="w-full h-auto object-contain" />
+                <ImageZoom zoomScale={2.5}>
+<img src="/images/Slice 4.png" alt="Slice 4" className="w-full h-auto object-contain" />
+</ImageZoom>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -678,7 +699,9 @@ export function Gallery() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                <img src="/images/Slice 5.png" alt="Slice 5" className="w-full h-auto object-contain" />
+                <ImageZoom zoomScale={2.5}>
+<img src="/images/Slice 5.png" alt="Slice 5" className="w-full h-auto object-contain" />
+</ImageZoom>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -686,7 +709,9 @@ export function Gallery() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <img src="/images/Slice 6.png" alt="Slice 6" className="w-full h-auto object-contain" />
+                <ImageZoom zoomScale={2.5}>
+<img src="/images/Slice 6.png" alt="Slice 6" className="w-full h-auto object-contain" />
+</ImageZoom>
               </motion.div>
             </div>
             <AlternatingImageGrid images={galleryData.stanford.subsections.junior.images} />
@@ -705,11 +730,13 @@ export function Gallery() {
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <img
+                      <ImageZoom zoomScale={2.5}>
+<img
                         src={image.src}
                         alt={image.alt}
                         className="h-96 object-contain"
                       />
+</ImageZoom>
                     </motion.div>
                   ))}
                 </div>
@@ -730,11 +757,13 @@ export function Gallery() {
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <img
+                      <ImageZoom zoomScale={2.5}>
+<img
                         src={image.src}
                         alt={image.alt}
                         className="h-96 object-contain"
                       />
+</ImageZoom>
                     </motion.div>
                   ))}
                 </div>
@@ -754,7 +783,9 @@ export function Gallery() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+                  <ImageZoom zoomScale={2.5}>
+<img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+</ImageZoom>
                 </motion.div>
               ))}
             </div>
@@ -767,7 +798,9 @@ export function Gallery() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+                  <ImageZoom zoomScale={2.5}>
+<img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+</ImageZoom>
                 </motion.div>
               ))}
             </div>
@@ -786,7 +819,9 @@ export function Gallery() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+                  <ImageZoom zoomScale={2.5}>
+<img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+</ImageZoom>
                 </motion.div>
               ))}
             </div>
@@ -799,7 +834,9 @@ export function Gallery() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+                  <ImageZoom zoomScale={2.5}>
+<img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
+</ImageZoom>
                 </motion.div>
               ))}
             </div>
@@ -839,7 +876,9 @@ export function Gallery() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+                <ImageZoom zoomScale={2.5}>
+<img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+</ImageZoom>
               </motion.div>
             ))}
           </div>
@@ -852,7 +891,9 @@ export function Gallery() {
                 transition={{ duration: 0.6, delay: (i + 5) * 0.1 }}
                 viewport={{ once: true }}
               >
-                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+                <ImageZoom zoomScale={2.5}>
+<img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+</ImageZoom>
               </motion.div>
             ))}
           </div>
@@ -865,7 +906,9 @@ export function Gallery() {
                 transition={{ duration: 0.6, delay: (i + 10) * 0.1 }}
                 viewport={{ once: true }}
               >
-                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+                <ImageZoom zoomScale={2.5}>
+<img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+</ImageZoom>
               </motion.div>
             ))}
           </div>
@@ -878,7 +921,9 @@ export function Gallery() {
                 transition={{ duration: 0.6, delay: (i + 14) * 0.1 }}
                 viewport={{ once: true }}
               >
-                <img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+                <ImageZoom zoomScale={2.5}>
+<img src={galleryData.drawings.images[idx].src} alt={galleryData.drawings.images[idx].alt} className="w-full h-auto object-cover" />
+</ImageZoom>
               </motion.div>
             ))}
           </div>
