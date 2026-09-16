@@ -53,7 +53,7 @@ export const projects = [
     type: "Web Application",
     location: "Stanford, CA",
     role: "Developer, Designer",
-    status: "Site Under Construction!",
+    status: "",
     content: "",
     layoutKey: "doorjam" as LayoutKey,
     features: [

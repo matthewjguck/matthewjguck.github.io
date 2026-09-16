@@ -5,7 +5,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
+
   /* Override any image shadows */
   .custom-project-content img,
   .story-image {
@@ -14,6 +14,33 @@
     box-shadow: 0 0 0 0 transparent !important;
     -webkit-box-shadow: 0 0 0 0 transparent !important;
     -moz-box-shadow: 0 0 0 0 transparent !important;
+  }
+
+  /* Caution stripe disclaimer */
+  .caution-disclaimer {
+    background: repeating-linear-gradient(
+      45deg,
+      #FFD700,
+      #FFD700 20px,
+      #000000 20px,
+      #000000 40px
+    );
+    padding: 2px;
+    margin-top: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .caution-disclaimer-content {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    text-align: center;
+  }
+
+  .caution-disclaimer-text {
+    font-size: 0.875rem;
+    color: #1f2937;
+    line-height: 1.6;
   }
 
   /* DoorJam Header Styles */
@@ -106,10 +133,19 @@
 </div>
 
 <!-- CTA Button -->
-<div class="pt-8 pb-32 bg-white flex justify-center">
+<div class="pt-8 pb-32 bg-white flex justify-center flex-col items-center">
   <a href="https://doorjam.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-black text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-gray-800 transition-colors duration-200" style="text-decoration: none;">
     Visit the Live Site →
   </a>
+
+  <!-- Caution Disclaimer -->
+  <div class="caution-disclaimer max-w-2xl">
+    <div class="caution-disclaimer-content">
+      <p class="caution-disclaimer-text">
+        ⚠️ Spotify no longer allows independent developers to have more than 5 users. As such DoorJam's Spotify Sync capabilities are <span style="font-style: italic;">invite only</span> while I search for viable pivots to keep the heart of this project alive
+      </p>
+    </div>
+  </div>
 </div>
 
 <!-- Section 2: DoorJam in Action -->
