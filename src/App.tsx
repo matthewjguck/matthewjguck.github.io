@@ -5,7 +5,9 @@ import { MyArt } from './components/MyArt'
 import { Resume } from './components/Resume'
 import { Projects } from './components/Projects'
 import { PitchDecks } from './components/PitchDecks'
+import { WisdomTeaser } from './components/WisdomTeaser'
 import { Gallery } from './pages/Gallery'
+import { Wisdom } from './pages/Wisdom'
 import { ProjectDetail } from './components/ProjectDetail'
 import { projects } from './data/projects'
 
@@ -24,6 +26,7 @@ export default function App() {
   }, [])
 
   const galleryMatch = currentRoute === '#/gallery'
+  const wisdomMatch = currentRoute === '#/wisdom'
   const projectMatch = currentRoute.match(/#\/project\/(.+)/)
   const projectId = projectMatch ? projectMatch[1] : null
   const selectedProject = projectId ? projects.find(p => p.id === projectId) : null
@@ -43,6 +46,15 @@ export default function App() {
       <>
         <div aria-live="polite" className="sr-only">{announcement}</div>
         <Gallery />
+      </>
+    )
+  }
+
+  if (wisdomMatch) {
+    return (
+      <>
+        <div aria-live="polite" className="sr-only">{announcement}</div>
+        <Wisdom />
       </>
     )
   }
@@ -68,6 +80,7 @@ export default function App() {
       <PitchDecks />
       <About />
       <Resume />
+      <WisdomTeaser />
     </div>
   )
 }
