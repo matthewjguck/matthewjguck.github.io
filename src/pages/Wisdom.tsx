@@ -15,7 +15,7 @@ export function Wisdom() {
       author: "Matthew Guck"
     },
     {
-      quote: "Why kill two birds with one stone, when you could nourish two doves with one loaf?",
+      quote: "Why kill two birds with one stone,\nwhen you could nourish two doves with one loaf?",
       author: "Matthew Guck",
       useWarp: true
     }
@@ -72,7 +72,7 @@ export function Wisdom() {
               viewport={{ once: true, margin: '0px 0px -100px 0px' }}
             >
               {/* Quote - WarpText or TextPressure */}
-              <div style={{ width: item.useWarp ? '50vw' : '40vw', height: '200px', marginBottom: item.useWarp ? '0' : '2rem', marginTop: item.useWarp ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useWarp ? '#000000' : 'transparent', borderRadius: item.useWarp ? '8px' : '0px', padding: item.useWarp ? '2rem' : '0' }}>
+              <div style={{ width: item.useWarp ? '50vw' : '40vw', height: item.useWarp ? 'auto' : '200px', marginBottom: item.useWarp ? '0' : '2rem', marginTop: item.useWarp ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useWarp ? '#000000' : 'transparent', borderRadius: item.useWarp ? '0px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : '0' }}>
                 {item.useWarp ? (
                   <WarpText
                     text={item.quote}
