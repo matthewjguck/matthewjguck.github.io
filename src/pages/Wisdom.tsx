@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import TextPressure from '../components/TextPressure';
 import WarpText from '../components/WarpText';
+import TextLoop from '../components/TextLoop';
 
 export function Wisdom() {
   const handleBackToHome = () => {
@@ -18,6 +19,11 @@ export function Wisdom() {
       quote: "Why kill two birds with one stone,\nwhen you could nourish two doves with one loaf?",
       author: "Matthew Guck",
       useWarp: true
+    },
+    {
+      quote: "It's hard to choose kindness. Choose it anyways and always.",
+      author: "Matthew Guck",
+      useLoop: true
     }
   ];
 
@@ -71,9 +77,22 @@ export function Wisdom() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: '0px 0px -100px 0px' }}
             >
-              {/* Quote - WarpText or TextPressure */}
-              <div style={{ width: item.useWarp ? '50vw' : '40vw', height: item.useWarp ? 'auto' : '200px', marginBottom: item.useWarp ? '0' : '2rem', marginTop: item.useWarp ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useWarp ? '#000000' : 'transparent', borderRadius: item.useWarp ? '0px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : '0' }}>
-                {item.useWarp ? (
+              {/* Quote - WarpText, TextPressure, or TextLoop */}
+              <div style={{ width: item.useLoop ? '50vw' : item.useWarp ? '50vw' : '40vw', height: item.useLoop ? '220px' : item.useWarp ? 'auto' : '200px', marginBottom: item.useWarp || item.useLoop ? '0' : '2rem', marginTop: item.useWarp || item.useLoop ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useLoop ? '#DC143C' : item.useWarp ? '#000000' : 'transparent', borderRadius: item.useLoop ? '8px' : item.useWarp ? '0px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : item.useLoop ? '1rem' : '0' }}>
+                {item.useLoop ? (
+                  <TextLoop
+                    text={item.quote}
+                    shape="line"
+                    speed={60}
+                    direction="forward"
+                    separator="•"
+                    fontSize={32}
+                    fontWeight={700}
+                    color="#ffffff"
+                    ribbon={false}
+                    pauseOnHover={true}
+                  />
+                ) : item.useWarp ? (
                   <WarpText
                     text={item.quote}
                     color="#ffffff"
