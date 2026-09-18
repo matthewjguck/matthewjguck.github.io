@@ -64,14 +64,15 @@ export function Wisdom() {
           {wisdomData.map((item, idx) => (
             <motion.div
               key={idx}
-              className="min-h-screen flex flex-col items-center justify-center px-4 relative"
+              className="min-h-screen flex flex-col items-center px-4 relative"
+              style={{ justifyContent: idx === 0 ? 'flex-end' : 'center' }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: '0px 0px -100px 0px' }}
             >
               {/* Quote - WarpText or TextPressure */}
-              <div style={{ width: item.useWarp ? '50vw' : '40vw', height: '200px', marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: item.useWarp ? '50vw' : '40vw', height: '200px', marginBottom: item.useWarp ? '0' : '2rem', marginTop: item.useWarp ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {item.useWarp ? (
                   <WarpText
                     text={item.quote}
@@ -103,7 +104,7 @@ export function Wisdom() {
               </div>
 
               {/* Author */}
-              <p className="text-lg text-gray-600 font-semibold text-center">
+              <p className="text-lg text-gray-600 font-semibold text-center" style={{ marginTop: idx === 0 ? '0' : '0', marginBottom: idx === 0 ? '2rem' : '0' }}>
                 — {item.author}
               </p>
             </motion.div>
