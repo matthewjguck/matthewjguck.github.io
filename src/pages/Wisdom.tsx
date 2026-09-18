@@ -102,7 +102,7 @@ export function Wisdom() {
                     text={item.quote}
                     shape="line"
                     speed={60}
-                    direction="forward"
+                    direction="reverse"
                     separator="•"
                     fontSize={32}
                     fontWeight={700}
