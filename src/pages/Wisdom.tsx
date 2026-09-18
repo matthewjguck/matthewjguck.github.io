@@ -71,7 +71,7 @@ export function Wisdom() {
               viewport={{ once: true, margin: '0px 0px -100px 0px' }}
             >
               {/* Quote - WarpText or TextPressure */}
-              <div style={{ width: '40vw', height: '200px', marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: item.useWarp ? '50vw' : '40vw', height: '200px', marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {item.useWarp ? (
                   <WarpText
                     text={item.quote}
@@ -83,7 +83,7 @@ export function Wisdom() {
                     pointerStrength={0.38}
                     refraction={0.018}
                     ripple={true}
-                    fontSize="40vw"
+                    fontSize="50vw"
                     fontWeight={700}
                     lineHeight={1.2}
                   />
