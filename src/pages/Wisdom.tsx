@@ -11,6 +11,10 @@ export function Wisdom() {
 
   const wisdomData = [
     {
+      quote: "Love Radically",
+      author: "Matthew Guck"
+    },
+    {
       quote: "Why kill two birds with one stone, when you could nourish two doves with one loaf?",
       author: "Matthew Guck",
       useWarp: true
