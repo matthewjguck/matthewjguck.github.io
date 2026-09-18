@@ -32,10 +32,6 @@ export function Wisdom() {
       author: "Wayne Gretzky"
     },
     {
-      quote: "Everything you want is on the other side of fear.",
-      author: "Jack Canfield"
-    },
-    {
       quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
       author: "Nelson Mandela"
     },
@@ -54,14 +50,6 @@ export function Wisdom() {
     {
       quote: "Life is what happens when you're busy making other plans.",
       author: "John Lennon"
-    },
-    {
-      quote: "The only impossible journey is the one you never begin.",
-      author: "Tony Robbins"
-    },
-    {
-      quote: "Don't watch the clock; do what it does. Keep going.",
-      author: "Sam Levenson"
     }
   ];
 
