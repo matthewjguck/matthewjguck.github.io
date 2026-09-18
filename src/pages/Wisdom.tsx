@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowDown } from 'lucide-react';
 import TextPressure from '../components/TextPressure';
 import WarpText from '../components/WarpText';
 import TextLoop from '../components/TextLoop';
@@ -60,17 +60,27 @@ export function Wisdom() {
 
         {/* Header */}
         <motion.section
-          className="relative h-96 flex flex-col items-center justify-center"
+          className="relative flex flex-col items-center justify-center"
+          style={{ height: '66vh' }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-6xl md:text-7xl font-bold text-center mb-2">
-            Matthew's Words of Wisdom
-          </h1>
-          <p className="text-xl text-gray-700 text-center max-w-3xl mx-auto px-4">
-            A collection of thoughts, quotes, and reflections that have shaped my perspective on life, work, and growth.
-          </p>
+          <div className="flex flex-col items-center">
+            <h1 className="text-6xl md:text-7xl font-bold text-center">
+              Matthew's Words of Wisdom
+            </h1>
+            <p className="text-xl text-gray-700 text-center max-w-3xl mx-auto px-4" style={{ marginTop: '4rem' }}>
+              A collection of thoughts, quotes, and reflections that have shaped my perspective on life, work, and growth.
+            </p>
+          </div>
+          <motion.div
+            className="absolute bottom-8"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <ArrowDown className="w-6 h-6 text-gray-600" />
+          </motion.div>
         </motion.section>
 
         {/* Quotes */}
