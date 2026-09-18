@@ -5,6 +5,7 @@ import TextPressure from '../components/TextPressure';
 import WarpText from '../components/WarpText';
 import TextLoop from '../components/TextLoop';
 import FuzzyText from '../components/FuzzyText';
+import MaskedHeading from '../components/MaskedHeading';
 
 export function Wisdom() {
   const handleBackToHome = () => {
@@ -26,6 +27,11 @@ export function Wisdom() {
       quote: "It's hard to choose kindness. Choose it anyways and always.",
       author: "Matthew Guck",
       useLoop: true
+    },
+    {
+      quote: "Don't get pissy about free pizza.",
+      author: "Matthew Guck",
+      useMasked: true
     }
   ];
 
@@ -79,8 +85,8 @@ export function Wisdom() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: '0px 0px -100px 0px' }}
             >
-              {/* Quote - Shuffle, WarpText, TextPressure, or TextLoop */}
-              <div style={{ width: item.useShuffle ? '40vw' : item.useLoop ? '50vw' : item.useWarp ? '50vw' : '40vw', height: item.useShuffle ? '5vh' : item.useLoop ? '5vh' : item.useWarp ? 'auto' : '200px', marginBottom: item.useShuffle || item.useWarp || item.useLoop ? '0' : '2rem', marginTop: item.useShuffle || item.useWarp || item.useLoop ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useLoop ? '#DC143C' : item.useWarp ? '#000000' : 'transparent', borderRadius: item.useLoop ? '8px' : item.useWarp ? '0px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : item.useLoop ? '1rem' : '0' }}>
+              {/* Quote - Shuffle, WarpText, TextPressure, TextLoop, or MaskedHeading */}
+              <div style={{ width: item.useShuffle ? '40vw' : item.useLoop ? '50vw' : item.useWarp ? '50vw' : item.useMasked ? '60vw' : '40vw', height: item.useShuffle ? '5vh' : item.useLoop ? '5vh' : item.useWarp ? 'auto' : item.useMasked ? '35vh' : '200px', marginBottom: item.useShuffle || item.useWarp || item.useLoop || item.useMasked ? '0' : '2rem', marginTop: item.useShuffle || item.useWarp || item.useLoop || item.useMasked ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useLoop ? '#DC143C' : item.useWarp ? '#000000' : 'transparent', borderRadius: item.useLoop ? '8px' : item.useWarp ? '0px' : item.useMasked ? '8px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : item.useLoop ? '1rem' : item.useMasked ? '0' : '0', overflow: item.useMasked ? 'hidden' : 'visible' }}>
                 {item.useShuffle ? (
                   <FuzzyText
                     color="#FF0000"
@@ -120,6 +126,20 @@ export function Wisdom() {
                     fontSize="50vw"
                     fontWeight={700}
                     lineHeight={1.2}
+                  />
+                ) : item.useMasked ? (
+                  <MaskedHeading
+                    text={item.quote}
+                    src="https://images.unsplash.com/photo-1692737580547-b45bb4a02356?q=80&w=2115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    fillScale={1.3}
+                    parallax={34}
+                    saturation={1.15}
+                    reveal="fade"
+                    trigger="view"
+                    weight={700}
+                    textScale={0.12}
+                    lineHeight={1.1}
+                    style={{ color: '#fff' }}
                   />
                 ) : (
                   <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
