@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import TextPressure from '../components/TextPressure';
+import WarpText from '../components/WarpText';
 
 export function Wisdom() {
   const handleBackToHome = () => {
@@ -9,6 +10,11 @@ export function Wisdom() {
   };
 
   const wisdomData = [
+    {
+      quote: "Why kill two birds with one stone, when you could nourish two doves with one loaf?",
+      author: "Matthew Guck",
+      useWarp: true
+    },
     {
       quote: "The best time to plant a tree was 20 years ago. The second best time is now.",
       author: "Chinese Proverb"
@@ -108,17 +114,34 @@ export function Wisdom() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: '0px 0px -100px 0px' }}
             >
-              {/* TextPressure Quote */}
-              <div style={{ width: '100%', height: '120px', marginBottom: '2rem' }}>
-                <TextPressure
-                  text={item.quote}
-                  textColor="#000000"
-                  weight={true}
-                  width={true}
-                  italic={true}
-                  minFontSize={24}
-                  containerHeight="120px"
-                />
+              {/* Quote - WarpText or TextPressure */}
+              <div style={{ width: '100%', height: '200px', marginBottom: '2rem' }}>
+                {item.useWarp ? (
+                  <WarpText
+                    text={item.quote}
+                    color="#000000"
+                    warpStrength={0.08}
+                    warpScale={1.7}
+                    speed={0.55}
+                    pointerInfluence={0.42}
+                    pointerStrength={0.38}
+                    refraction={0.018}
+                    ripple={true}
+                    fontSize="clamp(2rem, 6vw, 4rem)"
+                    fontWeight={700}
+                    lineHeight={1.2}
+                  />
+                ) : (
+                  <TextPressure
+                    text={item.quote}
+                    textColor="#000000"
+                    weight={true}
+                    width={true}
+                    italic={true}
+                    minFontSize={24}
+                    containerHeight="120px"
+                  />
+                )}
               </div>
 
               {/* Author */}
