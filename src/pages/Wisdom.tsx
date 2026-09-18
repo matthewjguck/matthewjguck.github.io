@@ -113,7 +113,7 @@ export function Wisdom() {
                   <TextLoop
                     text={item.quote}
                     shape="line"
-                    speed={60}
+                    speed={120}
                     direction="reverse"
                     separator="•"
                     fontSize={32}
