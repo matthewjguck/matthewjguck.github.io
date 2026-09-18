@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import TextPressure from '../components/TextPressure';
 import WarpText from '../components/WarpText';
 import TextLoop from '../components/TextLoop';
-import Shuffle from '../components/Shuffle';
+import FuzzyText from '../components/FuzzyText';
 
 export function Wisdom() {
   const handleBackToHome = () => {
@@ -82,21 +82,17 @@ export function Wisdom() {
               {/* Quote - Shuffle, WarpText, TextPressure, or TextLoop */}
               <div style={{ width: item.useShuffle ? '40vw' : item.useLoop ? '50vw' : item.useWarp ? '50vw' : '40vw', height: item.useShuffle ? '5vh' : item.useLoop ? '5vh' : item.useWarp ? 'auto' : '200px', marginBottom: item.useShuffle || item.useWarp || item.useLoop ? '0' : '2rem', marginTop: item.useShuffle || item.useWarp || item.useLoop ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useLoop ? '#DC143C' : item.useWarp ? '#000000' : 'transparent', borderRadius: item.useLoop ? '8px' : item.useWarp ? '0px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : item.useLoop ? '1rem' : '0' }}>
                 {item.useShuffle ? (
-                  <Shuffle
-                    text={item.quote}
-                    shuffleDirection="right"
-                    duration={0.35}
-                    animationMode="evenodd"
-                    shuffleTimes={1}
-                    ease="power3.out"
-                    stagger={0.03}
-                    threshold={0.1}
-                    triggerOnce={true}
-                    triggerOnHover={true}
-                    colorFrom="#FF0000"
-                    colorTo="#FF0000"
-                    style={{ color: '#FF0000' }}
-                  />
+                  <FuzzyText
+                    color="#FF0000"
+                    fontSize="clamp(1.5rem, 5vw, 3rem)"
+                    fontWeight={700}
+                    baseIntensity={0.15}
+                    hoverIntensity={0.4}
+                    fuzzRange={25}
+                    enableHover={true}
+                  >
+                    {item.quote}
+                  </FuzzyText>
                 ) : item.useLoop ? (
                   <TextLoop
                     text={item.quote}
