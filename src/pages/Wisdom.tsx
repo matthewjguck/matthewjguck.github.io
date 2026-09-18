@@ -6,6 +6,7 @@ import WarpText from '../components/WarpText';
 import TextLoop from '../components/TextLoop';
 import FuzzyText from '../components/FuzzyText';
 import MaskedHeading from '../components/MaskedHeading';
+import SplitFlapText from '../components/SplitFlapText';
 
 export function Wisdom() {
   const handleBackToHome = () => {
@@ -32,6 +33,11 @@ export function Wisdom() {
       quote: "Don't get pissy about free pizza.",
       author: "Matthew Guck",
       useMasked: true
+    },
+    {
+      quote: "PIVOT WITH GRACE",
+      author: "Matthew Guck",
+      useSplitFlap: true
     }
   ];
 
@@ -95,8 +101,8 @@ export function Wisdom() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: '0px 0px -100px 0px' }}
             >
-              {/* Quote - Shuffle, WarpText, TextPressure, TextLoop, or MaskedHeading */}
-              <div style={{ width: 'min(50vw, 90vw)', height: item.useShuffle ? '5vh' : item.useLoop ? '5vh' : item.useWarp ? 'auto' : item.useMasked ? '35vh' : '200px', marginBottom: item.useShuffle || item.useWarp || item.useLoop || item.useMasked ? '0' : '2rem', marginTop: item.useShuffle || item.useWarp || item.useLoop || item.useMasked ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useLoop ? '#DC143C' : item.useWarp ? '#000000' : 'transparent', borderRadius: item.useLoop ? '8px' : item.useWarp ? '0px' : item.useMasked ? '8px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : item.useLoop ? '1rem' : item.useMasked ? '0' : '0', overflow: item.useMasked ? 'hidden' : 'visible' }}>
+              {/* Quote - Shuffle, WarpText, TextPressure, TextLoop, MaskedHeading, or SplitFlapText */}
+              <div style={{ width: 'min(50vw, 90vw)', height: item.useShuffle ? '5vh' : item.useLoop ? '5vh' : item.useWarp ? 'auto' : item.useMasked ? '35vh' : item.useSplitFlap ? '15vh' : '200px', marginBottom: item.useShuffle || item.useWarp || item.useLoop || item.useMasked || item.useSplitFlap ? '0' : '2rem', marginTop: item.useShuffle || item.useWarp || item.useLoop || item.useMasked || item.useSplitFlap ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useLoop ? '#DC143C' : item.useWarp ? '#000000' : item.useSplitFlap ? '#111827' : 'transparent', borderRadius: item.useLoop ? '8px' : item.useWarp ? '0px' : item.useMasked ? '8px' : item.useSplitFlap ? '8px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : item.useLoop ? '1rem' : item.useMasked ? '0' : item.useSplitFlap ? '1rem' : '0', overflow: item.useMasked ? 'hidden' : 'visible' }}>
                 {item.useShuffle ? (
                   <FuzzyText
                     color="#FF0000"
@@ -151,6 +157,19 @@ export function Wisdom() {
                     textScale={0.12}
                     lineHeight={1.1}
                     style={{ color: '#fff' }}
+                  />
+                ) : item.useSplitFlap ? (
+                  <SplitFlapText
+                    text={item.quote}
+                    flipDuration={0.1}
+                    stagger={0.04}
+                    cycleDelay={3000}
+                    flipsPerChar={6}
+                    tileColor="#1a1a1a"
+                    textColor="#ffffff"
+                    fontSize={48}
+                    gap={8}
+                    loop={true}
                   />
                 ) : (
                   <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
