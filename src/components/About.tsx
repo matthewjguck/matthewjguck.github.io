@@ -115,7 +115,7 @@ export function About() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full lg:w-[40%] h-96 sm:h-[600px] md:h-[700px] lg:h-[1050px] overflow-hidden"
+            className="relative w-full lg:w-[40%] h-96 sm:h-[600px] md:h-[700px] lg:h-[1200px] overflow-hidden"
           >
             <div className="w-full h-full relative">
               {/* Mobile and tablet - use wide image */}
@@ -171,7 +171,7 @@ export function About() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative w-full lg:w-[60%] min-h-[1000px] lg:h-[1050px] bg-gray-100 flex flex-col gap-1"
+            className="relative w-full lg:w-[60%] min-h-[1100px] lg:h-[1200px] bg-gray-100 flex flex-col gap-1"
           >
             {/* Personal blurb section */}
             <div className="p-6">
