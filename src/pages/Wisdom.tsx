@@ -133,6 +133,7 @@ export function Wisdom() {
                     src="https://images.unsplash.com/photo-1692737580547-b45bb4a02356?q=80&w=2115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     fillScale={1.3}
                     parallax={34}
+                    brightness={0.6}
                     saturation={1.15}
                     reveal="fade"
                     trigger="view"
