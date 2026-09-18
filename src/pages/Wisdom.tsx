@@ -76,13 +76,13 @@ export function Wisdom() {
                 {item.useWarp ? (
                   <WarpText
                     text={item.quote}
-                    color="#000000"
+                    color="#ffffff"
                     warpStrength={0.08}
                     warpScale={1.7}
                     speed={0.55}
                     pointerInfluence={0.42}
                     pointerStrength={0.38}
-                    refraction={0.018}
+                    refraction={0.04}
                     ripple={true}
                     fontSize="50vw"
                     fontWeight={700}
