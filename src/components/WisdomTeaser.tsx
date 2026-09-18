@@ -16,7 +16,7 @@ export function WisdomTeaser() {
       className="h-screen md:h-[5vh] bg-black text-white flex items-center justify-center px-4 cursor-pointer hover:bg-gray-900 transition-colors duration-300"
       onClick={handleNavigateToWisdom}
     >
-      <div className="flex items-center justify-between w-full max-w-6xl mx-auto group">
+      <div className="flex items-center justify-center gap-4 w-full max-w-6xl mx-auto group">
         <h2 className="text-3xl md:text-4xl font-bold">
           Matthew's Words of Wisdom
         </h2>
