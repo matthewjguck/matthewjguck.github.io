@@ -4,6 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import TextPressure from '../components/TextPressure';
 import WarpText from '../components/WarpText';
 import TextLoop from '../components/TextLoop';
+import Shuffle from '../components/Shuffle';
 
 export function Wisdom() {
   const handleBackToHome = () => {
@@ -13,7 +14,8 @@ export function Wisdom() {
   const wisdomData = [
     {
       quote: "Love Radically",
-      author: "Matthew Guck"
+      author: "Matthew Guck",
+      useShuffle: true
     },
     {
       quote: "Why kill two birds with one stone,\nwhen you could nourish two doves with one loaf?",
@@ -77,9 +79,22 @@ export function Wisdom() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: '0px 0px -100px 0px' }}
             >
-              {/* Quote - WarpText, TextPressure, or TextLoop */}
-              <div style={{ width: item.useLoop ? '50vw' : item.useWarp ? '50vw' : '40vw', height: item.useLoop ? '220px' : item.useWarp ? 'auto' : '200px', marginBottom: item.useWarp || item.useLoop ? '0' : '2rem', marginTop: item.useWarp || item.useLoop ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useLoop ? '#DC143C' : item.useWarp ? '#000000' : 'transparent', borderRadius: item.useLoop ? '8px' : item.useWarp ? '0px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : item.useLoop ? '1rem' : '0' }}>
-                {item.useLoop ? (
+              {/* Quote - Shuffle, WarpText, TextPressure, or TextLoop */}
+              <div style={{ width: item.useShuffle ? '40vw' : item.useLoop ? '50vw' : item.useWarp ? '50vw' : '40vw', height: item.useShuffle ? '5vh' : item.useLoop ? '5vh' : item.useWarp ? 'auto' : '200px', marginBottom: item.useShuffle || item.useWarp || item.useLoop ? '0' : '2rem', marginTop: item.useShuffle || item.useWarp || item.useLoop ? '0' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: item.useLoop ? '#DC143C' : item.useWarp ? '#000000' : 'transparent', borderRadius: item.useLoop ? '8px' : item.useWarp ? '0px' : '0px', padding: item.useWarp ? '0.5rem 2rem' : item.useLoop ? '1rem' : '0' }}>
+                {item.useShuffle ? (
+                  <Shuffle
+                    text={item.quote}
+                    shuffleDirection="right"
+                    duration={0.35}
+                    animationMode="evenodd"
+                    shuffleTimes={1}
+                    ease="power3.out"
+                    stagger={0.03}
+                    threshold={0.1}
+                    triggerOnce={true}
+                    triggerOnHover={true}
+                  />
+                ) : item.useLoop ? (
                   <TextLoop
                     text={item.quote}
                     shape="line"
