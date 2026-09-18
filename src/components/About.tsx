@@ -194,8 +194,14 @@ export function About() {
                         <h2 className="text-3xl text-center md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                           About Me
                         </h2>
+                      <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-4 mx-3">
+                        I have a BS in <span className="font-semibold">AI + Digital User Experience Design</span> from Stanford, and I work across UI, UX, web development, and product design.
+                      </p>
+                      <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-4 mx-3">
+                        I’m a firm believer that I can teach myself anything. For years, the classroom setting felt like nails on a chalkboard—it just couldn’t keep pace with my curiosity. Eventually, I discovered that I learn best through doing and experimentation. I’ve never been afraid to push forward without directions, and I love the process of building intuition in novel domains.
+                      </p>
                       <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-6 mx-3">
-                        I’m a Senior at Stanford studying Computer Science and Design. 🌲 As the Class of 2026 President and founder of The Cupid Project, I’m passionate about building things that bring people together — whether through software, visuals, experiences, or music.
+                        My innate curiosity (coupled with the fear of growing up to be boring and talentless) has given me an insatiable thirst for new skills (and the rigor to actually become good at them). I strive to be exceptional in all I do, and as such I’m always looking for opportunities to push my own skills. In third grade I discovered Google Slides and fell in love, building every presentation from scratch with my own themes ever since. Likewise, the overwhelming majority of my web development experience has come from the projects you see here. Even my experience as Stanford Class President was a calculated opportunity to further my graphic design and event planning.
                       </p>
 
                       <div className="grid grid-cols-2 border-t items-center sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:-gap-100 lg:grid-cols-2 lg:gap-10 px-5">
