@@ -93,6 +93,9 @@ export function Wisdom() {
                     threshold={0.1}
                     triggerOnce={true}
                     triggerOnHover={true}
+                    colorFrom="#FF0000"
+                    colorTo="#FF0000"
+                    style={{ color: '#FF0000' }}
                   />
                 ) : item.useLoop ? (
                   <TextLoop
@@ -138,7 +141,7 @@ export function Wisdom() {
               </div>
 
               {/* Author */}
-              <p className="text-lg text-gray-600 font-semibold text-center" style={{ marginTop: idx === 0 ? '0' : '0', marginBottom: idx === 0 ? '2rem' : '0' }}>
+              <p className="text-lg text-gray-600 font-semibold text-center" style={{ marginTop: '2rem', marginBottom: idx === 0 ? '2rem' : '0' }}>
                 — {item.author}
               </p>
             </motion.div>
