@@ -115,7 +115,7 @@ export function About() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full lg:w-[40%] h-96 sm:h-[600px] md:h-[700px] lg:h-[900px] overflow-hidden"
+            className="relative w-full lg:w-[40%] h-96 sm:h-[600px] md:h-[700px] lg:h-[1050px] overflow-hidden"
           >
             <div className="w-full h-full relative">
               {/* Mobile and tablet - use wide image */}
@@ -171,7 +171,7 @@ export function About() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative w-full lg:w-[60%] min-h-[900px] lg:h-[940px] bg-gray-100 flex flex-col gap-1"
+            className="relative w-full lg:w-[60%] min-h-[1000px] lg:h-[1050px] bg-gray-100 flex flex-col gap-1"
           >
             {/* Personal blurb section */}
             <div className="p-6">
@@ -219,7 +219,7 @@ export function About() {
             </div>
 
             {/* Favorites section */}
-            <div className="flex-1 pb-16 px-12">
+            <div className="flex-1 pb-8 px-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 mb-4 text-center">
                 My favorite...
               </h2>
