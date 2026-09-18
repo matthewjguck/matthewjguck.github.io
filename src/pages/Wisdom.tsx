@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
+import TextPressure from '../components/TextPressure';
 
 export function Wisdom() {
   const handleBackToHome = () => {
@@ -10,67 +11,53 @@ export function Wisdom() {
   const wisdomData = [
     {
       quote: "The best time to plant a tree was 20 years ago. The second best time is now.",
-      author: "Chinese Proverb",
-      category: "Growth"
+      author: "Chinese Proverb"
     },
     {
       quote: "I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
-      author: "Maya Angelou",
-      category: "Impact"
+      author: "Maya Angelou"
     },
     {
       quote: "The only way to do great work is to love what you do.",
-      author: "Steve Jobs",
-      category: "Passion"
+      author: "Steve Jobs"
     },
     {
       quote: "You miss 100% of the shots you don't take.",
-      author: "Wayne Gretzky",
-      category: "Courage"
+      author: "Wayne Gretzky"
     },
     {
       quote: "Everything you want is on the other side of fear.",
-      author: "Jack Canfield",
-      category: "Courage"
+      author: "Jack Canfield"
     },
     {
       quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
-      author: "Nelson Mandela",
-      category: "Resilience"
+      author: "Nelson Mandela"
     },
     {
       quote: "The way to get started is to quit talking and begin doing.",
-      author: "Walt Disney",
-      category: "Action"
+      author: "Walt Disney"
     },
     {
       quote: "In the middle of difficulty lies opportunity.",
-      author: "Albert Einstein",
-      category: "Perspective"
+      author: "Albert Einstein"
     },
     {
       quote: "You are never too old to set another goal or to dream a new dream.",
-      author: "C.S. Lewis",
-      category: "Growth"
+      author: "C.S. Lewis"
     },
     {
       quote: "Life is what happens when you're busy making other plans.",
-      author: "John Lennon",
-      category: "Perspective"
+      author: "John Lennon"
     },
     {
       quote: "The only impossible journey is the one you never begin.",
-      author: "Tony Robbins",
-      category: "Action"
+      author: "Tony Robbins"
     },
     {
       quote: "Don't watch the clock; do what it does. Keep going.",
-      author: "Sam Levenson",
-      category: "Persistence"
+      author: "Sam Levenson"
     }
   ];
-
-  const categories = Array.from(new Set(wisdomData.map(item => item.category)));
 
   return (
     <div className="min-h-screen bg-white text-black relative pb-16">
@@ -110,41 +97,37 @@ export function Wisdom() {
           </p>
         </motion.section>
 
-        {/* Quotes Grid */}
-        {categories.map((category, catIdx) => (
-          <motion.section
-            key={category}
-            className="container mx-auto px-4 mb-24"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-semibold mb-12 text-black text-center">{category}</h2>
+        {/* Quotes */}
+        <div className="relative">
+          {wisdomData.map((item, idx) => (
+            <motion.div
+              key={idx}
+              className="min-h-screen flex flex-col items-center justify-center px-4 relative"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: '0px 0px -100px 0px' }}
+            >
+              {/* TextPressure Quote */}
+              <div style={{ width: '100%', height: '120px', marginBottom: '2rem' }}>
+                <TextPressure
+                  text={item.quote}
+                  textColor="#000000"
+                  weight={true}
+                  width={true}
+                  italic={true}
+                  minFontSize={24}
+                  containerHeight="120px"
+                />
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {wisdomData
-                .filter(item => item.category === category)
-                .map((item, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="bg-white rounded-2xl p-8 shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: idx * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-lg md:text-xl font-medium text-gray-900 mb-6 leading-relaxed">
-                      "{item.quote}"
-                    </p>
-                    <p className="text-gray-600 font-semibold text-right">
-                      — {item.author}
-                    </p>
-                  </motion.div>
-                ))}
-            </div>
-          </motion.section>
-        ))}
+              {/* Author */}
+              <p className="text-lg text-gray-600 font-semibold text-center">
+                — {item.author}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
