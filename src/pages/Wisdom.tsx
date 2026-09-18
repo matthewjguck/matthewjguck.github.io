@@ -14,42 +14,6 @@ export function Wisdom() {
       quote: "Why kill two birds with one stone, when you could nourish two doves with one loaf?",
       author: "Matthew Guck",
       useWarp: true
-    },
-    {
-      quote: "The best time to plant a tree was 20 years ago. The second best time is now.",
-      author: "Chinese Proverb"
-    },
-    {
-      quote: "I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
-      author: "Maya Angelou"
-    },
-    {
-      quote: "The only way to do great work is to love what you do.",
-      author: "Steve Jobs"
-    },
-    {
-      quote: "You miss 100% of the shots you don't take.",
-      author: "Wayne Gretzky"
-    },
-    {
-      quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.",
-      author: "Nelson Mandela"
-    },
-    {
-      quote: "The way to get started is to quit talking and begin doing.",
-      author: "Walt Disney"
-    },
-    {
-      quote: "In the middle of difficulty lies opportunity.",
-      author: "Albert Einstein"
-    },
-    {
-      quote: "You are never too old to set another goal or to dream a new dream.",
-      author: "C.S. Lewis"
-    },
-    {
-      quote: "Life is what happens when you're busy making other plans.",
-      author: "John Lennon"
     }
   ];
 
