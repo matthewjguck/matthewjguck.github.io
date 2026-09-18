@@ -51,7 +51,7 @@ export function Wisdom() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-6xl md:text-7xl font-bold text-center mb-6">
+          <h1 className="text-6xl md:text-7xl font-bold text-center mb-2">
             Matthew's Words of Wisdom
           </h1>
           <p className="text-xl text-gray-700 text-center max-w-3xl mx-auto px-4">
