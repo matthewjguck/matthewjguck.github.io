@@ -148,7 +148,7 @@ export function About() {
               </div>
 
               {/* Flag icons - moved up inside the image area */}
-              <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
+              <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
                 {flagIcons.map((flag, index) => (
                   <motion.div
                     key={index}
