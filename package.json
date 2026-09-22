@@ -9,6 +9,7 @@
     "deploy": "npm run build && npx gh-pages -d dist"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@nkzw/liquid-glass": "^1.3.0",
     "@react-three/drei": "^10.5.1",
     "@react-three/fiber": "^9.2.0",
@@ -16,8 +17,10 @@
     "@tailwindcss/vite": "^4.1.11",
     "@types/three": "^0.178.1",
     "framer-motion": "^12.23.6",
+    "gsap": "^3.15.0",
     "liquid-glass-react": "^1.1.1",
     "lucide-react": "^0.525.0",
+    "ogl": "^1.0.11",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "solid-glass": "^0.0.2",

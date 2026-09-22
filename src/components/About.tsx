@@ -115,7 +115,7 @@ export function About() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full lg:w-[40%] h-96 sm:h-[600px] md:h-[700px] lg:h-[900px] overflow-hidden"
+            className="relative w-full lg:w-[40%] h-96 sm:h-[600px] md:h-[700px] lg:h-[1200px] overflow-hidden"
           >
             <div className="w-full h-full relative">
               {/* Mobile and tablet - use wide image */}
@@ -148,7 +148,7 @@ export function About() {
               </div>
 
               {/* Flag icons - moved up inside the image area */}
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
+              <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
                 {flagIcons.map((flag, index) => (
                   <motion.div
                     key={index}
@@ -171,7 +171,7 @@ export function About() {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative w-full lg:w-[60%] min-h-[900px] lg:h-[940px] bg-gray-100 flex flex-col gap-1"
+            className="relative w-full lg:w-[60%] min-h-[1100px] lg:h-[1200px] bg-gray-100 flex flex-col gap-1"
           >
             {/* Personal blurb section */}
             <div className="p-6">
@@ -194,8 +194,17 @@ export function About() {
                         <h2 className="text-3xl text-center md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                           About Me
                         </h2>
+                      <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-4 mx-3">
+                        I have a BS in <span className="font-semibold">AI + Digital User Experience Design</span> from Stanford, and I work across UI, UX, web development, and product design.
+                      </p>
+                      <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-4 mx-3">
+                        I’m a firm believer that I can teach myself anything. For years, the classroom setting felt like nails on a chalkboard—it just couldn’t keep pace with my curiosity. Eventually, I discovered that I learn best through doing and experimentation. I’ve never been afraid to push forward without directions, and I love the process of building intuition in novel domains.
+                      </p>
+                      <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-4 mx-3">
+                        My innate curiosity (coupled with the fear of growing up to be boring and talentless) has given me an insatiable thirst for new skills (and the rigor to actually become good at them). I strive to be exceptional in all I do, and as such I’m always looking for opportunities to push my own skills. In third grade I discovered Google Slides and fell in love, building every presentation from scratch with my own themes ever since. Likewise, the overwhelming majority of my web development experience has come from the projects you see here. Even my experience as Stanford Class President was a calculated opportunity to further my graphic design and event planning.
+                      </p>
                       <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-6 mx-3">
-                        I’m a Senior at Stanford studying Computer Science and Design. 🌲 As the Class of 2026 President and founder of The Cupid Project, I’m passionate about building things that bring people together — whether through software, visuals, experiences, or music.
+                        I’m looking to build great things with great people. <span className="italic">(Bonus points if those things are really cool.)</span>
                       </p>
 
                       <div className="grid grid-cols-2 border-t items-center sm:grid-cols-1 sm:gap-0 md:grid-cols-2 md:-gap-100 lg:grid-cols-2 lg:gap-10 px-5">
@@ -210,7 +219,7 @@ export function About() {
             </div>
 
             {/* Favorites section */}
-            <div className="flex-1 pb-16 px-12">
+            <div className="flex-1 pb-8 px-12">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 mb-4 text-center">
                 My favorite...
               </h2>
