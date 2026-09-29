@@ -362,6 +362,61 @@ export const projects = [
     layoutKey: "skyhigh" as LayoutKey,
     content: "Sky High Hypoglycemia was a collaborative project in Stanford's DESIGN 1 Course. An immersive escape room experience designed to educate participants about hypoglycemia management.",
     gallery: ["/images/Escape Room Spread.png"]
+  },
+  {
+    id: "summerall",
+    title: "Summerall Law",
+    description: "Simplified complex estate planning workflows through systems design and iterative prototyping, increasing fully funded trusts by 100%.",
+    image: "/images/summerall-hero.png",
+    tags: ["UX Design", "Systems Design", "Prototyping", "User Research", "Figma"],
+    date: "Summer 2025",
+    type: "UI/UX Design Internship",
+    location: "San Francisco, CA",
+    role: "UI/UX Designer",
+    status: "",
+    content: `<h2>Project Overview</h2>
+    <p>Summerall Law provides estate planning services to help families secure their financial futures. The challenge was to transform complex legal workflows into clear, accessible experiences that build user confidence throughout the trust funding process.</p>
+
+    <h2>The Problem</h2>
+    <p>Users were not struggling with motivation. They were struggling with <strong>confidence</strong>. Clients hesitated to complete trust funding because the process felt legally sensitive and unfamiliar. The existing interface didn't provide the clarity and guidance needed to navigate complex financial decisions.</p>
+
+    <h2>Design Approach</h2>
+    <h3>Iterative Design Process</h3>
+    <p>Led comprehensive design work in Figma to transform legal workflows into intuitive experiences. Conducted user testing and collaborated with attorneys and engineering teams throughout development to ensure the design met both user needs and legal requirements.</p>
+
+    <h3>Design System</h3>
+    <p>Built a reusable Figma component system that established consistency across all workflows, navigation patterns, typography, spacing, and interactive components. This reduced visual friction and made the interface feel more trustworthy and professional.</p>
+
+    <h2>Key Insight</h2>
+    <p><em>"Thoughtful systems, clear communication, and small interface decisions can help people feel more confident navigating complex processes."</em></p>
+
+    <h2>Results</h2>
+    <ul>
+    <li><strong>100% increase</strong> in fully funded trusts</li>
+    <li>Streamlined workflows for clients, attorneys, and technical teams</li>
+    <li>Improved communication across all stakeholders</li>
+    <li>Enhanced user confidence through clear interface patterns</li>
+    </ul>`,
+    features: [
+      "Multi-step estate planning workflow with clear progress indicators",
+      "Intuitive intake forms guiding users through account types and personal details",
+      "Trust funding interface simplifying complex legal concepts",
+      "Document management system for deeds, trusts, and related paperwork",
+      "Real-time collaboration tools for attorneys and clients",
+      "Comprehensive design system ensuring visual consistency"
+    ],
+    technologies: ["Figma", "UX Design", "Systems Design", "User Research", "Prototyping"],
+    outcome: "Successfully redesigned Summerall Law's estate planning platform, resulting in a 100% increase in fully funded trusts. The design demonstrated that clear systems, thoughtful communication, and attention to interface details can significantly build user confidence when navigating complex processes.",
+    gallery: [
+      "/images/summerall-before.png",
+      "/images/summerall-prototype.png",
+      "/images/summerall-process-1.png",
+      "/images/summerall-process-2.png",
+      "/images/summerall-typography.png",
+      "/images/summerall-collab.png"
+    ],
+    duration: "10 weeks",
+    teamSize: "Cross-functional team"
   }
-  
+
 ]
