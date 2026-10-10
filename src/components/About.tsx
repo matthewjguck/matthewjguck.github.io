@@ -80,7 +80,7 @@ export function About() {
   const flagIcons = [
     { alt: "Texas flag", src: "/images/texas-flag.png" },
     { alt: "California flag", src: "/images/california-flag.png" },
-    { alt: "Pride flag", src: "/images/pride-flag.png" }, 
+    { alt: "Pride flag", src: "/images/pride-flag.png", hidden: true },
     { alt: "Philippines flag", src: "/images/philippines-flag.png" },
     //  { alt: "Germany flag", src: "/images/germany-flag.png" },
     { alt: "USA flag", src: "/images/usa-flag.png" },
@@ -149,7 +149,7 @@ export function About() {
 
               {/* Flag icons - moved up inside the image area */}
               <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
-                {flagIcons.map((flag, index) => (
+                {flagIcons.filter(flag => !flag.hidden).map((flag, index) => (
                   <motion.div
                     key={index}
                     initial={{ scale: 0 }}
