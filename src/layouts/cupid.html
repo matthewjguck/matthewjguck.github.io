@@ -6,7 +6,51 @@
   <title>The Cupid Project</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <script>
+    window.scrollTimeout = null;
+
+    window.updateTabSelector = function(index) {
+      document.querySelectorAll('.carousel-tab-btn').forEach((btn, i) => {
+        if (i === index) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    };
+
+    window.updateActiveTab = function() {
+      const carousel = document.getElementById('portalCarousel');
+      if (!carousel) return;
+
+      // Clear the previous timeout and set a new one to run after scroll completes
+      clearTimeout(window.scrollTimeout);
+      window.scrollTimeout = setTimeout(function() {
+        const slides = carousel.querySelectorAll('[data-index]');
+        const scrollLeft = carousel.scrollLeft;
+        const width = carousel.clientWidth;
+        const threshold = width * 0.1;
+
+        for (let idx = 0; idx < slides.length; idx++) {
+          const slideLeft = slides[idx].offsetLeft;
+          const slideRight = slideLeft + slides[idx].offsetWidth;
+          const viewportStart = scrollLeft;
+
+          // Check if slide is mostly visible in viewport
+          if (slideRight - viewportStart > threshold && slideLeft - viewportStart < width - threshold) {
+            window.updateTabSelector(idx);
+            break;
+          }
+        }
+      }, 600); // Wait 600ms for scroll-smooth animation to complete
+    };
+
+  </script>
+
   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
     .gradient-text {
       background: linear-gradient(135deg, #ec4899, #ef4444, #f97316);
       background-clip: text;
@@ -39,7 +83,7 @@
       }
     }
 
-    
+
     /* Carousel styles */
     .carousel-container {
       overflow: hidden;
@@ -48,6 +92,12 @@
     .carousel-track {
       display: flex;
       animation: scroll 30s linear infinite;
+    }
+
+    .carousel-tab.active {
+      color: #111827;
+      border-bottom-color: #111827;
+    }
       width: calc(400px * 20); /* Adjust based on number of images */
     }
     .carousel-track:hover {
@@ -87,6 +137,18 @@
       object-fit: cover !important;
       object-position: center !important;
       display: block !important;
+    }
+    .carousel-tab-btn {
+      color: #9CA3AF;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .carousel-tab-btn.active {
+      color: #111827 !important;
+      border-bottom: 2px solid #111827 !important;
+    }
+    .carousel-tab-btn:hover {
+      color: #111827;
     }
   </style>
 </head>
@@ -132,7 +194,7 @@
         Visit Website
       </a>
     </div>
-    <img src="/images/TCP Collage.png" alt="The Cupid Project collage" class="w-full h-auto shadow-none scale-150 md:scale-125">
+    <img src="/images/TCP Collage.webp" alt="The Cupid Project collage" class="w-full h-auto shadow-none scale-150 md:scale-125">
   </div>
 
   <!-- UI/UX Work Section -->
@@ -169,63 +231,89 @@
       </div>
 
       <!-- Sub-section: Art Direction -->
-      <div class="mb-24">
-        <h3 class="text-3xl font-bold text-gray-900 mb-2 text-center">Art Direction</h3>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto text-center mb-10">
-          Four visual references that shaped the look and feel of the site.
-        </p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div>
-            <div class="bg-gray-50 rounded-2xl border border-gray-200 shadow-lg aspect-square overflow-hidden">
+      <div class="bg-black py-24 px-4 md:px-8 w-screen -ml-[calc(50vw-50%)]">
+        <div class="max-w-7xl mx-auto">
+          <h3 class="text-3xl font-bold mb-2 text-center font-[poppins]" style="color: white;">Art Direction</h3>
+          <p class="text-lg font-thin max-w-2xl mx-auto text-center mb-10 font-[poppins]" style="color: white;">
+            Four visual references that shaped the look and feel of the site.
+          </p>
+          <div class="flex justify-center">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+            <div>
+            <div class="bg-gray-50 shadow-lg aspect-square overflow-hidden">
               <img src="/images/paper-scraps.png" alt="Paper scraps artifact" class="w-full h-full object-cover">
             </div>
-            <h4 class="text-lg font-bold text-gray-900 mt-4 mb-1">Paper Scraps</h4>
-            <p class="text-sm text-gray-500">Paper cards, crafts</p>
+            <h4 class="text-lg font-bold text-white mt-4 mb-1 font-[poppins]">Paper Scraps</h4>
+            <p class="text-sm font-thin font-[poppins]" style="color: white;">Paper cards, crafts</p>
           </div>
           <div>
-            <div class="bg-gray-50 rounded-2xl border border-gray-200 shadow-lg aspect-square overflow-hidden">
+            <div class="bg-gray-50 shadow-lg aspect-square overflow-hidden">
               <img src="/images/crayon-scribbles.png" alt="Crayon scribbles artifact" class="w-full h-full object-cover">
             </div>
-            <h4 class="text-lg font-bold text-gray-900 mt-4 mb-1">Crayon Scribbles</h4>
-            <p class="text-sm text-gray-500">Creativity, handmade feel</p>
+            <h4 class="text-lg font-bold text-white mt-4 mb-1 font-[poppins]">Crayon Scribbles</h4>
+            <p class="text-sm font-thin font-[poppins]" style="color: white;">Creativity, handmade feel</p>
           </div>
           <div>
-            <div class="bg-gray-50 rounded-2xl border border-gray-200 shadow-lg aspect-square overflow-hidden">
+            <div class="bg-gray-50 shadow-lg aspect-square overflow-hidden">
               <img src="/images/paper-texture.png" alt="Paper texture artifact" class="w-full h-full object-cover">
             </div>
-            <h4 class="text-lg font-bold text-gray-900 mt-4 mb-1">Paper Texture</h4>
-            <p class="text-sm text-gray-500">Handmade, tangible feel</p>
+            <h4 class="text-lg font-bold text-white mt-4 mb-1 font-[poppins]">Paper Texture</h4>
+            <p class="text-sm font-thin font-[poppins]" style="color: white;">Handmade, tangible feel</p>
           </div>
           <div>
-            <div class="bg-gray-50 rounded-2xl border border-gray-200 shadow-lg aspect-square overflow-hidden">
+            <div class="bg-gray-50 shadow-lg aspect-square overflow-hidden">
               <img src="/images/halftone-texture.png" alt="Halftone texture artifact" class="w-full h-full object-cover">
             </div>
-            <h4 class="text-lg font-bold text-gray-900 mt-4 mb-1">Halftone Texture</h4>
-            <p class="text-sm text-gray-500">Cool, young, Gen Z audience</p>
+            <h4 class="text-lg font-bold text-white mt-4 mb-1 font-[poppins]">Halftone Texture</h4>
+            <p class="text-sm font-thin font-[poppins]" style="color: white;">Cool, young, Gen Z audience</p>
+            </div>
           </div>
+        </div>
         </div>
       </div>
 
       <!-- Sub-section: Internal Portal -->
-      <div class="mb-24">
-        <h3 class="text-3xl font-bold text-gray-900 mb-2 text-center">Internal Portal</h3>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto text-center mb-10">
+      <div class="mb-24 mt-16">
+        <h3 class="text-3xl font-bold text-gray-900 mb-2 text-center font-[poppins]">Internal Portal</h3>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto text-center mb-8 font-[poppins]">
           A private tool used by chapter leads and volunteers to coordinate card drives, track deliveries, and manage facilities.
         </p>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
-            <img src="/images/Portal Selector.png" alt="Internal portal role selector screen" class="w-full h-auto">
+        <div class="relative w-full">
+          <!-- Carousel Container -->
+          <div class="overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-lg">
+            <div class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory" id="portalCarousel" onscroll="window.updateActiveTab()">
+              <!-- Slide 1: Portal Selector -->
+              <div class="flex-shrink-0 w-full snap-center" data-index="0">
+                <img src="/images/Portal Selector.png" alt="Portal routing page" class="w-full h-auto object-cover max-h-[70vh]">
+              </div>
+
+              <!-- Slide 2: Volunteer Portal -->
+              <div class="flex-shrink-0 w-full snap-center" data-index="1">
+                <img src="/images/Volunteer Portal.png" alt="Volunteer portal screen" class="w-full h-auto object-cover max-h-[70vh]">
+              </div>
+
+              <!-- Slide 3: Portal-3 -->
+              <div class="flex-shrink-0 w-full snap-center" data-index="2">
+                <img src="/images/Portal-3.png" alt="Chapter roster portal screen" class="w-full h-auto object-cover max-h-[70vh]">
+              </div>
+
+            </div>
           </div>
-          <div class="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
-            <img src="/images/Volunteer Portal.png" alt="Internal volunteer portal screen" class="w-full h-auto">
-          </div>
-          <div class="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
-            <img src="/images/Portal-3.png" alt="Internal chapter roster portal screen" class="w-full h-auto">
-          </div>
-          <div class="aspect-video flex items-center justify-center gap-4 p-6">
-            <img src="/images/heart-boy.svg" alt="Heart character illustration (boy)" class="h-full w-auto max-w-[45%] object-contain drop-shadow-lg">
-            <img src="/images/heart-girl.svg" alt="Heart character illustration (girl)" class="h-full w-auto max-w-[45%] object-contain drop-shadow-lg">
-          </div>
+
+          <!-- Navigation Buttons -->
+          <button onclick="const c = document.getElementById('portalCarousel'); c.scrollBy({left: -c.clientWidth, behavior: 'smooth'})" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg font-[poppins] font-bold text-xl">
+            ←
+          </button>
+          <button onclick="const c = document.getElementById('portalCarousel'); c.scrollBy({left: c.clientWidth, behavior: 'smooth'})" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-gray-900 p-3 rounded-full shadow-lg font-[poppins] font-bold text-xl">
+            →
+          </button>
+        </div>
+
+        <!-- Carousel Tabs Below -->
+        <div class="flex justify-center gap-8 mt-6">
+          <button onclick="const c = document.getElementById('portalCarousel'); c.scrollLeft = 0; window.updateTabSelector(0)" class="carousel-tab-btn font-[poppins] font-medium pb-2 cursor-pointer active">Portal Routing Page</button>
+          <button onclick="const c = document.getElementById('portalCarousel'); c.scrollLeft = c.clientWidth; window.updateTabSelector(1)" class="carousel-tab-btn font-[poppins] font-medium pb-2 cursor-pointer">Lo-FI Wireframing</button>
+          <button onclick="const c = document.getElementById('portalCarousel'); c.scrollLeft = c.clientWidth * 2; window.updateTabSelector(2)" class="carousel-tab-btn font-[poppins] font-medium pb-2 cursor-pointer">Iteration 2</button>
         </div>
       </div>
 
@@ -258,28 +346,35 @@
         </p>
       </div>
 
-      <!-- Impact Numbers -->
-      <div class="grid md:grid-cols-3 gap-8 mb-16">
-        <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-200 text-center flex flex-col justify-center items-center min-h-[200px]">
-          <div class="text-5xl font-bold text-pink-600 mb-4">600,000+</div>
-          <p class="text-lg text-gray-700">cards delivered to individuals in need</p>
-        </div>
-        
-        <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-200 text-center flex flex-col justify-center items-center min-h-[200px]">
-          <div class="text-5xl font-bold text-red-600 mb-4">42,700+</div>
-          <p class="text-lg text-gray-700">volunteers making a positive impact</p>
-        </div>
-        
-        <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-200 text-center flex flex-col justify-center items-center min-h-[200px]">
-          <div class="text-5xl font-bold text-orange-600 mb-4">2,217+</div>
-          <p class="text-lg text-gray-700">facilities reached in 1500 cities across 10 countries</p>
+      <!-- Impact Numbers - Background Image Section -->
+      <div class="w-screen -mx-[calc((100vw-100%)/2)] py-32 md:py-48 relative -mb-20" style="background-image: url('/images/impact-bg-hero.jpg'); background-size: cover; background-position: center;">
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0" style="background: rgba(255, 255, 255, 0.08);"></div>
+
+        <div class="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-20">
+          <div class="grid md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20">
+            <div class="text-center flex flex-col justify-center items-center py-8 md:py-12 px-6 md:px-10 rounded-lg" style="background-image: url('/images/metric-bg.png'); background-size: cover; background-position: center; min-height: 300px;">
+              <div class="font-black text-white mb-4" style="font-size: clamp(2.5rem, 8vw, 5rem); text-shadow: 3px 3px 12px rgba(0,0,0,0.4);">600,000+</div>
+              <p class="text-lg md:text-xl font-medium" style="color: white; text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">cards delivered to individuals in need</p>
+            </div>
+
+            <div class="text-center flex flex-col justify-center items-center py-8 md:py-12 px-6 md:px-10 rounded-lg" style="background-image: url('/images/metric-bg.png'); background-size: cover; background-position: center; min-height: 300px;">
+              <div class="font-black text-white mb-4" style="font-size: clamp(2.5rem, 8vw, 5rem); text-shadow: 3px 3px 12px rgba(0,0,0,0.4);">42,700+</div>
+              <p class="text-lg md:text-xl font-medium" style="color: white; text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">volunteers making a positive impact</p>
+            </div>
+
+            <div class="text-center flex flex-col justify-center items-center py-8 md:py-12 px-6 md:px-10 rounded-lg" style="background-image: url('/images/metric-bg.png'); background-size: cover; background-position: center; min-height: 300px;">
+              <div class="font-black text-white mb-4" style="font-size: clamp(2.5rem, 8vw, 5rem); text-shadow: 3px 3px 12px rgba(0,0,0,0.4);">2,217+</div>
+              <p class="text-lg md:text-xl font-medium" style="color: white; text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">facilities reached in 1500 cities across 10 countries</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     
     <!-- Full-width carousel -->
-    <div class="w-full">
-      <div class="carousel-container overflow-hidden">
+    <div class="w-screen -mx-[calc((100vw-100%)/2)]">
+      <div class="carousel-container overflow-hidden w-full">
         <div class="carousel-track">
           <!-- Images from the TCP folder - using all non-transparent JPG images -->
           <div class="carousel-item">

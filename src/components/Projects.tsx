@@ -11,9 +11,9 @@ export function Projects() {
     window.location.hash = `#/project/${projectId}`
   }
 
-  // Show only top 6 projects by default
-  const topProjects = projects.slice(0, 6)
-  const additionalProjects = projects.slice(6)
+  // Show only top 3 projects by default
+  const topProjects = projects.slice(0, 3)
+  const additionalProjects = projects.slice(3)
   const displayedProjects = showAllProjects ? projects : topProjects
 
   return (
