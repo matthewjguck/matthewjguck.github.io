@@ -166,9 +166,6 @@ export function Cupid() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-8">
             <div>
-              <p className="text-lg text-gray-700 mb-6">
-                For the better part of the last decade, The Cupid Project has pushed me to become a better product designer. It has taught me the power of little details and has necessitated that I learn new skills, pivot with grace, and keep <i>people</i> at the center of my design philosophy. The Cupid Project's annual Card Giving initiative is an inherently unique, human experience; however, growing The Cupid Project requires designing a scalable, replicable structure that allows these unique, human moments to shine.
-              </p>
               <h3 className="text-3xl font-bold text-gray-900 mb-6">What is The Cupid Project?</h3>
               <p className="text-lg text-gray-700 mb-6">
                The Cupid Project is an annual card-giving project delivering to nursing homes every Valentine's Day since 2018.
@@ -176,6 +173,9 @@ export function Cupid() {
               <p className="text-lg text-gray-700 mb-8">
                 We aim to combat loneliness, bring communities together, and inspire others to engage in philanthropy.
                 We firmly believe that a small act of kindness can put a smile on someone's face and ignite a chain reaction of compassion and goodwill.
+              </p>
+              <p className="text-lg text-gray-700 mb-6">
+                For the better part of the last decade, The Cupid Project has pushed me to become a better product designer. It has taught me the power of little details and has necessitated that I learn new skills, pivot with grace, and keep <i>people</i> at the center of my design philosophy. The Cupid Project's annual Card Giving initiative is an inherently unique, human experience; however, growing The Cupid Project requires designing a scalable, replicable structure that allows these unique, human moments to shine.
               </p>
             </div>
 
@@ -188,7 +188,7 @@ export function Cupid() {
 
       <div className="pt-8 pb-2 w-screen relative left-1/2 right-1/2 -mx-[50vw]">
         <div className="max-w-6xl mx-auto px-4 mb-20 flex justify-center">
-          <a href="https://thecupidproject.org" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-red-600 text-white mb-20 px-6 py-2 rounded-full hover:bg-red-700 transition-colors hover:scale-105">
+          <a href="https://thecupidproject.org" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white text-black mb-20 px-12 py-3 rounded-full hover:bg-black hover:text-white transition-colors hover:scale-105 font-[poppins] text-lg font-bold border-2 border-black">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
             </svg>
@@ -221,8 +221,8 @@ export function Cupid() {
                 <iframe src="https://www.thecupidproject.org/" title="The Cupid Project website" className="border-0" loading="lazy" style={{ width: '151.52%', height: '151.52%', transform: 'scale(0.66)', transformOrigin: '0 0' }}></iframe>
               </div>
             </div>
-            <div className="flex justify-center mt-6">
-              <a href="https://thecupidproject.org" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition-colors hover:scale-105">
+            <div className="flex justify-center mt-16">
+              <a href="https://thecupidproject.org" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white text-black px-12 py-3 rounded-full hover:bg-black hover:text-white transition-colors hover:scale-105 font-[poppins] text-lg font-bold border-2 border-black">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                 </svg>
@@ -332,6 +332,13 @@ export function Cupid() {
                 c.scrollLeft = c.clientWidth * 2
                 ;(window as any).updateTabSelector(2)
               }} className="carousel-tab-btn font-[poppins] font-medium pb-2 cursor-pointer">Iteration 2</button>
+            </div>
+
+            {/* HS Chapter Portal Demo Button */}
+            <div className="flex justify-center mt-12">
+              <a href="/hs-chapter-portal-demo/index.html" target="_blank" rel="noopener noreferrer" className="bg-black text-white font-bold px-8 py-3 rounded-full text-lg hover:bg-gray-800 transition-all font-[poppins]">
+                📦 View HS Chapter Portal Demo
+              </a>
             </div>
           </div>
 
@@ -487,6 +494,7 @@ export function Cupid() {
           </div>
         </div>
       </div>
+
     </motion.div>
   )
 }
