@@ -79,7 +79,7 @@ const doorjamStyles = `
   }
 
   .doorjam-logo {
-    height: clamp(60px, 10vw, 80px);
+    height: clamp(60px, 10vw, 150px);
     width: auto;
     transition: all 0.3s ease-in-out;
   }

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High School Chapter Portal - The Cupid Project</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --foreground: #000000;
+      --background: #ffffff;
+      --accent: #FF61A3;
+      --accent-soft: #FFE8F3;
+      --border: #e0e0e0;
+      --muted: #666666;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background-color: rgb(238, 238, 238);
+      color: var(--foreground);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .portal-top-nav {
+      width: 100%;
+      background-color: #eeeeee;
+      padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1.5rem, 4vw, 3rem);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .portal-top-nav__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .portal-top-nav__items {
+      list-style: none;
+      display: flex;
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+      align-items: center;
+    }
+
+    .portal-top-nav__link {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--foreground);
+      text-decoration: none;
+      cursor: default;
+      border: none;
+      background: none;
+      padding: 0.5rem 0;
+      transition: color 0.2s ease;
+    }
+
+    .portal-top-nav__logo {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+    }
+
+    .portal-top-nav__logo img {
+      height: 100%;
+      width: auto;
+    }
+
+    .portal-top-nav__items--left {
+      flex: 1;
+    }
+
+    .portal-top-nav__items--right {
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    /* Main Portal Layout */
+    .portal-layout-v2 {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, rgb(238, 238, 238), rgb(255, 178, 219));
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portal-layout-v2__content {
+      flex: 1;
+      padding: clamp(1rem, 3vw, 2rem) 0;
+      max-width: 100%;
+    }
+
+    .portal-body {
+      width: calc(100% - calc(2rem + 4vw));
+      max-width: calc(100% - calc(2rem + 4vw));
+      background-color: white;
+      border-radius: 30px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      margin: 0 calc(1rem + 2vw);
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+      padding: clamp(2rem, 5vw, 4rem);
+    }
+
+    /* Landing Page */
+    .landing-page {
+      display: grid;
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      max-width: 75%;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .welcome-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .welcome-header h1 {
+      text-align: left;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      font-size: clamp(16px, 2vw, 28px);
+      font-weight: 300;
+      line-height: 1.1;
+    }
+
+    .welcome-header h1 strong {
+      font-weight: 800;
+      font-size: 1.2em;
+    }
+
+    .welcome-header__right {
+      text-align: right;
+    }
+
+    .welcome-header__right p {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .report-visit-btn {
+      background-color: #000000;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: default;
+      transition: all 0.2s ease;
+    }
+
+    /* Hero Image */
+    .hero-image {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      overflow: hidden;
+      height: auto;
+      display: block;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Resources Section */
+    .landing-section--resources {
+      padding: 2rem clamp(1rem, 4vw, 4rem);
+      margin-bottom: 4rem;
+    }
+
+    .resources-heading {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .resources-heading img {
+      width: calc(100% / 3);
+      height: auto;
+      max-width: 500px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2.5%;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 1.5rem;
+    }
+
+    .resource-grid:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .resource-grid > div {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .resource-card-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .resource-card {
+      background-color: #f0f0f0;
+      border: 1px solid #9a9a9a;
+      border-radius: clamp(12px, 2vw, 20px);
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: clamp(150px, 20vw, 241px);
+      text-align: center;
+      cursor: default;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .resource-card:hover {
+      transform: scale(1.02);
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+    }
+
+    .resource-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .resource-card h3 {
+      font-size: clamp(13px, 1.5vw, 16px);
+      font-weight: 400;
+      margin: 0;
+      color: var(--foreground);
+    }
+
+    .resource-card-overlay-button {
+      position: absolute;
+      left: 50%;
+      top: 75%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s ease, background-color 0.3s ease;
+      white-space: nowrap;
+      background-color: #000 !important;
+      color: #fff !important;
+      border-radius: 999px !important;
+      font-size: 1rem !important;
+      font-family: inherit !important;
+      padding: 0 2.5rem !important;
+      height: 44px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border: none;
+      cursor: default;
+    }
+
+    .resource-card-wrapper:hover .resource-card-overlay-button {
+      opacity: 1;
+    }
+
+    .resource-card-overlay-button:hover {
+      background-color: #fff !important;
+      color: #000 !important;
+      border: 4px solid #ff69b4 !important;
+    }
+
+    /* Upcoming Event Section */
+    .upcoming-event-section {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      background-image: url('assets/images/neon-pink-collage.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 3rem 2rem;
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .upcoming-event-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.4);
+      z-index: 5;
+    }
+
+    .upcoming-event-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .event-section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      margin-top: -4%;
+      position: relative;
+      z-index: 20;
+    }
+
+    .event-section-title h2 {
+      display: inline-block;
+      padding: clamp(1.8rem, 9vw, 5.25rem) clamp(3.75rem, 26.25vw, 12rem);
+      border-radius: 0.5rem;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      transform: rotate(-0.5deg);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .event-card-container {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .event-details {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    .event-details-left {
+      background-color: #ffffff;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .event-details-left h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 1rem;
+    }
+
+    .event-details-left h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      margin: 1.5rem 0;
+    }
+
+    .event-details-left .event-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
+
+    .event-details-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .metric-card {
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .metric-value {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .metric-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+      padding: 2rem 0;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 20;
+    }
+
+    .action-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: default;
+      transition: all 0.2s ease;
+      width: 280px;
+      justify-content: center;
+    }
+
+    .action-button img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .action-button--secondary {
+      background-color: #f5f5f5;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+
+    .action-button--primary {
+      background-color: #000;
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .welcome-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .welcome-header__right {
+        text-align: center;
+      }
+
+      .event-details {
+        grid-template-columns: 1fr;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .action-button {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .landing-page {
+        max-width: 90%;
+      }
+
+      .resource-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+      }
+
+      .portal-body {
+        width: calc(100% - 2rem);
+        margin: 0 1rem;
+      }
+
+      .portal-top-nav__items {
+        gap: 1rem;
+      }
+
+      .portal-top-nav__items--left,
+      .portal-top-nav__items--right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="portal-top-nav">
+    <div class="portal-top-nav__container">
+      <ul class="portal-top-nav__items portal-top-nav__items--left">
+        <li><a href="#" class="portal-top-nav__link">Dashboard</a></li>
+        <li><a href="#" class="portal-top-nav__link">Resources</a></li>
+        <li><a href="#" class="portal-top-nav__link">Portals</a></li>
+      </ul>
+
+      <div class="portal-top-nav__logo">
+        <img src="assets/images/cupid-project-logo.svg" alt="The Cupid Project">
+      </div>
+
+      <ul class="portal-top-nav__items portal-top-nav__items--right">
+        <li><a href="#" class="portal-top-nav__link">Chapter Schedule</a></li>
+        <li><a href="#" class="portal-top-nav__link">Chapter Roster</a></li>
+        <li><a href="#" class="portal-top-nav__link">Settings</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Layout -->
+  <div class="portal-layout-v2">
+    <div class="portal-layout-v2__content">
+      <div class="portal-body">
+        <!-- Welcome Header -->
+        <div class="landing-page" style="margin-bottom: 2rem;">
+          <div class="welcome-header">
+            <div>
+              <h1>Welcome to <br /> <strong>THE CUPID PROJECT</strong> <br /> High School Chapter Portal!</h1>
+            </div>
+            <div class="welcome-header__right">
+              <p>Longview High School</p>
+              <p>Chapter No. 1</p>
+              <button class="report-visit-btn">Report a Visit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero-image">
+          <img src="assets/images/hero-collage.png" alt="Cupid Project Community">
+        </div>
+
+        <!-- Resources Section -->
+        <div class="landing-page">
+          <section class="landing-section--resources">
+            <div class="resources-heading">
+              <img src="assets/images/resources-heading.png" alt="Resources">
+            </div>
+
+            <!-- First Resource Row -->
+            <div class="resource-grid" style="margin-bottom: 0.25rem;">
+              <div>
+                <div class="resource-card-wrapper">
+                  <button class="resource-card" style="padding: 0;">
+                    <img src="assets/resources/student-roles-bg.png" alt="Student Roles">
+                  </button>
+                  <button class="resource-card-overlay-button">View Student Roles →</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Second Resource Row -->
+            <div class="resource-grid" style="margin-bottom: 1.5rem;">
+              <div>
+                <div class="resource-card-wrapper">
+                  <div class="resource-card">
+                    <img src="assets/resources/teacher-handbook-bg.png" alt="Teacher Handbook">
+                  </div>
+                  <button class="resource-card-overlay-button" style="top: 65%;">View Handbook →</button>
+                </div>
+              </div>
+              <div>
+                <div class="resource-card-wrapper">
+                  <div class="resource-card">
+                    <img src="assets/resources/communication-guide-bg.png" alt="Communication Guide">
+                  </div>
+                  <button class="resource-card-overlay-button" style="top: 65%;">View Guide →</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Third Resource Row -->
+            <div class="resource-grid">
+              <div>
+                <div class="resource-card-wrapper">
+                  <div class="resource-card">
+                    <img src="assets/resources/branding-kit-bg.png" alt="Branding Kit">
+                  </div>
+                  <button class="resource-card-overlay-button" style="top: 65%;">View Kit →</button>
+                </div>
+              </div>
+              <div>
+                <div class="resource-card-wrapper">
+                  <div class="resource-card">
+                    <img src="assets/resources/activity-ideas-bg.png" alt="Activity Ideas">
+                  </div>
+                  <button class="resource-card-overlay-button" style="top: 65%;">View Ideas →</button>
+                </div>
+              </div>
+              <div>
+                <div class="resource-card-wrapper">
+                  <div class="resource-card">
+                    <img src="assets/resources/fundraising-guide-bg.png" alt="Fundraising Guide">
+                  </div>
+                  <button class="resource-card-overlay-button" style="top: 65%;">View Guide →</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Upcoming Event Section -->
+        <div class="upcoming-event-section">
+          <div class="upcoming-event-container">
+            <div class="event-section-title">
+              <h2>Longview High School</h2>
+            </div>
+
+            <div class="event-card-container">
+              <div class="event-details">
+                <!-- Left: Event Details -->
+                <div class="event-details-left">
+                  <h3>Upcoming Event</h3>
+                  <h2>October Planning Meeting</h2>
+                  <div class="event-info">
+                    <span>📍</span>
+                    <span>Longview High School - Room 101</span>
+                  </div>
+                  <div class="event-info">
+                    <span>🕐</span>
+                    <span>6:00 PM</span>
+                  </div>
+                  <div class="event-info">
+                    <span>📅</span>
+                    <span>Sunday, October 4, 2026</span>
+                  </div>
+                </div>
+
+                <!-- Right: Metrics -->
+                <div class="event-details-right">
+                  <div class="metric-card">
+                    <div class="metric-value">11</div>
+                    <div class="metric-label">Members</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="metric-value">2</div>
+                    <div class="metric-label">Meetings</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="metric-value">1</div>
+                    <div class="metric-label">Home Visits</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+              <button class="action-button action-button--secondary">
+                <img src="assets/images/icon-visit-history.svg" alt="">
+                View Visit History
+              </button>
+              <button class="action-button action-button--secondary">
+                <img src="assets/images/icon-impact-summary.svg" alt="">
+                Impact Summary
+              </button>
+              <button class="action-button action-button--primary">
+                <img src="assets/images/icon-report-visit.svg" alt="">
+                Report a Visit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
