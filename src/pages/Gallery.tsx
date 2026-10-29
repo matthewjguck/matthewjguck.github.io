@@ -33,7 +33,7 @@ export function Gallery() {
             { type: 'images', srcs: [
               { src: '/images/bongga-mangga-process-1.png', alt: 'Process exploration' },
               { src: '/images/bongga-mangga-process-2.png', alt: 'Design development' }
-            ], labels: ['Refinement', 'Exploration'] }
+            ], labels: ['Refinement', 'Blocking'] }
           ]
         },
          { src: "/images/star rider.mp4", alt: "Star Rider", name: "Star Rider", madeIn: "Figma",
