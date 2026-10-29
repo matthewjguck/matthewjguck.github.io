@@ -25,6 +25,40 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
 
+  // Debug: Find elements with scrollbars
+  useEffect(() => {
+    const debugScrollbars = () => {
+      const allElements = document.querySelectorAll('*')
+      allElements.forEach(el => {
+        const scrollHeight = el.scrollHeight
+        const clientHeight = el.clientHeight
+        const scrollWidth = el.scrollWidth
+        const clientWidth = el.clientWidth
+
+        if (scrollHeight > clientHeight || scrollWidth > clientWidth) {
+          const style = window.getComputedStyle(el)
+          const overflowY = style.overflowY
+          const overflowX = style.overflowX
+
+          if ((overflowY === 'auto' || overflowY === 'scroll') && scrollHeight > clientHeight) {
+            console.warn('Element with vertical scroll:', {
+              element: el,
+              class: el.className,
+              id: el.id,
+              scrollHeight,
+              clientHeight,
+              overflowY
+            })
+          }
+        }
+      })
+    }
+
+    // Run debug after a short delay to let DOM settle
+    const timer = setTimeout(debugScrollbars, 500)
+    return () => clearTimeout(timer)
+  }, [currentRoute])
+
   const galleryMatch = currentRoute === '#/gallery'
   const wisdomMatch = currentRoute === '#/wisdom'
   const projectMatch = currentRoute.match(/#\/project\/(.+)/)
