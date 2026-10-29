@@ -72,7 +72,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="w-full overflow-x-clip">
       <div aria-live="polite" className="sr-only">{announcement}</div>
       <Hero />
       <Projects />

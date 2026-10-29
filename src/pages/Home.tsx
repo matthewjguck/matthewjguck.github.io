@@ -4,7 +4,7 @@ import { Projects } from '../components/Projects'
 
 export function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="w-full overflow-x-clip">
       <Hero />
       <Projects />
     </div>

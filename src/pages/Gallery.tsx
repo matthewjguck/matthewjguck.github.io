@@ -13,7 +13,30 @@ export function Gallery() {
       title: "Posters",
       description: "",
       images: [
-         { src: "/images/star rider.gif", alt: "Star Rider", name: "Star Rider", madeIn: "Figma", 
+        { src: "/images/copper-nanotubes.mp4", alt: "Copper Nanotubes", name: "Copper Nanotubes: Blackout Poetry Poster", madeIn: "Design",
+          description: [
+            { type: 'text', content: 'An infamous paper on copper nanotubes inspired me to create a blackout-poetry style poster for the modern academic.' },
+            { type: 'image', src: '/images/copper-nanotubes-poster.png', alt: 'Copper nanotubes poster', size: 'large' },
+            { type: 'text', content: 'This piece reimagines academic discourse through the lens of visual poetry, deconstructing the language of scientific papers to reveal hidden meanings.' },
+            { type: 'images', srcs: [
+              { src: '/images/copper-nanotubes-process-1.png', alt: 'Process step 1' },
+              { src: '/images/copper-nanotubes-process-2.png', alt: 'Process step 2' }
+            ], labels: ['Early concept', 'Development'] }
+          ]
+        },
+        { src: "/images/bongga-mangga.png", alt: "Bongga Mangga", name: "Bongga Mangga", madeIn: "Figma",
+          description: [
+            { type: 'text', content: '*"Bongga"* is Filipino slang meaning fabulous, gorgeous, or stylish. Combined with *"mangga"* (mango), this piece celebrates the vibrant beauty of tropical fruit through a lens of contemporary cool.' },
+            { type: 'image', src: '/images/babayin-mango.png', alt: 'Bongga Mangga poster', size: 'large' },
+            { type: 'text', content: 'The work explores how we can elevate the everyday and ordinary into something magnificent through design and perspective. It\'s a playful reminder that style and sophistication can be found in the simplest, most natural things.' },
+            { type: 'text', content: 'The piece draws inspiration from Filipino cultural expression and the way language itself can transform the mundane into the marvelous.' },
+            { type: 'images', srcs: [
+              { src: '/images/bongga-mangga-process-1.png', alt: 'Process exploration' },
+              { src: '/images/bongga-mangga-process-2.png', alt: 'Design development' }
+            ], labels: ['Refinement', 'Blocking'] }
+          ]
+        },
+         { src: "/images/star rider.mp4", alt: "Star Rider", name: "Star Rider", madeIn: "Figma",
           description: { type: 'text', content: '*Inspired by the lime lips meme.*' },
          },
           { src: "/images/Diet Coke.png", alt: "Diet Coke", name: "Diet Coke in the style of Mondrian", madeIn: "Figma", description: [
@@ -407,11 +430,21 @@ export function Gallery() {
               <>
                 <div className="flex justify-center">
                   <ImageZoom zoomScale={2.5}>
-<img
-                    src={image.src}
-                    alt={image.alt}
-                    className="h-220 object-contain"
-                  />
+                    {image.src.endsWith('.mp4') ? (
+                      <video
+                        src={image.src}
+                        autoPlay
+                        loop
+                        muted
+                        className="h-220 object-contain"
+                      />
+                    ) : (
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="h-220 object-contain"
+                      />
+                    )}
 </ImageZoom>
                 </div>
                 <div className="space-y-4 md:pl-8">
@@ -473,11 +506,21 @@ export function Gallery() {
                 </div>
                 <div className="flex justify-center">
                   <ImageZoom zoomScale={2.5}>
-<img
-                    src={image.src}
-                    alt={image.alt}
-                    className="h-220 object-contain"
-                  />
+                    {image.src.endsWith('.mp4') ? (
+                      <video
+                        src={image.src}
+                        autoPlay
+                        loop
+                        muted
+                        className="h-220 object-contain"
+                      />
+                    ) : (
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="h-220 object-contain"
+                      />
+                    )}
 </ImageZoom>
                 </div>
               </>
@@ -525,7 +568,7 @@ export function Gallery() {
   );
 
   return (
-    <div className="min-h-screen bg-white text-black relative pb-16">
+    <div className="w-full bg-white text-black relative pb-16 overflow-x-clip">
       {/* Light Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-gray-50" />
 

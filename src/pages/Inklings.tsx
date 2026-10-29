@@ -464,6 +464,70 @@ export function Inklings() {
           </div>
         </div>
       </motion.div>
+
+      {/* Infinite Carousel */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="w-full py-16 bg-white overflow-hidden"
+      >
+        <div className="h-[35vh] overflow-hidden relative">
+          <motion.div
+            className="flex gap-6 h-full"
+            animate={{ x: [0, -2400] }}
+            transition={{
+              duration: 40,
+              repeat: Infinity,
+              ease: "linear",
+              repeatType: "loop"
+            }}
+            style={{
+              willChange: "transform",
+              transform: "translateZ(0)"
+            }}
+          >
+            {[
+              { src: '/images/inklings-carousel-1.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-2.mp4', type: 'video' },
+              { src: '/images/inklings-carousel-3.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-4.heic', type: 'image' },
+              { src: '/images/inklings-carousel-5.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-6.mp4', type: 'video' },
+              { src: '/images/inklings-carousel-1.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-2.mp4', type: 'video' },
+              { src: '/images/inklings-carousel-3.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-4.heic', type: 'image' },
+              { src: '/images/inklings-carousel-5.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-6.mp4', type: 'video' }
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 h-full"
+                style={{ width: '400px' }}
+              >
+                {item.type === 'video' ? (
+                  <video
+                    src={item.src}
+                    className="w-full h-full object-cover rounded-lg"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={item.src}
+                    alt="Carousel item"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                )}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
     </>
   )
 }
