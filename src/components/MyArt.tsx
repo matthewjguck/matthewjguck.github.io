@@ -3,7 +3,7 @@ import React from 'react'
 
 export function MyArt() {
   return (
-    <section id="my-art" className="relative w-screen h-[33vh] overflow-hidden">
+    <section id="my-art" className="relative w-full h-[33vh] overflow-hidden">
       <a
         href="#/gallery"
         className="absolute inset-0 flex items-center justify-center cursor-pointer group z-10"

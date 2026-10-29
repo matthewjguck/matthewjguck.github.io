@@ -102,7 +102,7 @@ export function DoorJamVideos() {
   )
 
   return (
-    <div className="w-screen -mx-[calc((100vw-100%)/2)] px-4 py-8">
+    <div className="w-full px-4 py-8">
       <div className="space-y-6">
         {renderRow(row1)}
         {renderRow(row2, true)}
