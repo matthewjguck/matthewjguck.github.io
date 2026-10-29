@@ -162,13 +162,13 @@ export function Inklings() {
               { src: '/images/inklings-carousel-1.jpg', type: 'image' },
               { src: '/images/inklings-carousel-2.mp4', type: 'video' },
               { src: '/images/inklings-carousel-3.jpg', type: 'image' },
-              { src: '/images/inklings-carousel-4.heic', type: 'image' },
+              { src: '/images/inklings-carousel-4.jpg', type: 'image' },
               { src: '/images/inklings-carousel-5.jpg', type: 'image' },
               { src: '/images/inklings-carousel-6.mp4', type: 'video' },
               { src: '/images/inklings-carousel-1.jpg', type: 'image' },
               { src: '/images/inklings-carousel-2.mp4', type: 'video' },
               { src: '/images/inklings-carousel-3.jpg', type: 'image' },
-              { src: '/images/inklings-carousel-4.heic', type: 'image' },
+              { src: '/images/inklings-carousel-4.jpg', type: 'image' },
               { src: '/images/inklings-carousel-5.jpg', type: 'image' },
               { src: '/images/inklings-carousel-6.mp4', type: 'video' }
             ].map((item, index) => (
