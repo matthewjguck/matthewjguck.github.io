@@ -28,34 +28,51 @@ export default function App() {
   // Debug: Find elements with scrollbars
   useEffect(() => {
     const debugScrollbars = () => {
+      console.log('=== SCROLLBAR DEBUG ===')
+      console.log('html:', {
+        scrollHeight: document.documentElement.scrollHeight,
+        clientHeight: document.documentElement.clientHeight,
+        overflow: getComputedStyle(document.documentElement).overflow,
+        overflowY: getComputedStyle(document.documentElement).overflowY
+      })
+      console.log('body:', {
+        scrollHeight: document.body.scrollHeight,
+        clientHeight: document.body.clientHeight,
+        overflow: getComputedStyle(document.body).overflow,
+        overflowY: getComputedStyle(document.body).overflowY
+      })
+
       const allElements = document.querySelectorAll('*')
+      const problematic: any[] = []
+
       allElements.forEach(el => {
         const scrollHeight = el.scrollHeight
         const clientHeight = el.clientHeight
-        const scrollWidth = el.scrollWidth
-        const clientWidth = el.clientWidth
+        const overflowY = getComputedStyle(el).overflowY
 
-        if (scrollHeight > clientHeight || scrollWidth > clientWidth) {
-          const style = window.getComputedStyle(el)
-          const overflowY = style.overflowY
-          const overflowX = style.overflowX
-
-          if ((overflowY === 'auto' || overflowY === 'scroll') && scrollHeight > clientHeight) {
-            console.warn('Element with vertical scroll:', {
-              element: el,
-              class: el.className,
-              id: el.id,
-              scrollHeight,
-              clientHeight,
-              overflowY
-            })
-          }
+        if ((scrollHeight > clientHeight + 1) && (overflowY === 'auto' || overflowY === 'scroll')) {
+          problematic.push({
+            tag: el.tagName,
+            class: el.className,
+            id: el.id,
+            scrollHeight,
+            clientHeight,
+            diff: scrollHeight - clientHeight,
+            overflowY
+          })
         }
       })
+
+      if (problematic.length > 0) {
+        console.warn('⚠️ Found', problematic.length, 'elements with vertical scrollbars:')
+        console.table(problematic)
+      } else {
+        console.log('✓ No elements with scrollbars found')
+      }
     }
 
-    // Run debug after a short delay to let DOM settle
-    const timer = setTimeout(debugScrollbars, 500)
+    debugScrollbars()
+    const timer = setTimeout(debugScrollbars, 1000)
     return () => clearTimeout(timer)
   }, [currentRoute])
 
