@@ -25,57 +25,6 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
 
-  // Debug: Find elements with scrollbars
-  useEffect(() => {
-    const debugScrollbars = () => {
-      console.log('=== SCROLLBAR DEBUG ===')
-      console.log('html:', {
-        scrollHeight: document.documentElement.scrollHeight,
-        clientHeight: document.documentElement.clientHeight,
-        overflow: getComputedStyle(document.documentElement).overflow,
-        overflowY: getComputedStyle(document.documentElement).overflowY
-      })
-      console.log('body:', {
-        scrollHeight: document.body.scrollHeight,
-        clientHeight: document.body.clientHeight,
-        overflow: getComputedStyle(document.body).overflow,
-        overflowY: getComputedStyle(document.body).overflowY
-      })
-
-      const allElements = document.querySelectorAll('*')
-      const problematic: any[] = []
-
-      allElements.forEach(el => {
-        const scrollHeight = el.scrollHeight
-        const clientHeight = el.clientHeight
-        const overflowY = getComputedStyle(el).overflowY
-
-        if ((scrollHeight > clientHeight + 1) && (overflowY === 'auto' || overflowY === 'scroll')) {
-          problematic.push({
-            tag: el.tagName,
-            class: el.className,
-            id: el.id,
-            scrollHeight,
-            clientHeight,
-            diff: scrollHeight - clientHeight,
-            overflowY
-          })
-        }
-      })
-
-      if (problematic.length > 0) {
-        console.warn('⚠️ Found', problematic.length, 'elements with vertical scrollbars:')
-        console.table(problematic)
-      } else {
-        console.log('✓ No elements with scrollbars found')
-      }
-    }
-
-    debugScrollbars()
-    const timer = setTimeout(debugScrollbars, 1000)
-    return () => clearTimeout(timer)
-  }, [currentRoute])
-
   const galleryMatch = currentRoute === '#/gallery'
   const wisdomMatch = currentRoute === '#/wisdom'
   const projectMatch = currentRoute.match(/#\/project\/(.+)/)
