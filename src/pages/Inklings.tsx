@@ -107,7 +107,7 @@ export function Inklings() {
 
   return (
     <>
-      {/* Section 0: Logo and intro */}
+      {/* Section 0: Logo and video */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -131,7 +131,83 @@ export function Inklings() {
                 className="w-full md:w-4/5 mx-auto inklings-story-image inklings-video-mask"
               ></video>
             </div>
+          </div>
+        </div>
+      </motion.div>
 
+      {/* Infinite Carousel */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="w-full py-16 bg-white overflow-hidden"
+      >
+        <div className="h-[35vh] overflow-hidden relative">
+          <motion.div
+            className="flex gap-6 h-full"
+            animate={{ x: [0, -2400] }}
+            transition={{
+              duration: 40,
+              repeat: Infinity,
+              ease: "linear",
+              repeatType: "loop"
+            }}
+            style={{
+              willChange: "transform",
+              transform: "translateZ(0)"
+            }}
+          >
+            {[
+              { src: '/images/inklings-carousel-1.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-2.mp4', type: 'video' },
+              { src: '/images/inklings-carousel-3.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-4.heic', type: 'image' },
+              { src: '/images/inklings-carousel-5.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-6.mp4', type: 'video' },
+              { src: '/images/inklings-carousel-1.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-2.mp4', type: 'video' },
+              { src: '/images/inklings-carousel-3.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-4.heic', type: 'image' },
+              { src: '/images/inklings-carousel-5.jpg', type: 'image' },
+              { src: '/images/inklings-carousel-6.mp4', type: 'video' }
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 h-full"
+                style={{ width: '400px' }}
+              >
+                {item.type === 'video' ? (
+                  <video
+                    src={item.src}
+                    className="w-full h-full object-cover rounded-lg"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={item.src}
+                    alt="Carousel item"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                )}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Section 1: What is an Inkling */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="inklings-project receipt-page-bg py-24 px-4 md:px-8"
+      >
+        <div className="receipt-paper max-w-6xl mx-auto">
+          <div className="px-6 py-16 md:px-16">
             <div className="flex flex-col flex-col-reverse md:grid md:grid-cols-10 gap-8 items-center max-w-6xl mx-auto px-0">
               <div className="md:col-span-4 flex flex-col gap-8">
                 <h1 className="text-4xl md:text-5xl font-bold">What is an Inkling?</h1>
@@ -462,70 +538,6 @@ export function Inklings() {
               That insight led to Inklings. A system that takes the core principle — thoughtful, authentic connection between friends — and makes it physical. Messages that get printed. Moments that get preserved as tangible artifacts. A reminder that sometimes the most meaningful way to show someone you're thinking of them is to send something that <strong>arrives</strong>, that can be held, that says "I took the time to send this."
             </p>
           </div>
-        </div>
-      </motion.div>
-
-      {/* Infinite Carousel */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="w-full py-16 bg-white overflow-hidden"
-      >
-        <div className="h-[35vh] overflow-hidden relative">
-          <motion.div
-            className="flex gap-6 h-full"
-            animate={{ x: [0, -2400] }}
-            transition={{
-              duration: 40,
-              repeat: Infinity,
-              ease: "linear",
-              repeatType: "loop"
-            }}
-            style={{
-              willChange: "transform",
-              transform: "translateZ(0)"
-            }}
-          >
-            {[
-              { src: '/images/inklings-carousel-1.jpg', type: 'image' },
-              { src: '/images/inklings-carousel-2.mp4', type: 'video' },
-              { src: '/images/inklings-carousel-3.jpg', type: 'image' },
-              { src: '/images/inklings-carousel-4.heic', type: 'image' },
-              { src: '/images/inklings-carousel-5.jpg', type: 'image' },
-              { src: '/images/inklings-carousel-6.mp4', type: 'video' },
-              { src: '/images/inklings-carousel-1.jpg', type: 'image' },
-              { src: '/images/inklings-carousel-2.mp4', type: 'video' },
-              { src: '/images/inklings-carousel-3.jpg', type: 'image' },
-              { src: '/images/inklings-carousel-4.heic', type: 'image' },
-              { src: '/images/inklings-carousel-5.jpg', type: 'image' },
-              { src: '/images/inklings-carousel-6.mp4', type: 'video' }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 h-full"
-                style={{ width: '400px' }}
-              >
-                {item.type === 'video' ? (
-                  <video
-                    src={item.src}
-                    className="w-full h-full object-cover rounded-lg"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
-                ) : (
-                  <img
-                    src={item.src}
-                    alt="Carousel item"
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                )}
-              </div>
-            ))}
-          </motion.div>
         </div>
       </motion.div>
     </>
