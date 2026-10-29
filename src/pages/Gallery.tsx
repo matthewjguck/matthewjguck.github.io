@@ -16,23 +16,23 @@ export function Gallery() {
         { src: "/images/copper-nanotubes.mp4", alt: "Copper Nanotubes", name: "Copper Nanotubes: Blackout Poetry Poster", madeIn: "Design",
           description: [
             { type: 'text', content: 'An infamous paper on copper nanotubes inspired me to create a blackout-poetry style poster for the modern academic.' },
-            { type: 'image', src: '/images/copper-nanotubes-poster.png', alt: 'Copper nanotubes poster', size: 'large' },
+            { type: 'image', src: '/images/copper-nanotubes-poster.jpg', alt: 'Copper nanotubes poster', size: 'large' },
             { type: 'text', content: 'This piece reimagines academic discourse through the lens of visual poetry, deconstructing the language of scientific papers to reveal hidden meanings.' },
             { type: 'images', srcs: [
-              { src: '/images/copper-nanotubes-process-1.png', alt: 'Process step 1' },
-              { src: '/images/copper-nanotubes-process-2.png', alt: 'Process step 2' }
+              { src: '/images/copper-nanotubes-process-1.jpg', alt: 'Process step 1' },
+              { src: '/images/copper-nanotubes-process-2.jpg', alt: 'Process step 2' }
             ], labels: ['Early concept', 'Development'] }
           ]
         },
-        { src: "/images/bongga-mangga.png", alt: "Bongga Mangga", name: "Bongga Mangga", madeIn: "Figma",
+        { src: "/images/bongga-mangga.jpg", alt: "Bongga Mangga", name: "Bongga Mangga", madeIn: "Figma",
           description: [
             { type: 'text', content: '*"Bongga"* is Filipino slang meaning fabulous, gorgeous, or stylish. Combined with *"mangga"* (mango), this piece celebrates the vibrant beauty of tropical fruit through a lens of contemporary cool.' },
-            { type: 'image', src: '/images/babayin-mango.png', alt: 'Bongga Mangga poster', size: 'large' },
+            { type: 'image', src: '/images/babayin-mango.jpg', alt: 'Bongga Mangga poster', size: 'large' },
             { type: 'text', content: 'The work explores how we can elevate the everyday and ordinary into something magnificent through design and perspective. It\'s a playful reminder that style and sophistication can be found in the simplest, most natural things.' },
             { type: 'text', content: 'The piece draws inspiration from Filipino cultural expression and the way language itself can transform the mundane into the marvelous.' },
             { type: 'images', srcs: [
-              { src: '/images/bongga-mangga-process-1.png', alt: 'Process exploration' },
-              { src: '/images/bongga-mangga-process-2.png', alt: 'Design development' }
+              { src: '/images/bongga-mangga-process-1.jpg', alt: 'Process exploration' },
+              { src: '/images/bongga-mangga-process-2.jpg', alt: 'Design development' }
             ], labels: ['Refinement', 'Blocking'] }
           ]
         },
