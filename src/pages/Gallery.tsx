@@ -24,7 +24,7 @@ export function Gallery() {
             ], labels: ['Early concept', 'Development'] }
           ]
         },
-        { src: "/images/babayin-mango.png", alt: "Bongga Mangga", name: "Bongga Mangga", madeIn: "Figma",
+        { src: "/images/bongga-mangga.png", alt: "Bongga Mangga", name: "Bongga Mangga", madeIn: "Figma",
           description: [
             { type: 'text', content: '*"Bongga"* is Filipino slang meaning fabulous, gorgeous, or stylish. Combined with *"mangga"* (mango), this piece celebrates the vibrant beauty of tropical fruit through a lens of contemporary cool.' },
             { type: 'image', src: '/images/babayin-mango.png', alt: 'Bongga Mangga poster', size: 'large' },
