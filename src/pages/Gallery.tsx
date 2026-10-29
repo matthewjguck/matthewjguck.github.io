@@ -13,7 +13,7 @@ export function Gallery() {
       title: "Posters",
       description: "",
       images: [
-         { src: "/images/star rider.gif", alt: "Star Rider", name: "Star Rider", madeIn: "Figma", 
+         { src: "/images/star rider.mp4", alt: "Star Rider", name: "Star Rider", madeIn: "Figma",
           description: { type: 'text', content: '*Inspired by the lime lips meme.*' },
          },
           { src: "/images/Diet Coke.png", alt: "Diet Coke", name: "Diet Coke in the style of Mondrian", madeIn: "Figma", description: [
@@ -407,11 +407,21 @@ export function Gallery() {
               <>
                 <div className="flex justify-center">
                   <ImageZoom zoomScale={2.5}>
-<img
-                    src={image.src}
-                    alt={image.alt}
-                    className="h-220 object-contain"
-                  />
+                    {image.src.endsWith('.mp4') ? (
+                      <video
+                        src={image.src}
+                        autoPlay
+                        loop
+                        muted
+                        className="h-220 object-contain"
+                      />
+                    ) : (
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="h-220 object-contain"
+                      />
+                    )}
 </ImageZoom>
                 </div>
                 <div className="space-y-4 md:pl-8">
@@ -473,11 +483,21 @@ export function Gallery() {
                 </div>
                 <div className="flex justify-center">
                   <ImageZoom zoomScale={2.5}>
-<img
-                    src={image.src}
-                    alt={image.alt}
-                    className="h-220 object-contain"
-                  />
+                    {image.src.endsWith('.mp4') ? (
+                      <video
+                        src={image.src}
+                        autoPlay
+                        loop
+                        muted
+                        className="h-220 object-contain"
+                      />
+                    ) : (
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="h-220 object-contain"
+                      />
+                    )}
 </ImageZoom>
                 </div>
               </>
@@ -525,7 +545,7 @@ export function Gallery() {
   );
 
   return (
-    <div className="min-h-screen bg-white text-black relative pb-16">
+    <div className="w-full bg-white text-black relative pb-16 overflow-x-clip">
       {/* Light Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-gray-50" />
 
