@@ -13,6 +13,17 @@ export function Gallery() {
       title: "Posters",
       description: "",
       images: [
+        { src: "/images/copper-nanotubes.mp4", alt: "Copper Nanotubes", name: "Copper Nanotubes: Blackout Poetry Poster", madeIn: "Design",
+          description: [
+            { type: 'text', content: 'An infamous paper on copper nanotubes inspired me to create a blackout-poetry style poster for the modern academic.' },
+            { type: 'image', src: '/images/copper-nanotubes-poster.png', alt: 'Copper nanotubes poster', size: 'large' },
+            { type: 'text', content: 'This piece reimagines academic discourse through the lens of visual poetry, deconstructing the language of scientific papers to reveal hidden meanings.' },
+            { type: 'images', srcs: [
+              { src: '/images/copper-nanotubes-process-1.png', alt: 'Process step 1' },
+              { src: '/images/copper-nanotubes-process-2.png', alt: 'Process step 2' }
+            ], labels: ['Early concept', 'Development'] }
+          ]
+        },
          { src: "/images/star rider.mp4", alt: "Star Rider", name: "Star Rider", madeIn: "Figma",
           description: { type: 'text', content: '*Inspired by the lime lips meme.*' },
          },
