@@ -13,7 +13,7 @@ export function Gallery() {
       title: "Posters",
       description: "",
       images: [
-        { src: "/images/copper-nanotubes-poster-static.jpg", alt: "Copper Nanotubes", name: "Copper Nanotubes: Blackout Poetry Poster", madeIn: "Design",
+        { src: "/images/copper-nanotubes-poster-static.jpg", alt: "Copper Nanotubes", name: "Copper Nanotubes: Blackout Poetry Poster", madeIn: "Figma",
           description: [
             { type: 'text', content: 'An infamous paper on copper nanotubes inspired me to create a blackout-poetry style poster for the modern academic.' },
             { type: 'image', src: '/images/copper-nanotubes-poster.jpg', alt: 'Copper nanotubes poster', size: 'large' },
